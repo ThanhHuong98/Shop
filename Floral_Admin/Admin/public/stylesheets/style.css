@@ -52,9 +52,10 @@ body {
     padding: 10px;
     margin: 3px;
     background-color: transparent;
+    color: #3d4145;
 }
 .active{
-    background-color: #536166;
+    background-color: #313F40;
     color: white;
 }
 .selectstyle {
@@ -293,21 +294,34 @@ border: 1px solid black;
 .back-widget-set {
     background-color:transparent;
 }
-
+.process{
+    color: #017ebc;
+    font-weight: bold;
+}
 /* =============================================================
    FOOTER SECTION STYLES
  ============================================================ */
 .footer-section {
-    padding:25px 50px 25px 50px;
     color:#000;
     font-size:13px;
-      background-color: #f7f7f7;
-      text-align:right;
-       border-top:5px solid #536166;
-
+    background: linear-gradient(90deg, #313F40 0%, #536166 100%);
+    text-align:right;
+    height: 57px;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-    .footer-section a, .footer-section a:hover {
-        color:#000;
-    }
-
+.footer-section a, .footer-section a:hover {
+    color:#000;
+}
+.ft-store-name{
+    font-family: 'SVN-Journey',sans-serif;
+    color: white;
+    font-size: 40px;
+}
+.ft-team{
+    color: white;
+    font-family: 'SVN-Journey',sans-serif;
+    font-size: 18px;
+}
