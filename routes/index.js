@@ -11,4 +11,15 @@ router.get('/about', function(req, res, next) {
     res.render('pages/about');
 });
 
+router.get('/contact',function(req, res, next){
+  res.render('pages/contact')
+})
+
+router.get('/login',function(req, res, next){
+  res.render('pages/login');
+})
+
+router.get('/register',function(req, res, next){
+  res.render('pages/register')
+})
 module.exports = router;
