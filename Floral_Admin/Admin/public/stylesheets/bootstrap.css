@@ -2976,17 +2976,17 @@ fieldset[disabled] .btn-warning.active {
 }
 .btn-danger {
   color: #fff;
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background: linear-gradient(90deg, #313F40 0%, #536166 100%);
+  /*border-color: #d43f3a;*/
 }
 .btn-danger:hover,
 .btn-danger:focus,
 .btn-danger:active,
 .btn-danger.active,
 .open > .dropdown-toggle.btn-danger {
-  color: #fff;
-  background-color: #c9302c;
-  border-color: #ac2925;
+  color: #313F40;
+  background-color: white;
+  border-color: whitesmoke;
 }
 .btn-danger:active,
 .btn-danger.active,
@@ -4996,7 +4996,7 @@ a.list-group-item-danger.active:focus {
 .panel {
   margin-bottom: 20px;
   background-color: #fff;
-  border: 1px solid transparent;
+  border: 1px solid rgba(90, 108, 109, 0.4);
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -5024,10 +5024,12 @@ a.list-group-item-danger.active:focus {
 }
 .panel-footer {
   padding: 10px 15px;
-  background-color: #f5f5f5;
+  background-color: rgba(149, 163, 168, 0.37);
   border-top: 1px solid #ddd;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  color: #324041;
+  font-weight: 500;
 }
 .panel > .list-group {
   margin-bottom: 0;

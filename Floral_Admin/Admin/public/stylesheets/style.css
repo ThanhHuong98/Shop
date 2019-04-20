@@ -298,6 +298,33 @@ border: 1px solid black;
     color: #017ebc;
     font-weight: bold;
 }
+.img-product{
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    object-fit: contain;
+}
+.style-middle-center{
+    vertical-align: middle!important;
+    text-align: center!important;
+}
+.header-panel{
+    background: linear-gradient(90deg, #313F40 0%, #536166 100%);
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+}
+.btn-logout{
+    color: #fff;
+    background: linear-gradient(90deg, #313F40 0%, #536166 100%);
+}
+.img-store{
+    max-width: 1150px;
+    max-height: 768px;
+    width: 100%;
+    height: auto;
+    alignment: center;
+}
 /* =============================================================
    FOOTER SECTION STYLES
  ============================================================ */
@@ -315,13 +342,7 @@ border: 1px solid black;
 .footer-section a, .footer-section a:hover {
     color:#000;
 }
-.ft-store-name{
-    font-family: 'SVN-Journey',sans-serif;
-    color: white;
-    font-size: 40px;
-}
 .ft-team{
     color: white;
-    font-family: 'SVN-Journey',sans-serif;
     font-size: 18px;
 }

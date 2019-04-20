@@ -11,4 +11,10 @@ router.get('/user', function(req, res, next) {
 router.get('/order', function(req, res, next) {
   res.render('pages/order');
 });
+router.get('/product', function(req, res, next) {
+  res.render('pages/product');
+});
+router.get('/store', function(req, res, next) {
+  res.render('pages/store');
+});
 module.exports = router;
