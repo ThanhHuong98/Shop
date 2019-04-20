@@ -30,7 +30,12 @@
             <div class="col-md-12">
                 <h4 class="header-line">QUẢN LÝ SẢN PHẨM</h4>
             </div>
-
+            <span class="col-md-12 input-group-prepend" style="text-align: right">
+                <span>Thêm sản phẩm</span>
+                <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#myModal">
+                    <i class="fa fa-plus-square"></i>
+                </button>
+            </span>
         </div>
             <div class="row">
                 <div class="col-md-12">
@@ -41,7 +46,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-bordered" id="dataTables-example">
                                     <thead>
                                         <tr>
                                             <th class="style-middle-center">Mã sản phẩm</th>
@@ -54,7 +59,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">HH370</td>
                                             <td class="style-middle-center"> <img src="/images/rose.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Hoa Hồng</td>
@@ -63,7 +68,7 @@
                                             <td class="style-middle-center">1000</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="even gradeC">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">OH789</td>
                                             <td class="style-middle-center"> <img src="/images/lavender.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Oải hương</td>
@@ -72,7 +77,7 @@
                                             <td class="style-middle-center">1000</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="odd gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">C670</td>
                                             <td class="style-middle-center"> <img src="/images/cucVang.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Cúc vàng</td>
@@ -81,7 +86,7 @@
                                             <td class="style-middle-center">600</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="even gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">CHM680</td>
                                             <td class="style-middle-center"> <img src="/images/cucTrang.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Cúc trắng</td>
@@ -90,7 +95,7 @@
                                             <td class="style-middle-center">700</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="odd gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">HD124</td>
                                             <td class="style-middle-center"> <img src="/images/huongDuong.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Hướng dương</td>
@@ -99,7 +104,7 @@
                                             <td class="style-middle-center">800</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="even gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">CC530</td>
                                             <td class="style-middle-center"> <img src="/images/camChuong.png" class="img-product"></td>
                                             <td class="style-middle-center">Cẩm chướng</td>
@@ -108,7 +113,7 @@
                                             <td class="style-middle-center">1000</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">TC1289</td>
                                             <td class="style-middle-center"> <img src="/images/camTuCau.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Cẩm tú cầu</td>
@@ -117,7 +122,7 @@
                                             <td class="style-middle-center">900</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">L287</td>
                                             <td class="style-middle-center"> <img src="/images/lan.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Lan hồ điệp</td>
@@ -126,7 +131,7 @@
                                             <td class="style-middle-center">1000</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">LL003</td>
                                             <td class="style-middle-center"> <img src="/images/linhLan.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Linh lan</td>
@@ -135,7 +140,7 @@
                                             <td class="style-middle-center">1000</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">HHV337</td>
                                             <td class="style-middle-center"> <img src="/images/yellowRose.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Hoa Hồng Vàng</td>
@@ -144,7 +149,7 @@
                                             <td class="style-middle-center">1000</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">L998</td>
                                             <td class="style-middle-center"> <img src="/images/ly.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Hoa ly</td>
@@ -153,7 +158,7 @@
                                             <td class="style-middle-center">900</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">AD873</td>
                                             <td class="style-middle-center"> <img src="/images/anhDao.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Hoa anh đào</td>
@@ -162,7 +167,7 @@
                                             <td class="style-middle-center">500</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">DTH542</td>
                                             <td class="style-middle-center"> <img src="/images/coDuoiTho.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Cỏ đuôi thỏ</td>
@@ -171,7 +176,7 @@
                                             <td class="style-middle-center">430</td>
                                             <td class="style-middle-center">19/04/2019</td>
                                         </tr>
-                                        <tr class="gradeA">
+                                        <tr data-toggle="modal" data-target="#myModal">
                                             <td class="style-middle-center">TTH078</td>
                                             <td class="style-middle-center"> <img src="/images/coTaiTho.jpg" class="img-product"></td>
                                             <td class="style-middle-center">Cỏ tai thỏ</td>
@@ -188,191 +193,62 @@
                     <!--End Advanced Tables -->
                 </div>
             </div>
-
-           <!--     &lt;!&ndash; /. ROW  &ndash;&gt;
-            <div class="row">
-                <div class="col-md-6">
-                      &lt;!&ndash;    Striped Rows Table  &ndash;&gt;
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Striped Rows Table
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    &lt;!&ndash;  End  Striped Rows Table  &ndash;&gt;
-                </div>
-                <div class="col-md-6">
-                    &lt;!&ndash;    Bordered Table  &ndash;&gt;
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Bordered Table
-                        </div>
-                        &lt;!&ndash; /.panel-heading &ndash;&gt;
-                        <div class="panel-body">
-                            <div class="table-responsive table-bordered">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     &lt;!&ndash;  End  Bordered Table  &ndash;&gt;
-                </div>
-            </div>-->
-                <!-- /. ROW  -->
-            <!--<div class="row">
-                <div class="col-md-6">
-                    &lt;!&ndash;    Context Classes  &ndash;&gt;
-                    <div class="panel panel-default">
-
-                        <div class="panel-heading">
-                            Khách hàng mua nhiều nhất
-                        </div>
-
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Họ tên</th>
-                                        <th>Số điện thoại </th>
-                                        <th>Địa chỉ</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="success">
-                                        <td>1</td>
-                                        <td>Phú Duy</td>
-                                        <td>123456789</td>
-                                        <td>Q8, TP.HCM</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td>2</td>
-                                        <td>Thanh Hương</td>
-                                        <td>456789998</td>
-                                        <td>Q1, TP.HCM</td>
-                                    </tr>
-                                    <tr class="warning">
-                                        <td>3</td>
-                                        <td>Quang Huân</td>
-                                        <td>2334456576</td>
-                                        <td>Quận Tân Phú, TP.HCM</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    &lt;!&ndash;  end  Context Classes  &ndash;&gt;
-                </div>
-                <div class="col-md-6">
-                     &lt;!&ndash;    Hover Rows  &ndash;&gt;
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Khách hàng mới
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Họ tên</th>
-                                            <th>Số điện thoại</th>
-                                            <th>Địa chỉ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <td>1</td>
-                                        <td>Phú Duy</td>
-                                        <td>123456789</td>
-                                        <td>Q8, TP.HCM</td>
-                                    </tr>
-                                        <td>2</td>
-                                        <td>Thanh Hương</td>
-                                        <td>456789998</td>
-                                        <td>Q1, TP.HCM</td>
-                                    </tr>
-                                        <td>3</td>
-                                        <td>Quang Huân</td>
-                                        <td>2334456576</td>
-                                        <td>Quận Tân Phú, TP.HCM</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    &lt;!&ndash; End  Hover Rows  &ndash;&gt;
-                </div>
-
-            </div>-->
-                <!-- /. ROW  -->
     </div>
     </div>
      <!-- CONTENT-WRAPPER SECTION END-->
     <% include ../partials/footer.ejs %>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header header-panel">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel" style="font-weight: bold">Thông tin sản phẩm</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 col-log-12">
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-md-2 col-form-label">Tên</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input class="form-control ng-untouched ng-pristine ng-valid" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-md-2 col-form-label">Giá</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input class="form-control ng-pristine ng-valid ng-touched" type="number">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-md-2 col-form-label">Số lượng</label>
+                            <div class="col-lg-10 col-md-10">
+                                <input class="form-control ng-pristine ng-valid ng-touched" type="number">
+                            </div>
+                        </div>
+                        <label class="col-form-label">Hình ảnh</label>
+                        <div class="form-group">
+                            <section class="thumbnail-container">
+                                <div class="thumbnail-container--content image-box" for="image-upload">
+                                    <input accept="image/jpeg, image/gif, image/png" id="image-upload" multiple="" style="display: none;" type="file">
+                                    <label class="style-pointer" for="image-upload" style="max-height: 100%; max-width: 100%">
+                                        <img class="img-dialog" src="images/imageHolder.png">
+                                    </label>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
       <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY  -->

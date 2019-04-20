@@ -295,7 +295,7 @@ border: 1px solid black;
     background-color:transparent;
 }
 .process{
-    color: #017ebc;
+    color: #f48629;
     font-weight: bold;
 }
 .img-product{
@@ -312,11 +312,11 @@ border: 1px solid black;
     background: linear-gradient(90deg, #313F40 0%, #536166 100%);
     font-weight: bold;
     color: white;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 .btn-logout{
     color: #fff;
-    background: linear-gradient(90deg, #313F40 0%, #536166 100%);
+    background: #536166;
 }
 .img-store{
     max-width: 1150px;
@@ -324,6 +324,18 @@ border: 1px solid black;
     width: 100%;
     height: auto;
     alignment: center;
+}
+.input-group-prepend{
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.img-dialog{
+    max-height: 70px;
+    max-width: 70px;
+    border-radius: 5px;
+    border-color: #324041;
+    border-width: 1px;
+    border-style: solid;
 }
 /* =============================================================
    FOOTER SECTION STYLES
