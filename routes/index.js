@@ -27,7 +27,16 @@ router.get('/single',function(req, res, next){
   res.render('pages/single-product')
 })
 
+
 router.get('/cart',function(req, res, next){
   res.render('pages/cart')
+})
+
+router.get('/forget-password',function(req,res,next){
+  res.render('pages/forget-password')
+})
+
+router.get('/love-product',function(req,res,next){
+  res.render('pages/love-product')
 })
 module.exports = router;
