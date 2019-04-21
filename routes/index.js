@@ -56,4 +56,12 @@ router.get('/list-product',function(req,res,next){
 router.get('/detail-a-product',function(req,res,next){
   res.render('pages/detail-a-product')
 })
+
+router.get('/blog',function(req,res,next){
+  res.render('pages/blog')
+})
+
+router.get('/blog-content',function(req,res,next){
+  res.render('pages/blog-content')
+})
 module.exports = router;
