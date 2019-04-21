@@ -48,4 +48,12 @@ router.get('/checkout',function(req,res,next){
 router.get('/trackorder',function(req,res,next){
   res.render('pages/trackorder')
 })
+
+router.get('/list-product',function(req,res,next){
+  res.render('pages/list-product')
+})
+
+router.get('/detail-a-product',function(req,res,next){
+  res.render('pages/detail-a-product')
+})
 module.exports = router;
