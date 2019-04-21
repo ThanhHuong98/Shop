@@ -1,0 +1,261 @@
+<% include ../partials/head.ejs %>
+<link rel="stylesheet" type="text/css" href="singleproduct/css/style.css">
+<% include ../partials/header.ejs %>
+<div id="content" >
+    <nav class="varbar">
+        <a href="#" id="first">THÔNG TIN SẢN PHẨM</a>
+        <a href="#">MÔ TẢ CHI TIẾT</a>
+        <a href="#">ĐÁNH GIÁ</a>
+        <a href="#">Q & A</a>
+        <div id="lines">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+        <div class="line4"></div>
+        </div>
+        <div class="separator"></div>
+    </nav>
+    <div class="row" id="details">
+        <div class="col-lg-5 row">
+            <img src="singleproduct/image/sample.png" id="productImage">
+        </div>
+        <div class="col-lg-4">
+            <p style="font-size:22px;font-weight: bold;">Lọ hoa sensational</p>
+            <div id="star" class="component">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p style="font-size:18px;font-weight: 700" class="component">1,500,000 VND</p>
+            <div class="separator" id="small-separator" class="component" ></div>
+            <p class="component  small-title">Kích cỡ:</p>
+            <div class="btn-group btn-group-toggle " data-toggle="buttons" id="btn-star">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked>nhỏ
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> vừa
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option3" autocomplete="off">lớn
+                </label>
+            </div>
+            <p class="component  small-title">Số lượng:</p>
+            <div  id="quantity" class="component">
+                <input type="number" value="1" min="1" max="10" step="1"/>
+            </div>
+            <button type="submit"  class="btn btn-dark component button" style="border-radius: 0px;">THÊM VÀO GIỎ HÀNG</button>
+        </div>
+        <div class="col-lg-3" id="related-products" >
+            <p style="font-size: 14px;font-weight: 500">related products</p>
+            <ul>
+                <li>
+                        <a href="#">
+                            <div class="rel-product">
+                                <div class="rel-info">									
+                                    <p style="font-weight: 300;">RAPSODIES</p>
+                                    <p style="font-weight: 500">900,000 VND</p>									
+                                </div>
+                                <img src="singleproduct/image/shop-img-13.jpg" style="width: 55px;height: 67px;">
+                            </div>
+                        </a>
+                </li>
+                <li>
+                        <a href="#">
+                            <div class="rel-product">
+                                <div class="rel-info">
+                                    <p style="font-weight: 300;">BLOOMING JOY</p>
+                                    <p style="font-weight: 500;">1,800,000 VND</p>
+                                </div>
+                                <img src="singleproduct/image/shop-img-14.jpg" style="width: 55px;height: 67px;">
+                            </div>
+                        </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <div class="rel-product">
+                        <div class="rel-info">
+                            <p style="font-weight: 300;">WILD BEAUTY</p>
+                            <p style="font-weight: 500">2,950,000 VND</p>
+                        </div>
+                        <img src="singleproduct/image/shop-img-16.jpg" style="width: 55px;height: 67px;">
+                    </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <div class="rel-product">
+                        <div class="rel-info">
+                            <p style="font-weight: 300;">BOHEMIAN BEAUTY</p>
+                            <p style="font-weight: 500">1,200,000 VND</p>
+                        </div>
+                        <img src="singleproduct/image/shop-img-17.jpg" style="width: 55px;height: 67px;">
+                    </div>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div class="separator"></div>
+    <div class="description">
+        <p class="title">MÔ TẢ</p>
+        <p>Per eleifend duis, placerat laoreet augue montes, suspendisse pellentesque amet nibh pulvinar mauris, nam amet volutpat. Dictum nec aenean placerat. Faucibus libero platea eget, justo aliquam ut wisi wisi etiam.</p>
+    </div>
+    <div class="separator" ></div>
+    <div class="rating-container row">
+        <div class="col-lg-3" id="voting">
+            <p style="font-size: 14px; font-weight: 500;">BÌNH CHỌN</p>
+            <p id="rating">0/5</p>
+            <div id="star">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+        <div class="col-lg-6" id="statistic">
+            <hr class="vertical-separator">
+            <div id="statistic-details row">
+                    <div class="side right">
+                            <div>5&nbsp;<i class="fas fa-star" ></i></div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div class="bar-5"></div>
+                            </div>
+                        </div>
+                        <div class="side">
+                            <div>150</div>
+                        </div>
+                        <div class="side right">
+                            <div>4&nbsp;<i class="fas fa-star" ></i></div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div class="bar-4"></div>
+                            </div>
+                        </div>
+                        <div class="side">
+                            <div>63</div>
+                        </div>
+                        <div class="side right">
+                            <div>3&nbsp;<i class="fas fa-star" ></i></div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div class="bar-3"></div>
+                            </div>
+                        </div>
+                        <div class="side">
+                            <div>15</div>
+                        </div>
+                        <div class="side right">
+                            <div>2&nbsp;<i class="fas fa-star" ></i></div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div class="bar-2"></div>
+                            </div>
+                        </div>
+                        <div class="side">
+                            <div>6</div>
+                        </div>
+                        <div class="side right">
+                            <div>1&nbsp;<i class="fas fa-star" ></i></div>
+                        </div>
+                        <div class="middle">
+                            <div class="bar-container">
+                                <div class="bar-1"></div>
+                            </div>
+                        </div>
+                        <div class="side">
+                            <div>20</div>
+                        </div>
+            </div>
+            <hr class="vertical-separator">
+        </div>
+        <div class="col-lg-3" id="comment">
+            <p style="font-size: 14px; font-weight: 500;">Nhận xét của bạn</p>
+            <button type="submit" class="btn btn-dark component button" style="border-radius: 0px;">VIẾT NGAY</button>
+        </div>
+    </div>
+    <div id="setCenter">
+        <div class="review-container row">
+        <div class="col-lg-3">
+            <img src="singleproduct/image/sample.png" style="width: 188px;height: 311px;">
+        </div>
+        <div class="col-lg-5 review-input-container">
+            <p class="title">ĐÁNH GIÁ CỦA BẠN</p>
+            <div id="star">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p class="small-title">Tiêu đề:</p>
+                <input type="text" class="form-control" id="title-input">
+                <p class="small-title">Nhận xét:</p>
+                <input type="text" class="form-control" id="review-input">
+        </div>
+        <div class="col-lg-4 savechanges-container">
+                <button type="submit" class="btn btn-dark button" style="border-radius: 0px;">LƯU THAY ĐỔI</button>
+        </div>
+        </div>
+    </div>
+    <div class="separator" ></div>
+    <div id="general-review">
+        <div id="title-filter">
+                <p class="title">BÌNH LUẬN</p>
+                <div id="combobox">
+                <select>
+                        <option value="all">Tất cả khách hàng</option>
+                        <option value="customer">Khách hàng đã mua sản phẩm</option>
+                        <option value="visitor">Khách hàng chưa mua sản phẩm</option>
+                </select>
+                <select>
+                        <option value="all">Tất cả sao</option>
+                        <option value="1">1 sao</option>
+                        <option value="2">2 sao</option>
+                        <option value="3">3 sao</option>
+                        <option value="4">4 sao</option>
+                        <option value="5">5 sao</option>
+                </select>
+                </div>
+        </div>
+        <div id="reviews"></div>
+        <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a class="active" href="#">1</a>
+                <a  href="#">2</a>
+                <a href="#">&raquo;</a>
+        </div>
+    </div>
+    <div class="separator" ></div>
+    <div id="q&a">
+        <p class="title">Q & A</p>
+        <div id="q&a-content">
+            <div class="sub-content">
+                <p class="small-title1">Q: Sem in hendrerit elit lectus ipsum sapien, aliquam sagittis aliquam nec?</p>
+                <p>A: Arcu ipsum lacinia pellentesque molestie auctor, consequatur arcu felis porttitor ut consequatur, vestibulum ridiculus nonummy posuere interdum scelerisque, facilisis non, in non sodales ut quis pulvinar.</p>
+            </div>
+            <div class="sub-content">
+                <p class="small-title1">Q: Nonummy ac ultrices, eros phasellus?</p>
+                <p>A: Per eleifend duis, placerat laoreet augue montes, suspendisse pellentesque amet nibh pulvinar mauris, nam amet volutpat. Dictum nec aenean placerat. Faucibus libero platea eget, justo aliquam ut wisi wisi etiam. Ultricies nulla diam est, egestas purus, magna consectetuer cum est.</p>
+            </div>
+            <div class="sub-content">
+                <p class="small-title1">Q: Lorem ipsum dolor sit amet, posuere lectus pellentesque interdum leo posuere ac?</p>
+                <p>A: Lorem amet massa maecenas donec autem penatibus. Fusce ornare esse gravida sit metus. Sollicitudin ut ullamcorper, vulputate turpis nullam urna justo mus, suscipit vestibulum sed praesent, feugiat tincidunt quisque, suspendisse malesuada nec. Vestibulum a velit lorem est sociis.</p>
+            </div>
+            <div class="sub-content">
+                <p class="small-title1">Q: Nibh eu?</p>
+                <p>A: Cras commodo vitae ac quam, dolor sit bibendum leo, curabitur vestibulum in amet ipsum enim viverra, cumque non eget faucibus nulla luctus viverra, faucibus sit ante magna. Ac pede aliquet donec volutpat ipsum, non fermentum nulla nibh vitae id facilisis, class aliquam. Lobortis in egestas sit, duis suspendisse dictum, fringilla diam auctor suspendisse class arcu id, vitae erat vel. Placerat metus velit, in sit wisi sed, arcu suspendisse lacus, et et iaculis risus arcu adipiscing.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer.ejs %>

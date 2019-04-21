@@ -22,6 +22,8 @@ router.get('/login',function(req, res, next){
 router.get('/register',function(req, res, next){
   res.render('pages/register')
 })
-//add more router
 
+router.get('/single',function(req, res, next){
+  res.render('pages/single-product')
+})
 module.exports = router;
