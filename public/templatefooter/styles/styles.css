@@ -41,6 +41,7 @@ ul
 {
 	list-style: none;
 	margin-bottom: 0px;
+	padding: 0px;
 }
 p
 {
@@ -181,6 +182,7 @@ Footer
 	font-size: 18px;
 	color: #4a4a4a;
 	line-height: 58px;
+	text-decoration: none;
 }
 .footer_list li a:hover
 {
@@ -277,6 +279,14 @@ Footer
 	font-size: 16px !important;
 	font-weight: 500 !important;
 	color: #4a4a4a !important;
+}
+#newsletter-title{
+	font-size: 19px; 
+	text-align: center;
+}
+#newsletter-title strong{
+	font-size: 19px; 
+	text-align: center;
 }
 .newsletter_button
 {
@@ -381,15 +391,22 @@ Footer
 .f2 .row{
 	margin-top: 18px;
 }
+#newsletter{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
 #newsletter-container{
 	width:	300px; 
 	height: 251px;
-	background-color: white;	
-	margin: 40px 66px 38px auto;
+	background-color: white;
 	box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.25);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 20px 0px;
+	
 }
 #newsletter-email{
 	border-radius: 0px;
@@ -446,4 +463,28 @@ Footer
 	margin-left: 34px;
 	margin-top: 15px;
 
+}
+@media screen and (max-width: 990px){
+	#fb-store-name{
+		display: none;
+	}
+	.footer_bar{
+		height: 80px;
+	}
+	#copyright {
+		padding-top: 0px;		
+		width:100%;
+		text-align: center;
+	}
+	#fb-card{
+		justify-content: center;
+	}
+	/**/
+	#newsletter-container{
+		width: 100%;
+	}
+	#needhelps #store{
+		width: 50%;
+	}
+	
 }
