@@ -1031,8 +1031,7 @@ input[type="file"] {
   }
 }
 
-[type="checkbox"],
-[type="radio"] {
+[type="checkbox"] {
   height: 1px;
   width: 1px;
   margin: -1px;

@@ -64,4 +64,8 @@ router.get('/blog',function(req,res,next){
 router.get('/blog-content',function(req,res,next){
   res.render('pages/blog-content')
 })
+
+router.get('/edit',function(req,res,next){
+  res.render('pages/profileEdit')
+})
 module.exports = router;
