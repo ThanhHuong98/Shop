@@ -841,7 +841,6 @@ textarea:invalid,
 textarea:focus:invalid,
 select:invalid,
 select:focus:invalid {
-  border-color: #d32f2f;
   box-shadow: none;
   outline: none;
 }
