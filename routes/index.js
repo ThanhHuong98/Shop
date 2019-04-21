@@ -39,4 +39,13 @@ router.get('/forget-password',function(req,res,next){
 router.get('/love-product',function(req,res,next){
   res.render('pages/love-product')
 })
+
+
+router.get('/checkout',function(req,res,next){
+  res.render('pages/checkout')
+})
+
+router.get('/trackorder',function(req,res,next){
+  res.render('pages/trackorder')
+})
 module.exports = router;

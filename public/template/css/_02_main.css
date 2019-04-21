@@ -74,6 +74,7 @@ a.topbar-item {
   margin: auto;
   background-size: 80%;
   background-position: center;
+  padding-top: 12px;
 }
 
 .rx-footer-end__logo {
@@ -83,7 +84,7 @@ a.topbar-item {
   background-size: contain;
   background-repeat: no-repeat;
   float: left;
-  margin-top: 23px;
+  margin-top: 13px;
 }
 
 .nav-wrap {
@@ -1528,7 +1529,7 @@ span.input-range__label.input-range__label--max:after {
 }
 
 .rx-footer-social-contain {  
-  width: 200px;
+  width: 135px;
   margin: auto;
   margin-top: 20px;
 }

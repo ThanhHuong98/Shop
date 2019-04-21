@@ -117,12 +117,11 @@
 }
 
 .mainfooter-container {
-    border-top: solid 1px #eee;
     margin: auto;
     max-width: 100%;
     min-height: 300px;
     position: relative;
-    background-color: #f2f2f2;
+    background-color: #F5F6FA;
 }
 nav {
     margin: 0 auto;
@@ -1431,6 +1430,7 @@ input.ReactTags__tagInputField {
     height: 36px;
     border-radius: 0px;
     border: none;
+    top: 0px;
 }
 .lk-page-brand {
     padding: 35px;
