@@ -26,4 +26,8 @@ router.get('/register',function(req, res, next){
 router.get('/single',function(req, res, next){
   res.render('pages/single-product')
 })
+
+router.get('/forget-password',function(req,res,next){
+  res.render('pages/forget-password')
+})
 module.exports = router;
