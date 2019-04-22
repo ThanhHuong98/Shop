@@ -36,7 +36,9 @@
   }
 }
 @media screen and (max-width: 1240px) { /*min-width: 1024px*/
-  
+  .home_title{		
+		  margin-left: 30px;
+	}
   .rx-main-banner-2, .rx-main-banner-1- {
     min-height: 365px;
   }

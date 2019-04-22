@@ -1716,7 +1716,7 @@ span.footer-day {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
 }
 .rx-footer-main-col>b {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -1737,7 +1737,7 @@ span.footer-day {
 .rx-footer-main-col a {
     color: #131313;
     display: flex;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;

@@ -797,10 +797,11 @@ section
     margin-bottom: 100px;
 }
 #account-box{
-    margin-left: 150px;
+    margin-left: 100px;
     background-color: #FFFFFF;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
-    font-size: 14px;
+	font-size: 14px;
+	width: 400px;
 }
 #name{
     padding-top: 23px;
@@ -811,7 +812,7 @@ section
 }
 #name p{    
     color:white;
-    font-size: 18px;
+    font-size: 20px;
 }
 .option{
     padding-top: 23px;
@@ -820,8 +821,8 @@ section
     border-bottom: 1px solid #E5E5E5;
 }
 .option p{
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 18px;
 }
 #last{
     border: none;
@@ -832,11 +833,9 @@ section
 #content-box{
     width: 595px;
     height: 715px;
-    margin-left: 130px;
     background-color: #FFFFFF;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
-    padding: 51px;
-    
+    padding: 51px;    
 }
 .input-row{
     display: flex;
@@ -847,33 +846,43 @@ section
 }
 .typing-input{
     width: 302px;
-    height: 28px;
+    height: 35px;
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
-    padding: 5px;
+	padding: 5px;
+	font-size: 16px;
 }
 .input-title{
     font-weight: 500;
-    font-size: 14px;
+    font-size: 18px;
 }
 #disabled{
     background-color: #F1F1F1;
 }
 #radio-btn-box{
     width: 302px;
-    height: 28px;
+    height: 35px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
 }
-#radio-btn-box 
+.radio label{
+	font-size: 18px;
+}
 #datepicker-box{
     width: 302px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;    
+}
+#datepicker-box option{
+	font-size: 18px;
+}
+#datepicker-box select{
+	height: 35px;
+	font-size: 15px;
 }
 .date-input{
     width: 80px;
@@ -882,13 +891,14 @@ section
     border: 1px solid #D7D8DD;
 }
 .button {
-    width: 131px;
-    height: 38px;
-    font-size: 14px;
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
     font-weight: 500;
     color: white;
     background-color: #313F40;
-    border: none;
+	border: none;
+	margin-top: 30px;
 }
 #input-row-last{
     display: flex;

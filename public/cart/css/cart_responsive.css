@@ -173,6 +173,18 @@
 
 @media only screen and (max-width: 991px)
 {
+	.home_container{
+		justify-content: flex-start;
+	}
+	.home_title
+	{
+		font-size: 30px;
+		color: black;
+		font-weight: 500;		
+	}	
+	.cart_section{
+		padding-top: 0px;
+	}
 	.header_phone
 	{
 		display: none !important;

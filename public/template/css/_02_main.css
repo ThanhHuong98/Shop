@@ -57,15 +57,15 @@ a.topbar-item {
 }
 
 .mainhead-logo {
-  width: 240px;
-  height: 70px;
+  width: 155px;
+  height: 60px;
   display: block;
   text-align: center;
   vertical-align: middle;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-image: url(/images/static/mlk/logo.png);
-  font-size: 20px;
+  background-image: url(/template/images/logo/logo.png);
+  font-size: 80px;
   font-weight: 700;
   margin-right: 62px;
   margin-top: 0;
