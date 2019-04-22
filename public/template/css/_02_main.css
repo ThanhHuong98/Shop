@@ -80,7 +80,6 @@ a.topbar-item {
 .rx-footer-end__logo {
   width: 110px;
   height: 20px;
-  background-image: url(/images/static/mlk/logo_footer.png);
   background-size: contain;
   background-repeat: no-repeat;
   float: left;

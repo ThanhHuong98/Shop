@@ -15,17 +15,18 @@
                 <div class='lk-login-customer-inner'>
                     <div>
                        <div class='clearfix'>
-                            <div class='lk-input-error'></div>
+                            <div class='lk-input-error' id="login-alert"></div>
                         </div> 
                         <div class='lk-input-group-row'>
                             <div class='lk-cart-page-customer-name'>Email</div>
-                            <input tabIndex='1' type='text' name='email' class='fullwidth-input' />
+                            <input tabIndex='1' type='email' name='email' class='fullwidth-input' id="email-input"/>
                         </div>
-
+                        
                         <div class='lk-input-group-row'>
                             <div class='lk-cart-page-customer-phone'>Mật khẩu</div>
-                            <input tabIndex='2' type='password' name='phone' class='fullwidth-input' />
+                            <input tabIndex='2' type='password' name='phone' class='fullwidth-input' id="password-input" />
                         </div>
+                        
                     </div><br />
 
                     <div class='lk-login-submit-section'>
@@ -33,7 +34,7 @@
                     </div>
 
                     <div class='lk-login-submit-section'>
-                        <div tabIndex='3' class='lk-page-login-customer-submit'><a href="/edit">Đăng nhập</a></div>
+                        <div tabIndex='3' class='lk-page-login-customer-submit'><a >Đăng nhập</a></div>
                     </div>
                 </div>
 
@@ -42,5 +43,4 @@
     </div>
 
     <!--  -->
-
 <% include ../partials/footer.ejs %>

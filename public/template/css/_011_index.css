@@ -2615,3 +2615,6 @@ a:focus, a:hover {
 html, * {
   font-family: 'Quicksand', sans-serif;
 }
+.alertLogin {
+    color: red;
+}

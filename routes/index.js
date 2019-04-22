@@ -23,11 +23,6 @@ router.get('/register',function(req, res, next){
   res.render('pages/register')
 })
 
-router.get('/single',function(req, res, next){
-  res.render('pages/single-product')
-})
-
-
 router.get('/cart',function(req, res, next){
   res.render('pages/cart')
 })

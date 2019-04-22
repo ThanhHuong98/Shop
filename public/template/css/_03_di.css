@@ -491,7 +491,6 @@ nav {
     top: -7px;
     right: 0px;
     background-size: cover;
-    background-image: url('/images/static/Product/Icon/Shipping@1x.png');
 }
 .figure-body-freeship-detail {    
     margin-left: 5px;
@@ -502,7 +501,6 @@ nav {
     top: -7px;
     right: 0px;
     background-size: cover;
-    background-image: url('/images/static/Product/Icon/Shipping@1x.png');    
 }
 .rx-star {
     line-height: 20px;
@@ -1290,7 +1288,6 @@ input.ReactTags__tagInputField {
     height: 95px;
 }
 .rxauthen-left-container.lk-contact {
-    background-image: url('/images/static/contact.png');
     background-repeat-x: no-repeat;
     background-size: cover;
     background-repeat-y: repeat;
@@ -2068,7 +2065,6 @@ span.post-price-old {
     vertical-align: middle;
     color: #fff;
     font-size: 8px;
-    background-image: url(/images/static/group.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 43px;
@@ -2688,7 +2684,7 @@ li.nav-menu-item span {
   justify-content: center;
   margin-top: 20px;
 
-  li {
+    li {
     &:nth-of-type(n + 2) {
       margin-left: 9px;
     }
