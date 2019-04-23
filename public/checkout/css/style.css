@@ -44,14 +44,7 @@ body
 	background: #FFFFFF;
 	color:black;
 }
-div
-{
-	display: block;
-	position: relative;
-	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
 ul
 {
 	list-style: none;
@@ -1004,7 +997,10 @@ section
 /*********************************
 6.1 Cart Total
 *********************************/
-
+.cart_col{
+	display: block;
+	box-sizing: border-box;
+}
 .cart_total
 {
 	padding-top: 51px;
@@ -1013,6 +1009,9 @@ section
     padding-right: 68px;
 	background: white;
 	box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
+	display: block;
+	position: relative;
+	box-sizing: border-box;
 }
 .cart_extra_total_list
 {
