@@ -1,6 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+//Require our controllers
+var product_controller = require('../controllers/productController');
+//add more controllers
+
+//GET | POST ...
+//test MVC
+//GET request for list of all Products.
+router.get('/list-product', product_controller.product_list);
+
+
+
+//version1
 /* GET home page. */
 //index page
 router.get('/', function(req, res, next) {
@@ -44,9 +56,9 @@ router.get('/trackorder',function(req,res,next){
   res.render('pages/trackorder')
 })
 
-router.get('/list-product',function(req,res,next){
-  res.render('pages/list-product')
-})
+// router.get('/list-product',function(req,res,next){
+//   res.render('pages/list-product')
+// })
 
 router.get('/detail-a-product',function(req,res,next){
   res.render('pages/detail-a-product')
