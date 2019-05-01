@@ -2,77 +2,50 @@ var express = require('express');
 var router = express.Router();
 
 //Require our controllers
+var home_controller = require('../controllers/homeController');
 var product_controller = require('../controllers/productController');
+var contact_controller = require('../controllers/contactController')
+var blog_controller = require('../controllers/blogController');
+var account_controller = require('../controllers/accountController');
+var order_controller = require('../controllers/orderController');
 //add more controllers
 
 //GET | POST ...
-//test MVC
+// HOME
+router.get('/', home_controller.index); 
+// PRODUCT SECTION
 //GET request for list of all Products.
 router.get('/list-product', product_controller.product_list);
+// GET request for one Product
+router.get('/detail-a-product',product_controller.product_detail);
+// GET request for list of the favorite products
+router.get('pages/love-product', product_controller.product_favorite_list)
 
+// CONTACT SECTION
+// GET request for creating a Contact
+router.get('/contact',contact_controller.contact_create_get);
 
+// BLOG SECTION
+//GET request for list of all Blogs.
+router.get('/blog',blog_controller.blog_list);
+// GET request for one Blog
+router.get('/blog-content',blog_controller.blog_detail);
 
-//version1
-/* GET home page. */
-//index page
-router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'Shiba_inu' });
-});
+// ACCOUNT SECTION
+// register
+router.post('/register',account_controller.account_register_post);
+// login
+router.get('/login',account_controller.account_login_get);
+// forget - password
+router.post('/forget-password',account_controller.account_forget_password_post);
+// edit - profile
+router.post('/edit-profile',account_controller.account_edit_profile_post);
 
-router.get('/about', function(req, res, next) {
-    res.render('pages/about');
-});
+// ORDER SECTION
 
-router.get('/contact',function(req, res, next){
-  res.render('pages/contact')
-})
+router.get('/cart',order_controller.order_cart)
 
-router.get('/login',function(req, res, next){
-  res.render('pages/login');
-})
+router.get('/checkout',order_controller.order_checkout)
 
-router.get('/register',function(req, res, next){
-  res.render('pages/register')
-})
-
-router.get('/cart',function(req, res, next){
-  res.render('pages/cart')
-})
-
-router.get('/forget-password',function(req,res,next){
-  res.render('pages/forget-password')
-})
-
-router.get('/love-product',function(req,res,next){
-  res.render('pages/love-product')
-})
-
-
-router.get('/checkout',function(req,res,next){
-  res.render('pages/checkout')
-})
-
-router.get('/trackorder',function(req,res,next){
-  res.render('pages/trackOrder')
-})
-
-// router.get('/list-product',function(req,res,next){
-//   res.render('pages/list-product')
-// })
-
-router.get('/detail-a-product',function(req,res,next){
-  res.render('pages/detail-a-product')
-})
-
-router.get('/blog',function(req,res,next){
-  res.render('pages/blog')
-})
-
-router.get('/blog-content',function(req,res,next){
-  res.render('pages/blog-content')
-})
-
-router.get('/edit',function(req,res,next){
-  res.render('pages/profileEdit')
-})
+router.get('/trackorder',order_controller.order_trackOrder)
 module.exports = router;
