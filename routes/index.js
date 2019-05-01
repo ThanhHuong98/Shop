@@ -53,7 +53,7 @@ router.get('/checkout',function(req,res,next){
 })
 
 router.get('/trackorder',function(req,res,next){
-  res.render('pages/trackorder')
+  res.render('pages/trackOrder')
 })
 
 // router.get('/list-product',function(req,res,next){

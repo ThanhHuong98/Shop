@@ -55,14 +55,6 @@ body
 	background: #FFFFFF;
 	color:black;
 }
-div
-{
-	display: block;
-	position: relative;
-	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 ul
 {
 	list-style: none;
@@ -793,7 +785,10 @@ section
     width: 100%;
     z-index: 1;    
     margin-left: 0px;
-    margin-right: 0px;
+	margin-right: 0px;
+	display: block;
+	position: relative;
+	box-sizing: border-box;
 }
 .progressbar li:first-child:after{
     content: none;
@@ -857,7 +852,10 @@ section
     color:#10AC84;
 }
 #progress-bar{
-    padding-bottom: 128px;
+	padding-bottom: 128px;
+	display: block;
+	position: relative;
+	box-sizing: border-box;
 }
 #history{
     max-width: 100%;
