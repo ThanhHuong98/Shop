@@ -33,13 +33,13 @@ router.get('/blog-content',blog_controller.blog_detail);
 
 // ACCOUNT SECTION
 // register
-router.post('/register',account_controller.account_register_post);
+router.get('/register',account_controller.account_register_post);
 // login
 router.get('/login',account_controller.account_login_get);
 // forget - password
-router.post('/forget-password',account_controller.account_forget_password_post);
+router.get('/forget-password',account_controller.account_forget_password_post);
 // edit - profile
-router.post('/edit-profile',account_controller.account_edit_profile_post);
+router.get('/edit-profile',account_controller.account_edit_profile_post);
 
 // ORDER SECTION
 
