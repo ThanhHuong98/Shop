@@ -6,12 +6,12 @@ var Product = require('../models/blog');
 exports.blog_list = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/blog')
+     res.render('pages/blog/blog')
 }
 
 // Display detail page for a specific blog.
 exports.blog_detail = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/blog-content')
+     res.render('pages/blog/blog-content')
 }
