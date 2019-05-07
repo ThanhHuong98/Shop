@@ -5,19 +5,19 @@ var Product = require('../models/product');
 exports.product_list = function(req, res, next){
     //todo
      // Successful, so render
-    res.render('pages/list-product')
+    res.render('pages/product/list-product')
 }
 
 // Display detail page for a specific product.
 exports.product_detail = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/detail-a-product')
+     res.render('pages/product/detail-a-product')
 }
 
 //Display list of all the favorite products
 exports.product_favorite_list = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/love-product')
+     res.render('pages/product/love-product')
 }

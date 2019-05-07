@@ -4,5 +4,5 @@
 exports.index = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/index', { title: 'FloralShop' });
+     res.render('pages/home/index', { title: 'FloralShop' });
 }

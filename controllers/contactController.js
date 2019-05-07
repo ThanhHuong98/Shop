@@ -6,5 +6,5 @@ var Product = require('../models/contact');
 exports.contact_create_get = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/contact')
+     res.render('pages/contact/contact')
 }

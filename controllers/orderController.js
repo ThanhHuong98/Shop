@@ -5,17 +5,17 @@ var Product = require('../models/order');
 exports.order_cart = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/cart')
+     res.render('pages/order/cart')
 }
 
 exports.order_checkout = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/checkout')
+     res.render('pages/order/checkout')
 }
 
 exports.order_trackOrder = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/trackOrder')
+     res.render('pages/order/trackOrder')
 }
