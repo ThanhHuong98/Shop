@@ -42,7 +42,6 @@ router.get('/forget-password',account_controller.account_forget_password_post);
 router.get('/edit-profile',account_controller.account_edit_profile_post);
 
 // ORDER SECTION
-
 router.get('/cart',order_controller.order_cart)
 
 router.get('/checkout',order_controller.order_checkout)
