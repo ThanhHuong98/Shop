@@ -3,9 +3,15 @@ var Product = require('../models/product');
 
 //Display list of all products
 exports.product_list = function(req, res, next){
-    //todo
-     // Successful, so render
-    res.render('pages/product/list-product')
+    const id = req.params.id
+    //
+    Product.all(id, function(err,result){
+        if (err){
+            res.err(err);
+        }else{
+            res.render('pages/product/list-product', {list: result})
+        }
+    })
 }
 
 // Display detail page for a specific product.

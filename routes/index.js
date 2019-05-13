@@ -15,7 +15,7 @@ var order_controller = require('../controllers/orderController');
 router.get('/', home_controller.index); 
 // PRODUCT SECTION
 //GET request for list of all Products.
-router.get('/list-product', product_controller.product_list);
+router.get('/list-product/:id', product_controller.product_list);
 // GET request for one Product
 router.get('/detail-a-product',product_controller.product_detail);
 // GET request for list of the favorite products
