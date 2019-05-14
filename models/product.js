@@ -74,11 +74,13 @@ exports.allProduct = function(cb) {
 //Read radom 5 products in listProduct
 exports.randomProduct = function(cb){
     var collection = db.get().collection('Product');
-    // collection.aggregate([{$sample: {size : 5}}
-    // ]).toArray(function(err, result){
-    //     cb(err, result)
-    // })
-    collection.find({}).toArray(function(err, result){
-            cb(err, result)
-        })
+
+    collection.aggregate([{$sample: {size : 20}}
+    ]).toArray(function(err, result){
+        cb(err, result)
+    })
+
+    // collection.find({}).toArray(function(err, result){
+    //         cb(err, result)
+    //     })
 }

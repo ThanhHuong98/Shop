@@ -109,7 +109,8 @@
                 <nav class="nav-menu-nav " data-reactid="59">
                     <ul class="mlk-primary-nav  " data-reactid="60">
                         <!-- Categories1 -->
-                        <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/list-product/1">LOẠI 1 </a><span
+                        <%listCategory.forEach(function(category){ %>
+                        <li class="nav-menu-item "><a class="nav-menu-item-hover " href=<%=category.link%>><%=category.name%></a><span
                                 class="btn-menu-right mlkicon-Right "></span>
                             <div>
                                 <div class="dropdown-content ">
@@ -117,120 +118,29 @@
                                     </div>
                                     <div class="image-category">
                                         <div class="image-category-thumb"
-                                            style="background-image: url('/template/images/categories/categorie1.jpg');">
+                                            style="background-image: url('<%=category.image%>');">
                                         </div>
-                                        <div class="image-category-title">LOẠI 1 </div>
-                                        <div class="image-category-link"><a href="/list-product/1">Shop Now</a></div>
+                                        <div class="image-category-title"><%=category.name%></div>
+                                        <div class="image-category-link"><a href=<%=category.link%>>Shop Now</a></div>
                                     </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title" href="/list-product/1">Hoa hồng</a>
+                                    <div class="block-child-content"><a class="mlk-nav-title" href=<%=category.link%>>Hoa hồng</a>
                                         <div>
                                             <div class="dropdown-child-content">
-                                                <div><a class="mlk-nav-title-child" href="/list-product/1">Hoa hồng đỏ</a></div>
-                                                <div><a class="mlk-nav-title-child" href="/list-product/1">Hoa hồng tím</a></div>
-                                                <div><a class="mlk-nav-title-child" href="/list-product/1">Hoa hồng xanh</a></div>
+                                                <div><a class="mlk-nav-title-child" href=<%=category.link%>>Hoa hồng đỏ</a></div>
+                                                <div><a class="mlk-nav-title-child" href=<%=category.link%>>Hoa hồng tím</a></div>
+                                                <div><a class="mlk-nav-title-child" href=<%=category.link%>>Hoa hồng xanh</a></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/1">Hoa ly</a></div>
+                                        href=<%=category.link%>>Hoa ly</a></div>
                                     <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/1">Hoa cát tường</a></div>
+                                        href=<%=category.link%>>Hoa cát tường</a></div>
                                 </div>
                             </div>
                         </li>
-                          <!-- Categories2 -->
-                        <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/list-product/2">LOẠI 2</a><span class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                       
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url('/template/images/categories/categorie2.jpg');">
-                                        </div>
-                                        <div class="image-category-title">LOẠI 2</div>
-                                        <div class="image-category-link"><a href="/list-product/2">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/2">Hoa tuylip</a>
-                                        <div>
-                                            <div class="dropdown-child-content">
-                                                <div><a class="mlk-nav-title-child" href="/list-product/2">Hoa tuylip đỏ</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/2">Hoa Colorado Columbine</a>
-                                        <div>
-                                            <div class="dropdown-child-content">
-                                                <div><a class="mlk-nav-title-child" href="/list-product/2">Hoa Colorado Columbine</a></div>
-                                                <div><a class="mlk-nav-title-child" href="/list-product/2">Hoa Colorado Columbine tím</a></div>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/2">Hoa cẩm tú cầu</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/2">Hoa linh lan</a></div>                                    
-                                </div>
-                            </div>
-                        </li>
-                         <!-- Categories3-->
-                        <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/list-product/3">LOẠI 3</a><span class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                    
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url('/template/images/categories/categorie3.jpg');">
-                                        </div>
-                                        <div class="image-category-title">LOẠI 3</div>
-                                        <div class="image-category-link"><a href="/list-product/3">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/3">Hoa thạch thảo</a>
-                                        <div>
-                                            <div class="dropdown-child-content">
-                                                <div><a class="mlk-nav-title-child" href="/list-product/3">Hoa thạch thảo tím</a></div>
-                                                <div><a class="mlk-nav-title-child" href="/list-product/3">Hoa thạch thảo trắng</a>
-                                                
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/3">Hoa diên vĩ</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/3">Hoa thanh anh</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href="/list-product/3">Hoa calla lily</a></div>
-                                </div>
-                                </d>
-                        </li>
-                         <!-- Categories4 -->
-                        <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/list-product/4">LOẠI 4</a><span class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                      
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url('/template/images/categories/categorie4.jpg');">
-                                        </div>
-                                        <div class="image-category-title">LOẠI 4</div>
-                                        <div class="image-category-link"><a href="/list-product/4">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a  class="mlk-nav-title"
-                                            href="/list-product/4"> Hoa cúc susan mắt đen</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/list-product/4">Hoa tigôn</a></div>
-                                </div>
-                            </div>
-                        </li>
+                        <% }); %>
+                         
                         <!-- Add more categories ... -->
                         <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/quan-">Quần </a><span
                                 class="btn-menu-right mlkicon-Right "></span>
