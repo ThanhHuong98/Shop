@@ -68,6 +68,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <%singleProduct.forEach(function(product){ %>
                             <div class="col-sm-lg col-sm-4" id="detail">
                                 <div class="product-left-img">
                                     <div class="thumbZomin-hidden"><span class="mlkicon-Close icon-Close"></span>
@@ -90,26 +91,9 @@
                                         <div class="Slider-inner">
                                             <div class="Slider-single rx-slider-custom-single"
                                                 style="width: 700%; transform: translateX(0%);">
+                                                <!-- Add thumb -->
                                                 <div class="rx-thumb"><img class=""
-                                                    src="/template/images/products/product-8.png"
-                                                        alt="" title="Hoa hồng"></div>
-                                                <div class="rx-thumb"><img class=""
-                                                    src=""
-                                                        alt="" title="Hoa hồng"></div>
-                                                <div class="rx-thumb"><img class=""
-                                                    src=""
-                                                        alt="" title="Hoa hồng"></div>
-                                                <div class="rx-thumb"><img class=""
-                                                    src=""
-                                                        alt="" title="Hoa hồng"></div>
-                                                <div class="rx-thumb"><img class=""
-                                                    src=""
-                                                        alt="" title="Hoa hồng"></div>
-                                                <div class="rx-thumb"><img class=""
-                                                    src=""
-                                                        alt="" title="Hoa hồng"></div>
-                                                <div class="rx-thumb"><img class=""
-                                                    src=""
+                                                    src="<%=product.image%>"
                                                         alt="" title="Hoa hồng"></div>
                                             </div>
                                         </div>
@@ -122,10 +106,10 @@
                                         <!-- /react-text --><span></span></div>
                                 </div>
                             </div>
-                            <%singleProduct.forEach(function(product){ %>
+                           
                             <div class="col-sm-lg col-sm-5">
                                 <div class="content product-right">
-                                    <div class="rxfigure-body-brand-inlist">Mua xuan</div>
+                                    <div class="rxfigure-body-brand-inlist"><%=product.category%></div>
                                     <div class="rxname"><%=product.name%></div>
                                     <div class="clearfix">
                                         <div class="figure-body-rating-star">

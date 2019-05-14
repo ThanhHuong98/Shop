@@ -1,5 +1,5 @@
 var Product = require('../models/product');
-var Category = require('../models/category');
+var Category = require('../models/category')
 var async = require('async');
 
 
@@ -27,7 +27,7 @@ exports.product_favorite_list = function(req, res, next){
 // Display detail page for a specific product.
 exports.product_detail = function(req, res, next){
     
-    const id = req.params.id;
+    const id = req.query.id;
     
     console.log("ObjectID:");
     console.log(id);
@@ -39,7 +39,6 @@ exports.product_detail = function(req, res, next){
     //      }
     //  })
      async.parallel({
-        
         singleProduct: function(callback){
             Product.findOne(id, callback);
         },
