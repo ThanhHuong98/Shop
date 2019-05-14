@@ -17,7 +17,7 @@
                                     <p><span>100</span>%</p>
                                 </div>
                                 <div class='rx-product-figure-header'>
-                                    <a href="/detail-a-product?id=<%=product._id%>">
+                                    <a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
                                         <img class='' src="<%=product.image%>" alt='' title='' />
                                     </a>
                                 </div>
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="rx-product-action"><a href="/detail-a-product?id=<%=product._id%>">
+                                    <div class="rx-product-action"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
                                             <div class="rx-action-like"></div>
                                             <div class="rx-action-card"></div>
                                             <div class="rx-action-addcart">Mua ngay</div>
