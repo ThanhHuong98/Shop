@@ -88,3 +88,13 @@ exports.findOne = function(id, cb) {
         console.log(result);
     })
 }
+
+exports.relatedProducts = function(code, cb)
+{
+    var collection = db.get().collection('Product');
+    collection.find({category: code}).toArray(function(err, result){
+        cb(err, result)
+        console.log("Related-Products");
+        console.log(result);
+    })
+}

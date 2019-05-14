@@ -28,9 +28,11 @@ exports.product_favorite_list = function(req, res, next){
 exports.product_detail = function(req, res, next){
     
     const id = req.query.id;
-    
+    const code = req.query.code;
+
     console.log("ObjectID:");
     console.log(id);
+    console.log(code);
     //  Product.findOne(id, function(err, result){
     //      if(err){
     //         res.err(err);
@@ -44,6 +46,10 @@ exports.product_detail = function(req, res, next){
         },
         listCategory: function(callback){
             Category.allCategory(callback);
+        },
+
+        relatedProducts: function (callBack) {
+            Product.findRelatedProducts(code, callBack);
         }
     
     },function(err, results) {
@@ -54,7 +60,7 @@ exports.product_detail = function(req, res, next){
         //     return next(err);
         // }
         // Successful, so render.
-        res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory });
+        res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, relatedProducts: results.relatedProducts });
        // res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory});
     });
 
