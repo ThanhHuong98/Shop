@@ -17,7 +17,7 @@ router.get('/', home_controller.index);
 //GET request for list of all Products.
 router.get('/list-product/:id', product_controller.product_list);
 // GET request for one Product
-router.get('/detail-a-product',product_controller.product_detail);
+router.get('/detail-a-product/',product_controller.product_detail);
 // GET request for list of the favorite products
 router.get('pages/love-product', product_controller.product_favorite_list)
 

@@ -1,4 +1,5 @@
 var db = require('../db');
+var ObjectId = require('mongodb').ObjectID;
 
 exports.find = function (id, cb) {
     var collection = db.get().collection('Product');
@@ -9,13 +10,6 @@ exports.find = function (id, cb) {
     });
 }
 
-exports.findOne = function(id, cd) {
-    var collection = db.get().collection('Product');
-    collection.findOne({_id: id}, (err, result)=>{
-        console.log(err, result)
-        //cb(err, result)
-    })
-}
 
 exports.all = function (id, cb) {
     var collection = db.get().collection('Product')
@@ -83,4 +77,14 @@ exports.randomProduct = function(cb){
     // collection.find({}).toArray(function(err, result){
     //         cb(err, result)
     //     })
+}
+
+exports.findOne = function(id, cb) {
+    var collection = db.get().collection('Product');
+
+    collection.find({_id: ObjectId(id) }).toArray(function(err, result){
+        cb(err, result)
+        console.log("Single - Product");
+        console.log(result);
+    })
 }

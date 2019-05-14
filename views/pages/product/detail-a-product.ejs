@@ -1,7 +1,6 @@
 <% include ../../partials/head.ejs %>
-<% include ../../partials/header.ejs %>
+<% include ../../partials/header.ejs %> 
 
-<!-- Detail a product-->
 <!-- Detail a product -->
 <main class="container main-container" data-reactid="108">
     <div class="container--grey" id="container--grey">
@@ -123,10 +122,11 @@
                                         <!-- /react-text --><span></span></div>
                                 </div>
                             </div>
+                            <%singleProduct.forEach(function(product){ %>
                             <div class="col-sm-lg col-sm-5">
                                 <div class="content product-right">
-                                    <div class="rxfigure-body-brand-inlist">Flower</div>
-                                    <div class="rxname">Hoa hồng</div>
+                                    <div class="rxfigure-body-brand-inlist">Mua xuan</div>
+                                    <div class="rxname"><%=product.name%></div>
                                     <div class="clearfix">
                                         <div class="figure-body-rating-star">
                                             <div>
@@ -159,7 +159,7 @@
                                     <div class="clearfix"></div>
                                     <div class="rxprice-container">
                                         <div class="rxprice">
-                                            <!-- react-text: 1932 -->150,000
+                                            <!-- react-text: 1932 --><%=product.price%>
                                             <!-- /react-text -->
                                             <!-- react-text: 1933 -->đ
                                             <!-- /react-text -->
@@ -197,6 +197,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <% }); %>
                             <!-- sản phẩm cùng loại -->
                             <div class="col-sm-lg col-sm-3">
                                 <div class="rx-product-relasted">
