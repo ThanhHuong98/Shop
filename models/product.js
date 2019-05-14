@@ -4,10 +4,19 @@ exports.find = function (id, cb) {
     var collection = db.get().collection('Product');
 
     collection.findOne({ category: "MX" }, (err, result) => {
-        console.log(result)
+        //console.log(result)
         cb(err, result)
     });
 }
+
+exports.findOne = function(id, cd) {
+    var collection = db.get().collection('Product');
+    collection.findOne({_id: id}, (err, result)=>{
+        console.log(err, result)
+        //cb(err, result)
+    })
+}
+
 exports.all = function (id, cb) {
     var collection = db.get().collection('Product')
     // var category = db.get().collection('Category')
@@ -53,4 +62,23 @@ exports.all = function (id, cb) {
             cb(err, result)
         })
     }
+}
+
+//read all products
+exports.allProduct = function(cb) {
+    var collection = db.get().collection('Product');
+    collection.find().toArray(function(err, result){
+        cb(err, result)
+    })
+}
+//Read radom 5 products in listProduct
+exports.randomProduct = function(cb){
+    var collection = db.get().collection('Product');
+    // collection.aggregate([{$sample: {size : 5}}
+    // ]).toArray(function(err, result){
+    //     cb(err, result)
+    // })
+    collection.find({}).toArray(function(err, result){
+            cb(err, result)
+        })
 }

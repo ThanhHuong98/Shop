@@ -18,7 +18,15 @@ exports.product_list = function(req, res, next){
 exports.product_detail = function(req, res, next){
     //todo
      // Successful, so render
-     res.render('pages/product/detail-a-product')
+     const id = req.params.id;
+     
+     Product.findOne(id, function(err, result){
+         if(err){
+            res.err(err);
+         }else{
+            res.render('pages/product/detail-a-product', {singleProduct: result})
+         }
+     })
 }
 
 //Display list of all the favorite products
