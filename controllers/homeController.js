@@ -32,9 +32,11 @@ exports.index = function(req, res, next){
         list2: function(callback){
             Product.randomProduct(callback);
         },
-        // listCategory: function(callback){
-        //     Category.allCategory(callback);
-        // }
+
+        listCategory: function(callback){
+            Category.allCategory(callback);
+        }
+
     },function(err, results) {
         if (err) { return next(err); }
         // if (results.list1 == null && results.list2 == null) { // No results.
@@ -43,6 +45,6 @@ exports.index = function(req, res, next){
         //     return next(err);
         // }
         // Successful, so render.
-        res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2});
+        res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory});
     });
 }
