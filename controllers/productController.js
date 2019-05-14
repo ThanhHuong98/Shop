@@ -39,26 +39,21 @@ exports.product_detail = function(req, res, next){
 
     console.log("ObjectID:");
     console.log(id);
+
     console.log(code);
-    //  Product.findOne(id, function(err, result){
-    //      if(err){
-    //         res.err(err);
-    //      }else{
-    //         res.render('pages/product/detail-a-product', {singleProduct: result})
-    //      }
-    //  })
+
      async.parallel({
         singleProduct: function(callback){
             Product.findOne(id, callback);
         },
         listCategory: function(callback){
             Category.allCategory(callback);
+        },  
+
+        relatedProducts: function(callback){
+            Product.findRelatedProducts(code, callback);
         },
 
-        relatedProducts: function (callBack) {
-            Product.findRelatedProducts(code, callBack);
-        }
-    
     },function(err, results) {
         if (err) { return next(err); }
         // if (results.list1 == null && results.list2 == null) { // No results.
@@ -67,7 +62,7 @@ exports.product_detail = function(req, res, next){
         //     return next(err);
         // }
         // Successful, so render.
-        res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, relatedProducts: results.relatedProducts });
+        res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, relatedProducts: results.relatedProducts});
        // res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory});
     });
 
