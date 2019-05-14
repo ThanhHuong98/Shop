@@ -92,7 +92,6 @@ exports.findOne = function(id, cb) {
 exports.findRelatedProducts = function(code, cb){
 
     var collection = db.get().collection('Product');
-
     collection.find({category: code}).toArray(function(err, result){
         cb(err, result)
         console.log("Related-Products");
