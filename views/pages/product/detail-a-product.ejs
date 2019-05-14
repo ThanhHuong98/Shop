@@ -187,7 +187,7 @@
                                 <div class="rx-product-relasted">
                                     <div class="rx-product-relasted-title">Sản phẩm cùng loại</div>
                                     <%relatedProducts.forEach(function(product){ %>
-                                    <a href="detail-a-product?id=<%=product.id%>&code=<%=product.category%>">
+                                        <a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
                                         <div class="rx-product-relasted-content-post">
                                             <div class="rx-product-relasted-content-post-left"><img class=""
                                                  src="<%=product.image%>"
