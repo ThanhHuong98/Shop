@@ -166,7 +166,7 @@
                         <% list.forEach(function(product){ %>
                             <div class="rx-product-item col-sm-lg col-sm-3 show">
                                 <div class="rx-product-figure">
-                                    <div class="rx-product-figure-header"><a href="/detail-a-product"><img class=""
+                                    <div class="rx-product-figure-header"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>"><img class=""
                                                 src="<%=product.image%>"" alt="" title=""></a>
                                     </div>
                                     <div class="rx-product-figure-body">
@@ -208,7 +208,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="rx-product-action"><a href="/detail-a-product">
+                                    <div class="rx-product-action"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
                                             <div class="rx-action-like"></div>
                                             <div class="rx-action-card"></div>
                                             <div class="rx-action-addcart">Mua ngay</div>

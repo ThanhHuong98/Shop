@@ -9,11 +9,18 @@ var async = require('async');
 exports.product_list = function(req, res, next){
     const id = req.params.id
     //
-    Product.all(id, function(err,result){
+    async.parallel({        
+        listCategory: function(callback){
+            Category.allCategory(callback);
+        },
+        list: function (callBack) {
+            Product.all(id, callBack);
+        }
+    },function(err,result){
         if (err){
             res.err(err);
         }else{
-            res.render('pages/product/list-product', {list: result})
+            res.render('pages/product/list-product', {list: result.list,listCategory:result.listCategory})
         }
     })
 }
