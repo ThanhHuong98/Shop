@@ -2,13 +2,8 @@
   "name": "project",
   "version": "0.0.0",
   "private": true,
-<<<<<<< HEAD
- "scripts": {
-    "start": "node ./bin/www"
-=======
   "scripts": {
-    "start": "nodemon ./bin/www"
->>>>>>> 9f7696e... login register edit-profile bcrypt
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -24,6 +19,5 @@
     "morgan": "~1.9.0",
     "nodemon": "^1.19.1",
     "supervisor": "^0.12.0"
-  },
- 
+  }
 }

@@ -13,15 +13,12 @@ var app = express();
 
 var db = require('./db')
 
-db.connect('mongodb://localhost:27017/Shop', function(err, db) {
+db.connect('mongodb://localhost:27017/ShopDB', function(err, db) {
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)
   } else {
-    //çconsole.log(db, '00000')
-    // app.listen(27017, function() {
       console.log('Connect Mongodb Successfully...')
-    // })
   }
 })
 
