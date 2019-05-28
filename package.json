@@ -2,10 +2,16 @@
   "name": "project",
   "version": "0.0.0",
   "private": true,
+<<<<<<< HEAD
  "scripts": {
     "start": "node ./bin/www"
+=======
+  "scripts": {
+    "start": "nodemon ./bin/www"
+>>>>>>> 9f7696e... login register edit-profile bcrypt
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "cookie-parser": "~1.4.3",
     "cool-ascii-faces": "^1.3.4",
     "debug": "~2.6.9",
@@ -16,6 +22,7 @@
     "mongodb": "^2.2.33",
     "mongoose": "^5.5.7",
     "morgan": "~1.9.0",
+    "nodemon": "^1.19.1",
     "supervisor": "^0.12.0"
   },
  

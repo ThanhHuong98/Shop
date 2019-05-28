@@ -258,6 +258,9 @@ a.mainhead-account-login {
   font-size: 14px;
   margin-bottom: 10px;
 }
+.lk-input-error span{
+  font-size: 14px;
+}
 
 .lk-login-section-title-contact {
   text-align: center;

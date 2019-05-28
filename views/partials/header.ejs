@@ -1,6 +1,7 @@
 <!-- views/partials/header.ejs -->
-    <!-- Header -->
+<!-- Header -->
 </head>
+
 <body>
     <div>
         <div class='main-back-to-top'><span class='mlkicon-Up icon-Up'></span></div>
@@ -10,7 +11,7 @@
                     <div class='mainhead'>
                         <!-- Main-Head navabar-left -->
                         <div class='mainhead-nav-left'>
-                            <div class='tabs-gender tabs-active'><a href="" class='headnavleft__item'>SẢN PHẨM</a></div>
+                            <div class='tabs-gender tabs-active'><a href="/list-product/0" class='headnavleft__item'>SẢN PHẨM</a></div>
                             <div class='tabs-gender'><a href="" class='headnavleft__item'>LIÊN HỆ</a></div>
                             <div class='tabs-gender'><a href="" class='headnavleft__item'>BLOG</a></div>
                         </div>
@@ -20,13 +21,13 @@
                         </a>
                         <!-- cart icon -->
                         <div class='mainhead-nav'>
-                            
+
                             <div class='mainhead-cart'>
                                 <a href="">
                                     <span class='rxico-cart mlkicon-Cart'></span>
                                     <span class='mainhead-cart-number'>1</span>
-                                <!-- <div class='mainhead-cart-popup'> -->
-                                <!-- <div>
+                                    <!-- <div class='mainhead-cart-popup'> -->
+                                    <!-- <div>
                               <div class='cart-popup-header'>Giỏ hàng có 5 sản phẩm</div>
                               <div class='cart-popup-body'>{tempCartDetail}</div>
                                                       <div style="padding: '15px'"> <a href="" ><div class='cart-popup-payment'>Đặt hàng</div></Link> </div>
@@ -34,7 +35,7 @@
                               <div class='cart-popup-header'>Giỏ hàng của bạn</div>
                               <div class='cart-popup-emptytext'>Giỏ hàng đang trống, Hãy tiếp tục lựa chọn sản phẩm</div>                            
                             </div>} -->
-                                <!-- </div> } -->
+                                    <!-- </div> } -->
                                 </a>
                             </div>
                             <!-- Love icon -->
@@ -46,7 +47,7 @@
                             </div>
                             <!-- user icon -->
                             <div class='mainhead-account'>
-                                <a href="" class='mainhead-account-login'>
+                                <a href="/login" class='mainhead-account-login'>
                                     <div class='rxico-account mlkicon-Profile'></div>
                                 </a>
                                 <!-- : <a href="" class='mainhead-account-login'><div class='rxico-account mlkicon-Profile'></div></Link> } -->
@@ -87,16 +88,16 @@
             <div class="nav-wrap-hidden " data-reactid="42"></div>
             <div class="rxmainnav-toogle-user " data-reactid="43">
                 <div class="rx-mobile-show mainhead-mainmenu " data-reactid="44">
-                    <div class="tabs-gender-mobile rx-active" data-reactid="45"><a href=""
-                            data-reactid="46">Sản phẩm</a></div>
-                    <div class="tabs-gender-mobile" data-reactid="47"><a href="" data-reactid="48">Liên hệ</a>
+                    <div class="tabs-gender-mobile rx-active" data-reactid="45"><a href="" data-reactid="46">Sản
+                            phẩm</a></div>
+                    <div class="tabs-gender-mobile" data-reactid="47"><a href="/contact" data-reactid="48">Liên hệ</a>
                     </div>
-                    <div class="tabs-gender-mobile" data-reactid="49"><a href="" data-reactid="50">Tin tức</a>
+                    <div class="tabs-gender-mobile" data-reactid="49"><a href="/blog" data-reactid="50">Tin tức</a>
                     </div>
                 </div>
                 <div class="mainhead-account" data-reactid="51">
                     <div class="rxico-account icon-user" data-reactid="52"></div><a class="mainhead-account-login"
-                        href="" data-reactid="53">
+                        href="/login" data-reactid="53">
                         <!-- react-text: 54 -->Đăng nhập
                         <!-- /react-text --><i data-reactid="55">Khách hàng</i></a>
                 </div>
@@ -109,7 +110,8 @@
                     <ul class="mlk-primary-nav  " data-reactid="60">
                         <!-- Categories1 -->
                         <%listCategory.forEach(function(category){ %>
-                        <li class="nav-menu-item "><a class="nav-menu-item-hover " href= "/list-product/<%=category._id%>"</a><%=category.name%></a><span
+                        <li class="nav-menu-item "><a class="nav-menu-item-hover "
+                                href="/list-product/<%=category._id%>"><%=category.name%></a><span
                                 class="btn-menu-right mlkicon-Right "></span>
                             <div>
                                 <div class="dropdown-content ">
@@ -120,26 +122,25 @@
                                             style="background-image: url('<%=category.image%>');">
                                         </div>
                                         <div class="image-category-title"><%=category.name%></div>
-                                        <div class="image-category-link"><a href= "">Shop Now</a></div>
+                                        <div class="image-category-link"><a href="">Shop Now</a></div>
                                     </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title" href= "">Hoa hồng</a>
+                                    <div class="block-child-content"><a class="mlk-nav-title" href="">Hoa hồng</a>
                                         <div>
                                             <div class="dropdown-child-content">
-                                                <div><a class="mlk-nav-title-child" href= "">Hoa hồng đỏ</a></div>
-                                                <div><a class="mlk-nav-title-child" href= "">Hoa hồng tím</a></div>
-                                                <div><a class="mlk-nav-title-child" href= "">Hoa hồng xanh</a></div>
+                                                <div><a class="mlk-nav-title-child" href="">Hoa hồng đỏ</a></div>
+                                                <div><a class="mlk-nav-title-child" href="">Hoa hồng tím</a></div>
+                                                <div><a class="mlk-nav-title-child" href="">Hoa hồng xanh</a></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href= "">Hoa ly</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                        href= "">Hoa cát tường</a></div>
+                                    <div class="block-child-content"><a class="mlk-nav-title" href="">Hoa ly</a></div>
+                                    <div class="block-child-content"><a class="mlk-nav-title" href="">Hoa cát tường</a>
+                                    </div>
                                 </div>
                             </div>
                         </li>
                         <% }); %>
-                         
+
                         <!-- Add more categories ... -->
                         <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/quan-">Quần </a><span
                                 class="btn-menu-right mlkicon-Right "></span>
@@ -255,12 +256,13 @@
                             </div>
                         </li> -->
                     </ul>
-                      <!-- Option languages: vi -->
-                     <div class="nav-menu-lang" data-reactid="61"><span class="mlkicon-Vn" data-reactid="62"><span
-                                class="path1" data-reactid="63"></span><span class="path2" data-reactid="64"></span></span>VN(vnd)
+                    <!-- Option languages: vi -->
+                    <div class="nav-menu-lang" data-reactid="61"><span class="mlkicon-Vn" data-reactid="62"><span
+                                class="path1" data-reactid="63"></span><span class="path2"
+                                data-reactid="64"></span></span>VN(vnd)
                     </div>
                 </nav>
-                 <!-- Menu icon -->
+                <!-- Menu icon -->
                 <!-- <div class="rx-mobile-show mobile-nav-block-user" data-reactid="66">
                     <div data-reactid="67"><span class="mlkicon-Profile" data-reactid="68"></span><a href="/login"
                             data-reactid="69">Đăng nhập</a>
@@ -270,7 +272,7 @@
                     <div data-reactid="75"><span class="mlkicon-Order" data-reactid="76"></span><a
                             href="/customer/order" data-reactid="77">Đơn hàng</a></div>
                 </div> -->
-                
+
                 <!-- <div class="rx-mobile-show mobile-nav-block-lang" data-reactid="78">
                     <div data-reactid="79"><span class="mlkicon-Vn mlkicon-Vn-mobile" data-reactid="80"><span
                                 class="path1" data-reactid="81"></span><span class="path2"

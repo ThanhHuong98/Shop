@@ -1,4 +1,5 @@
 var Product = require('../models/order');
+var Category = require('../models/category')
 //add more model if need
 
 
@@ -15,7 +16,11 @@ exports.order_checkout = function(req, res, next){
 }
 
 exports.order_trackOrder = function(req, res, next){
-    //todo
-     // Successful, so render
-     res.render('pages/order/trackOrder')
+    var id = req.params.id;
+    Category.allCategory(function (err, cb) {
+        if (err) {
+            return next(err);
+        }
+        res.render('pages/order/trackOrder', { listCategory: cb })
+    })
 }

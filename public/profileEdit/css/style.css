@@ -785,36 +785,33 @@ section
 
 #content{
     width: 100%;
-    margin-top: 120px;
-    margin-bottom: 100px;
+    margin-top: 55px;
+    margin-bottom: 55px;
 }
 #account-box{
     margin-left: 100px;
     background-color: #FFFFFF;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
 	font-size: 14px;
-	width: 400px;
+	width: 300px;
 }
 #name{
-    padding-top: 23px;
-    padding-bottom: 23px;
-    padding-left: 36px;
+    padding: 15px 30px;
     font-weight: bold;    
     background-color: #324041;
 }
 #name p{    
     color:white;
-    font-size: 20px;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 .option{
-    padding-top: 23px;
-    padding-bottom: 23px;
-    padding-left: 36px;
+    padding: 15px 30px;
     border-bottom: 1px solid #E5E5E5;
 }
 .option p{
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
 }
 #last{
     border: none;
@@ -823,11 +820,10 @@ section
     background-color: #F5F6FA;
 }
 #content-box{
-    width: 595px;
-    height: 715px;
+    width: 534px;
     background-color: #FFFFFF;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
-    padding: 51px;    
+    padding: 20px 30px;    
 }
 .input-row{
     display: flex;
@@ -842,11 +838,11 @@ section
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
 	padding: 5px;
-	font-size: 16px;
+	font-size: 14px;
 }
 .input-title{
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
 }
 #disabled{
     background-color: #F1F1F1;
@@ -883,14 +879,13 @@ section
     border: 1px solid #D7D8DD;
 }
 .button {
-    width: 180px;
-    height: 50px;
-    font-size: 20px;
+    width: 156px;
+    height: 42px;
+    font-size: 14px;
     font-weight: 500;
     color: white;
     background-color: #313F40;
 	border: none;
-	margin-top: 30px;
 }
 #input-row-last{
     display: flex;

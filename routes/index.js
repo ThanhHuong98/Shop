@@ -33,20 +33,24 @@ router.get('/blog-content',blog_controller.blog_detail);
 
 // ACCOUNT SECTION
 // register
-router.get('/register',account_controller.account_register_post);
+router.get('/register',account_controller.account_register_get);
+router.post('/register',account_controller.account_register_post);
 // login
 router.get('/login',account_controller.account_login_get);
+router.post('/login',account_controller.account_login_post)
 // forget - password
 router.get('/forget-password',account_controller.account_forget_password_post);
 // edit - profile
-router.get('/edit-profile',account_controller.account_edit_profile_post);
+router.get('/edit-profile/:id',account_controller.account_edit_profile_get);
+router.post('/edit-profile/:id',account_controller.account_edit_profile_post);
 
 // ORDER SECTION
 router.get('/cart',order_controller.order_cart)
 
 router.get('/checkout',order_controller.order_checkout)
 
-router.get('/trackorder',order_controller.order_trackOrder)
-
-
+router.get('/trackorder/:id',order_controller.order_trackOrder)
+//CHECK AVAILABILITY
+router.post('/check-email',account_controller.check_email)
+router.post('/check-pass',account_controller.check_pass)
 module.exports = router;

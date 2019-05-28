@@ -776,7 +776,7 @@ section
 *********************************/
 .content{
     width: 100%;
-    margin-top: 150px;
+    margin-top: 50px;
     padding: 120px 58px;
 	background: #FFFFFF;
 	padding-top: 21px;
@@ -858,10 +858,10 @@ section
 	box-sizing: border-box;
 }
 #history{
-    max-width: 100%;
+	/*max-width: 100%;*/
+	width: 400px;
     height: 100%;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
-	padding: 29px 39px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -872,9 +872,6 @@ section
     font-size: 20px;
 	margin-bottom: 33px;
 	
-}
-#history p{
-    margin-bottom: 35px;
 }
 .date{
 	font-weight: 500;

@@ -5,7 +5,6 @@ exports.find = function (id, cb) {
     var collection = db.get().collection('Product');
 
     collection.findOne({ category: "MX" }, (err, result) => {
-        //console.log(result)
         cb(err, result)
     });
 }
