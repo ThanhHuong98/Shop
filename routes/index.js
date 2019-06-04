@@ -65,10 +65,13 @@ router.get('/forget-password', account_controller.account_forget_password_post);
 // edit - profile
 
 
-router.get('/edit-profile/:id', ensureAuthenticated, account_controller.account_edit_profile_get);
+router.get('/edit-profile/:id',account_controller.account_edit_profile_get);
 
 router.post('/edit-profile/:id', account_controller.account_edit_profile_post);
 
+router.get('/edit-profile', ensureAuthenticated, function(req,res){
+    res.redirect('/edit-profile/'+req.user._id);
+});
 // ORDER SECTION
 router.get('/cart', order_controller.order_cart)
 
