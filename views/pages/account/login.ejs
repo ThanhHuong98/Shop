@@ -16,16 +16,17 @@
                 <form method="POST" action="/login" id="login-form"> 
                     <div>
                         <div class='clearfix'>
-                            <div class='lk-input-error' id="login-alert"><% if (locals.error) { %><%=error%><% } %></div>
+                            <div class='lk-input-error' id="login-alert"><%= typeof error != 'undefined' ? error : '' %></div>
+                            <div class='lk-input-error' id="login-alert" style="color: #0abde3"><%= typeof msg != 'undefined' ? msg : '' %></div>
                         </div>
                         <div class='lk-input-group-row'>
                             <div class='lk-cart-page-customer-name'>Email</div>
-                            <input tabIndex='1' type='email' name='email' class='fullwidth-input' id="email-input"/>
+                            <input tabIndex='1' type='email' name='email' class='fullwidth-input' id="email-input" value="<%= typeof email != 'undefined' ? email : '' %>"/>
                         </div>
 
                         <div class='lk-input-group-row'>
                             <div class='lk-cart-page-customer-phone'>Mật khẩu</div>
-                            <input tabIndex='2' type='password' name='password' class='fullwidth-input' id="password-input"/>
+                            <input tabIndex='2' type='password' name='password' class='fullwidth-input' id="password-input" value="<%= typeof password != 'undefined' ? password : '' %>"/>
                         </div>
 
                     </div><br/>

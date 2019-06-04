@@ -26,7 +26,7 @@ exports.account_login_post = function (req, res, next) {
                 res.render('pages/account/login',{ listCategory: callback, error: s});                
             }else 
             {
-                Account.validatePass(cb._id,pass,function(rs){
+                Account.validatePass(email,pass,function(rs){
                     if(!rs)
                     {
                         var s = "Email hoặc mật khẩu không hợp lệ";
@@ -41,6 +41,8 @@ exports.account_login_post = function (req, res, next) {
         });
     })
 }
+
+
 
 exports.account_register_get = function (req, res, next) {
     Category.allCategory(function (err, cb) {
@@ -67,7 +69,8 @@ exports.account_register_post = function (req, res, next) {
                 res.render('pages/account/register',{ listCategory: callback, error: s});                
             }else { 
                 Account.add(email, pass,name,phone,address, function(rs){
-                    res.redirect('/edit-profile/'+rs._id); 
+                    req.flash('msg', 'Ban đã đăng ký thành công và có thể đăng nhập')
+                    res.redirect('/login'); 
                 })                 
             }
         });
@@ -113,9 +116,9 @@ exports.check_email= function(req, res, next){
 }
 
 exports.check_pass =function(req,res,next){
-    var id = req.body.id;
+    var id = req.body.email;
     var pass = req.body.pass;
-    Account.validatePass(id,pass,function(cb){
+    Account.validatePass(email,pass,function(cb){
         if(!cb){
             res.status(400).send("Mật khẩu cũ không hợp lệ")
         }else{
@@ -124,4 +127,7 @@ exports.check_pass =function(req,res,next){
     })
 }
 
-
+exports.logout = function(req,res,next){
+    req.logout();
+    res.redirect('/');
+}

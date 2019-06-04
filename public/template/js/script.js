@@ -197,6 +197,7 @@ $(document).ready(function () {
                     url: "/check-pass",
                     data: {
                         id: $("#edit-profile-submit-btn").data("id"),
+                        email: $("#edit-profile-submit-btn").data("email"),
                         pass: $("#edit-old-pass-input").val(),
                     },
                     type: "POST",

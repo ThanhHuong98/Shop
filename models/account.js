@@ -24,11 +24,12 @@ exports.findID = function (id, cb) {
 }
 exports.add = function (email, pass, name, phone, address, cb) {
     var collection = db.get().collection("Customer");
+    var role = 0;
     bcrypt.hash(pass,saltRounds,function(error,hash){
         collection.insert({
             email: email,
             pass: hash,
-            role: 0,
+            role: role,
             name: name,
             phone: phone,
             address: address
@@ -57,9 +58,9 @@ exports.checkEmail = function (email, cb) {
         }
     })
 }
-exports.validatePass = function (id, pass, cb) {
+exports.validatePass = function (email, pass, cb) {
     var collection = db.get().collection("Customer");
-    collection.findOne({ _id: ObjectId(id)}, function (err, user) {
+    collection.findOne({email: email}, function (err, user) {
         bcrypt.compare(pass,user.pass,function(error,rs){
             cb(rs);
         })
