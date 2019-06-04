@@ -22,7 +22,7 @@ var usersRouter = require('./routes/users');
 
 var db = require('./db')
 
-db.connect('mongodb://localhost:27017/ShopDB', function(err, db) {
+db.connect('mongodb://admin:1234@floralcluster-shard-00-00-g48mu.mongodb.net:27017,floralcluster-shard-00-01-g48mu.mongodb.net:27017,floralcluster-shard-00-02-g48mu.mongodb.net:27017/test?ssl=true&replicaSet=FloralCluster-shard-0&authSource=admin&retryWrites=true', function(err, db) {
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)
