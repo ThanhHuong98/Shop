@@ -350,10 +350,10 @@
                                             
                                             <div class="lk-box-product-reviews-main">
                                                     <%singleProduct.forEach(function(product){ %>
-                                                <div class="lk-box-product-reviews-main-rating">
+                                                <div class="lk-box-product-reviews-main-rating" data-id="<%=product._id%>">
                                                     <div class="lk-box-product-reviews-img"><img class="lk-img-rating"
                                                             src="<%=product.image%>"
-                                                            alt="" title="{this.state.infodata.name}"></div>
+                                                            alt=""></div>
                                                     <div class="lk-box-product-reviews-main-inforating">
                                                         <div class="cart-page-customer-name"><%=product.name%></div>
                                                         <div class="cart-page-customer-price-review">
@@ -397,50 +397,50 @@
                                                 </div>
                                                 <% }); %>
                                                 <!-- FROM ĐÁNH GIÁ -->
-                                                <div class="lk-box-product-reviews-main-formrating">
-                                                    <div class="lk-box-product-reviews-title lk-margin-bottom">Gửi đánh
-                                                        giá của bạn</div>
-                                                    <div class="clearfix lk-margin-bottom">
-                                                        <div class="figure-body-rating-star">
-                                                            <div>
-                                                                <div class="rx-star-big"></div>
-                                                            </div>
-                                                            <div>
-                                                                <div class="rx-star-big"></div>
-                                                            </div>
-                                                            <div>
-                                                                <div class="rx-star-big"></div>
-                                                            </div>
-                                                            <div>
-                                                                <div class="rx-star-big"></div>
-                                                            </div>
-                                                            <div>
-                                                                <div class="rx-star-big"></div>
+                                                    <form method="POST" action="/detail-a-product" id="myForm" class="lk-box-product-reviews-main-formrating"
+                                                    style="background-color: transparent">
+                                                        <div class="lk-box-product-reviews-title lk-margin-bottom">Gửi đánh giá của bạn</div>
+                                                        <div class="clearfix lk-margin-bottom">
+                                                            <!-- đánh giá ngôi sao -->
+                                                            <div class="figure-body-rating-star">
+                                                                <div>
+                                                                    <div class="rx-star-big"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star-big"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star-big"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star-big"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star-big"></div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="lk-margin-bottom">
-                                                            <div class="cart-page-customer-name fontsize-15">Họ tên người đánh giá
-                                                                </div><input type="text" tabindex="1" name="name"
-                                                                class="fullwidth-input" value="Nguyễn Văn A">
-                                                    <div class="lk-margin-bottom">
-                                                        <div class="cart-page-customer-name fontsize-15">Tiêu đề đánh
-                                                            giá</div><input type="text" tabindex="1" name="name"
-                                                            class="fullwidth-input" value="Rất tốt">
-                                                    </div>
-                                                    <div class="lk-margin-bottom">
-                                                        <div class="cart-page-customer-name fontsize-15">Nhận xét sản
-                                                            phẩm</div><textarea tabindex="2" name="name"
-                                                            class="fullwidth-input" rows="5"
-                                                            placeholder="Nhận xét của bạn về sản phẩm này"></textarea>
-                                                    </div>
-                                                    <div class="lk-box-product-reviews-botton">
-                                                        <div tabindex="3" class="lk-reviews-product-submit">Lưu thay đổi
+                                                        <div class="lk-margin-bottom">
+                                                                <div class="cart-page-customer-name fontsize-15">Họ tên người đánh giá</div>
+                                                                <input type="text" tabindex="1" id ="name" name="name"
+                                                                    class="fullwidth-input" placeholder="Nguyễn Văn A">
+                                                        <div class="lk-margin-bottom">
+                                                            <div class="cart-page-customer-name fontsize-15">Tiêu đề đánh giá</div>
+                                                            <input type="text" tabindex="1" id="title" name="title"
+                                                                class="fullwidth-input" value="Rất tốt">
+                                                        </div>
+                                                        <div class="lk-margin-bottom">
+                                                            <div class="cart-page-customer-name fontsize-15">Nhận xét sản phẩm</div>
+                                                            <textarea tabindex="2" id ="comment" name="comment"
+                                                                class="fullwidth-input" rows="5"
+                                                                placeholder="Nhận xét của bạn về sản phẩm này"></textarea>
+                                                        </div>
+                                                        <div class="lk-box-product-reviews-botton">
+                                                            <button id="btnSubmit" tabindex="3" class="lk-reviews-product-submit" type="submit">Lưu thay đổi
+                                                            </button>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            
+                                                    </form>
                                         </div>
                                     </div>
                                     <div>
@@ -466,13 +466,14 @@
                                                 </div>
                                             </div>
                                             <!-- 1 NHẬN XÉT TỪ NGƯỜI MUA -->
+                                            <%singleProduct.forEach(function(product){ %>
                                             <div class="lk-reviews-line-main">
                                                 <div class="lk-reviews-line-main-body">
                                                     <div class="lk-reviews-main-title-select">
                                                         <div class="lk-position-img-icon-account">
                                                             <div class="figure-body-account mlkicon-Profile"></div>
                                                         </div>
-                                                        <div class="lk-reviews-line-body-name">Anonymous</div>
+                                                        <div class="lk-reviews-line-body-name"><%=product.name%></div>
                                                         <div class="lk-reviews-line-body-time">2019-04-22 07:33:40</div>
                                                     </div>
                                                     <div class="lk-reviews-line-start">
@@ -494,20 +495,21 @@
                                                                     <div class="rx-star"></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="lk-reviews-line-header-title">Rất tốt</div>
+                                                            <div class="lk-reviews-line-header-title"><%=product.name%></div>
                                                         </div>
                                                     </div>
                                                     <div class="lk-reviews-line-start">
-                                                        <div class="lk-reviews-line-content"><span>Hoa đẹp nhưng giá
-                                                                khá cao,
-                                                                Giao hàng hơi trễ so với thời gian hẹn</span></div>
+                                                        <div class="lk-reviews-line-content"><span><%=product.name%>
+                                                                </span></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="admin-table-pagination admin-pagin-right">
+                                            <% }); %>
+                                            <!-- Phân trang -->
+                                            <!-- <div class="admin-table-pagination admin-pagin-right">
                                                 <div class="pagin-curr">1</div>
                                                 <div class="pagin-next"><i class="icon-arrow-right"></i></div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -581,9 +583,18 @@
         </div>
     </div>
     </div>
+    
 </main>
 <!--  -->
-
 <!--  -->
+<!-- CORE JQUERY  -->
+<script src="javascripts/jquery-1.10.2.js"></script>
+
+<script>
+        $("#btnSubmit").click(function(){
+            var id = $(this).data('id');
+            $("#myForm").attr('action','/detail-a-product?id=' +id);
+        });
+</script>
 
 <% include ../../partials/footer.ejs %>

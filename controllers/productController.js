@@ -34,13 +34,9 @@ exports.product_favorite_list = function(req, res, next){
 // Display detail page for a specific product.
 exports.product_detail = function(req, res, next){
     
-    const id = req.query.id;
+    //const id = req.query.id;
     const code = req.query.code;
-
-    console.log("ObjectID:");
-    console.log(id);
-
-    console.log(code);
+    const id = "5cd81e2ee7b5fd028a1eb697";
 
      async.parallel({
         singleProduct: function(callback){
@@ -52,19 +48,34 @@ exports.product_detail = function(req, res, next){
 
         relatedProducts: function(callback){
             Product.findRelatedProducts(code, callback);
-        },
+        }
+        
+        // listComment: function(callBack){
+        //    // Product.allComment(id, callBack);
+        // }
 
     },function(err, results) {
         if (err) { return next(err); }
-        // if (results.list1 == null && results.list2 == null) { // No results.
-        //     var err = new Error('Book not found');
-        //     err.status = 404;
-        //     return next(err);
-        // }
-        // Successful, so render.
         res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, relatedProducts: results.relatedProducts});
-       // res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory});
     });
+}
 
+exports.post_comment_product = function(req, res, next){
+    
+    //const id = req.body.id;
+    const id = "5cd81e2ee7b5fd028a1eb697";
+
+    const name_user = req.body.name;
+    const title = req.body.title;
+    const content = req.body.comment;
+
+    console.log("ObjectID comment:");
+    console.log(id);
+    console.log("from nhan xet", name_user +" " + title +" " + content)
+    
+    Product.saveComment(id, name_user, title, content, function(err, result){
+        if(err) {res.err(err);}
+        res.redirect('/');
+        })
 
 }

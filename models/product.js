@@ -81,15 +81,46 @@ exports.findOne = function(id, cb) {
         cb(err, result)
         console.log("Single - Product");
         console.log(result);
+        console.log(result[0].comment[0].name_user);
+        console.log(result[0].comment[1].name_user);
+
     })
 }
+
+exports.allComment = function(id, cb) {
+    var collection = db.get().collection('Product');
+    collection.find({_id: ObjectId(id)}).toArray(function(err, result){
+        var listComment = result[0].comment;
+        cb(err, listComment)
+
+    })  
+}
+
+
 
 exports.findRelatedProducts = function(code, cb){
 
     var collection = db.get().collection('Product');
     collection.find({category: code}).toArray(function(err, result){
         cb(err, result)
-        console.log("Related-Products");
-        console.log(result);
     })
+}
+
+exports.saveComment=function(id, name_user, title, content, cb){
+    var collection = db.get().collection('Product');
+    var comment = {name_user,
+        title,
+        content};
+
+        collection.updateOne({_id : ObjectId(id)}, {
+            $push: {
+                comment:{
+                    name_user,
+                    title,
+                    content
+                }
+            }
+        }, function(err, result){
+            cb(err, result);
+        });
 }
