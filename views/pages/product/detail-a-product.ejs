@@ -1,5 +1,5 @@
 <% include ../../partials/head.ejs %>
-<% include ../../partials/header.ejs %> 
+<% include ../../partials/header.ejs %>
 
 <!-- Detail a product -->
 <main class="container main-container" data-reactid="108">
@@ -41,33 +41,27 @@
                                             <div class="Slider-inner">
                                                 <div class="Slider-single rx-slider-custom-single"
                                                     style="width: 700%; transform: translateX(0%);">
-                                                    <div class="rx-thumb"><img class=""
-                                                        src="" alt=""
-                                                            title="Hoa hồng"></div>
-                                                    <div class="rx-thumb"><img class=""
-                                                        src=" "
-                                                            alt="" title="Hoa hồng"></div>
-                                                    <div class="rx-thumb"><img class=""
-                                                        src=" "
-                                                            alt="" title="Hoa hồng"></div>
-                                                    <div class="rx-thumb"><img class=""
-                                                        src=" "
-                                                            alt="" title="Hoa hồng"></div>
-                                                    <div class="rx-thumb"><img class=""
-                                                        src=" "
-                                                            alt="" title="Hoa hồng"></div>
-                                                    <div class="rx-thumb"><img class=""
-                                                        src=" "
-                                                            alt="" title="Hoa hồng"></div>
-                                                    <div class="rx-thumb"><img class=""
-                                                        src=" "
-                                                            alt="" title="Hoa hồng"></div>
+                                                    <div class="rx-thumb"><img class="" src="" alt="" title="Hoa hồng">
+                                                    </div>
+                                                    <div class="rx-thumb"><img class="" src=" " alt="" title="Hoa hồng">
+                                                    </div>
+                                                    <div class="rx-thumb"><img class="" src=" " alt="" title="Hoa hồng">
+                                                    </div>
+                                                    <div class="rx-thumb"><img class="" src=" " alt="" title="Hoa hồng">
+                                                    </div>
+                                                    <div class="rx-thumb"><img class="" src=" " alt="" title="Hoa hồng">
+                                                    </div>
+                                                    <div class="rx-thumb"><img class="" src=" " alt="" title="Hoa hồng">
+                                                    </div>
+                                                    <div class="rx-thumb"><img class="" src=" " alt="" title="Hoa hồng">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- CHI TIẾT 1 SẢN PHẨM -->
                             <%singleProduct.forEach(function(product){ %>
                             <div class="col-sm-lg col-sm-4" id="detail">
                                 <div class="product-left-img">
@@ -92,9 +86,8 @@
                                             <div class="Slider-single rx-slider-custom-single"
                                                 style="width: 700%; transform: translateX(0%);">
                                                 <!-- Add thumb -->
-                                                <div class="rx-thumb"><img class=""
-                                                    src="<%=product.image%>"
-                                                        alt="" title="Hoa hồng"></div>
+                                                <div class="rx-thumb"><img class="" src="<%=product.image%>" alt=""
+                                                        title="Hoa hồng"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +99,6 @@
                                         <!-- /react-text --><span></span></div>
                                 </div>
                             </div>
-                           
                             <div class="col-sm-lg col-sm-5">
                                 <div class="content product-right">
                                     <div class="rxfigure-body-brand-inlist"><%=product.category%></div>
@@ -182,416 +174,404 @@
                                 </div>
                             </div>
                             <% }); %>
-                            <!-- sản phẩm cùng loại -->
+                            <!-- SẢN PHẨM CÙNG LOẠI -->
                             <div class="col-sm-lg col-sm-3">
                                 <div class="rx-product-relasted">
                                     <div class="rx-product-relasted-title">Sản phẩm cùng loại</div>
                                     <%relatedProducts.forEach(function(product){ %>
-                                        <a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
+                                    <a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
                                         <div class="rx-product-relasted-content-post">
                                             <div class="rx-product-relasted-content-post-left"><img class=""
-                                                 src="<%=product.image%>"
-                                                  alt="" title=" "></div>
+                                                    src="<%=product.image%>" alt="" title=" "></div>
                                             <div class="rx-product-relasted-content-post-right">
                                                 <div class="rx-product-relasted-content-post-title"><%=product.name%>
-                                                    </div>
-                                                    <div class="rx-product-relasted-content-post-price">
-                                                        <!-- react-text: 2180 --> <%=product.price%>
-                                                        <!-- /react-text -->
-                                                        <!-- react-text: 2181 -->đ
-                                                        <!-- /react-text --><span></span></div>
                                                 </div>
+                                                <div class="rx-product-relasted-content-post-price">
+                                                    <!-- react-text: 2180 --> <%=product.price%>
+                                                    <!-- /react-text -->
+                                                    <!-- react-text: 2181 -->đ
+                                                    <!-- /react-text --><span></span></div>
                                             </div>
-                                        </a>
+                                        </div>
+                                    </a>
                                     <% }); %>
-                                        <!--<a href="">
-                                            <div class="rx-product-relasted-content-post">
-                                                <div class="rx-product-relasted-content-post-left"><img class=""
-                                                    src="/template/images/products/product-1.png"
-                                                        alt="" title=" "></div>
-                                                <div class="rx-product-relasted-content-post-right">
-                                                    <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                    </div>
-                                                    <div class="rx-product-relasted-content-post-price">
-                                                        &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                        &lt;!&ndash; /react-text &ndash;&gt;
-                                                        &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                        &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="">
-                                                <div class="rx-product-relasted-content-post">
-                                                    <div class="rx-product-relasted-content-post-left"><img class=""
-                                                        src="/template/images/products/product-1.png"
-                                                            alt="" title=" "></div>
-                                                    <div class="rx-product-relasted-content-post-right">
-                                                        <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                        </div>
-                                                        <div class="rx-product-relasted-content-post-price">
-                                                            &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                            &lt;!&ndash; /react-text &ndash;&gt;
-                                                            &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                            &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="">
-                                                    <div class="rx-product-relasted-content-post">
-                                                        <div class="rx-product-relasted-content-post-left"><img class=""
-                                                            src="/template/images/products/product-1.png"
-                                                                alt="" title=" "></div>
-                                                        <div class="rx-product-relasted-content-post-right">
-                                                            <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                            </div>
-                                                            <div class="rx-product-relasted-content-post-price">
-                                                                &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                &lt;!&ndash; /react-text &ndash;&gt;
-                                                                &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="">
-                                                        <div class="rx-product-relasted-content-post">
-                                                            <div class="rx-product-relasted-content-post-left"><img class=""
-                                                                src="/template/images/products/product-1.png"
-                                                                    alt="" title=" "></div>
-                                                            <div class="rx-product-relasted-content-post-right">
-                                                                <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                                </div>
-                                                                <div class="rx-product-relasted-content-post-price">
-                                                                    &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                    &lt;!&ndash; /react-text &ndash;&gt;
-                                                                    &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                    &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="">
-                                                            <div class="rx-product-relasted-content-post">
-                                                                <div class="rx-product-relasted-content-post-left"><img class=""
-                                                                    src="/template/images/products/product-1.png"
-                                                                        alt="" title=" "></div>
-                                                                <div class="rx-product-relasted-content-post-right">
-                                                                    <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                                    </div>
-                                                                    <div class="rx-product-relasted-content-post-price">
-                                                                        &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                        &lt;!&ndash; /react-text &ndash;&gt;
-                                                                        &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                        &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="">
-                                                                <div class="rx-product-relasted-content-post">
-                                                                    <div class="rx-product-relasted-content-post-left"><img class=""
-                                                                        src="/template/images/products/product-1.png"
-                                                                            alt="" title=" "></div>
-                                                                    <div class="rx-product-relasted-content-post-right">
-                                                                        <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                                        </div>
-                                                                        <div class="rx-product-relasted-content-post-price">
-                                                                            &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                            &lt;!&ndash; /react-text &ndash;&gt;
-                                                                            &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                            &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="">
-                                                                    <div class="rx-product-relasted-content-post">
-                                                                        <div class="rx-product-relasted-content-post-left"><img class=""
-                                                                            src="/template/images/products/product-1.png"
-                                                                                alt="" title=" "></div>
-                                                                        <div class="rx-product-relasted-content-post-right">
-                                                                            <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                                            </div>
-                                                                            <div class="rx-product-relasted-content-post-price">
-                                                                                &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                                &lt;!&ndash; /react-text &ndash;&gt;
-                                                                                &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                                &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                                <a href="">
-                                                                        <div class="rx-product-relasted-content-post">
-                                                                            <div class="rx-product-relasted-content-post-left"><img class=""
-                                                                                src="/template/images/products/product-1.png"
-                                                                                    alt="" title=" "></div>
-                                                                            <div class="rx-product-relasted-content-post-right">
-                                                                                <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                                                </div>
-                                                                                <div class="rx-product-relasted-content-post-price">
-                                                                                    &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                                    &lt;!&ndash; /react-text &ndash;&gt;
-                                                                                    &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                                    &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                    <a href="">
-                                                                            <div class="rx-product-relasted-content-post">
-                                                                                <div class="rx-product-relasted-content-post-left"><img class=""
-                                                                                    src="/template/images/products/product-1.png"
-                                                                                        alt="" title=""></div>
-                                                                                <div class="rx-product-relasted-content-post-right">
-                                                                                    <div class="rx-product-relasted-content-post-title">Hoa mai vàng
-                                                                                    </div>
-                                                                                    <div class="rx-product-relasted-content-post-price">
-                                                                                        &lt;!&ndash; react-text: 2180 &ndash;&gt; 100 000
-                                                                                        &lt;!&ndash; /react-text &ndash;&gt;
-                                                                                        &lt;!&ndash; react-text: 2181 &ndash;&gt;đ
-                                                                                        &lt;!&ndash; /react-text &ndash;&gt;<span></span></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </a>-->
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-nopad-col product-detail-block" id="desc">
-                        <div class="row row-nopad-col rx-pad-30">
-                            <div class="col-md-6 rx-product-desc-col">
-                                <div class="rx-product-desc-col-name">Mô tả sản phẩm</div>
-                                <div>
-                                    <p>Hoa hồng tươi mới</p>
-
-                                    <p>Sử dụng trong dịp lễ Valentin<br>
-                                        <br>
-                                        Chất lượng sản phẩm tốt, hoa tươi sử dụng được từ 5 -7 ngày</p>
+                        <!-- MÔ TẢ SẢN PHẨM -->
+                        <div class="row row-nopad-col product-detail-block" id="desc">
+                            <div class="row row-nopad-col rx-pad-30">
+                                <div class="col-md-6 rx-product-desc-col">
+                                    <div class="rx-product-desc-col-name">Mô tả sản phẩm</div>
+                                    <div></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-nopad-col product-detail-block" id="review">
-                        <div class="row row-nopad-col rx-pad-30" style="width: 100%;">
-                            <div class="col-sm col-md-12">
-                                <div>
-                                    <div class="lk-product-reviews-title"></div>
-                                    <div class="lk-reviews-start-main">
-                                        <div class="lk-reviews-progress-start-position">
-                                            <div class="lk-reviews-start">
-                                                <div class="lk-reviews-start-title">Đánh giá trung bình</div>
-                                                <div class="lk-reviews-start-divice">
-                                                    <!-- react-text: 2141 -->0
-                                                    <!-- /react-text -->
-                                                    <!-- react-text: 1977 -->/5
-                                                    <!-- /react-text -->
-                                                </div>
-                                                <div class="lk-reviews-start-icon clearfix">
-                                                    <div>
-                                                        <div class="rx-star-off-big"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="rx-star-off-big"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="rx-star-off-big"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="rx-star-off-big"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="rx-star-off-big"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="lk-reviews-start-command">
-                                                    <!-- react-text: 1990 -->(
-                                                    <!-- /react-text -->
-                                                    <!-- react-text: 2142 -->0
-                                                    <!-- /react-text -->
-                                                    <!-- react-text: 1991 -->
-                                                    <!-- /react-text -->
-                                                    <!-- react-text: 1993 --> nhận xét)
-                                                    <!-- /react-text -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="lk-reviews-progress-center-position">
-                                            <div class="lk-reviews-progress-start">
-                                                <ul>
-                                                    <li class="lk-list-product-rating-gui clearfix"><span
-                                                            class="lk-list-product-rating-start">
-                                                            <!-- react-text: 1999 -->5
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2000 -->
-                                                            <!-- /react-text -->
-                                                            <div class="rx-star"></div>
-                                                        </span><span class="lk-list-rating-progress"><span
-                                                                class="lk-list-rating-progress-bar"><span
-                                                                    class="lk-list-rating-progress-bar-choosed"
-                                                                    style="width: 0%;"></span></span></span><span
-                                                            class="lk-list-product-rating-count">
-                                                            <!-- react-text: 2006 -->0
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2007 -->%
-                                                            <!-- /react-text --></span></li>
-                                                    <li class="lk-list-product-rating-gui clearfix"><span
-                                                            class="lk-list-product-rating-start">
-                                                            <!-- react-text: 2010 -->4
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2011 -->
-                                                            <!-- /react-text -->
-                                                            <div class="rx-star"></div>
-                                                        </span><span class="lk-list-rating-progress"><span
-                                                                class="lk-list-rating-progress-bar"><span
-                                                                    class="lk-list-rating-progress-bar-choosed"
-                                                                    style="width: 0%;"></span></span></span><span
-                                                            class="lk-list-product-rating-count">
-                                                            <!-- react-text: 2017 -->0
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2018 -->%
-                                                            <!-- /react-text --></span></li>
-                                                    <li class="lk-list-product-rating-gui clearfix"><span
-                                                            class="lk-list-product-rating-start">
-                                                            <!-- react-text: 2021 -->3
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2022 -->
-                                                            <!-- /react-text -->
-                                                            <div class="rx-star"></div>
-                                                        </span><span class="lk-list-rating-progress"><span
-                                                                class="lk-list-rating-progress-bar"><span
-                                                                    class="lk-list-rating-progress-bar-choosed"
-                                                                    style="width: 0%;"></span></span></span><span
-                                                            class="lk-list-product-rating-count">
-                                                            <!-- react-text: 2028 -->0
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2029 -->%
-                                                            <!-- /react-text --></span></li>
-                                                    <li class="lk-list-product-rating-gui clearfix"><span
-                                                            class="lk-list-product-rating-start">
-                                                            <!-- react-text: 2032 -->2
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2033 -->
-                                                            <!-- /react-text -->
-                                                            <div class="rx-star"></div>
-                                                        </span><span class="lk-list-rating-progress"><span
-                                                                class="lk-list-rating-progress-bar"><span
-                                                                    class="lk-list-rating-progress-bar-choosed"
-                                                                    style="width: 0%;"></span></span></span><span
-                                                            class="lk-list-product-rating-count">
-                                                            <!-- react-text: 2039 -->0
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2040 -->%
-                                                            <!-- /react-text --></span></li>
-                                                    <li class="lk-list-product-rating-gui clearfix"><span
-                                                            class="lk-list-product-rating-start">
-                                                            <!-- react-text: 2043 -->1
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2044 -->
-                                                            <!-- /react-text -->
-                                                            <div class="rx-star"></div>
-                                                        </span><span class="lk-list-rating-progress"><span
-                                                                class="lk-list-rating-progress-bar"><span
-                                                                    class="lk-list-rating-progress-bar-choosed"
-                                                                    style="width: 0%;"></span></span></span><span
-                                                            class="lk-list-product-rating-count">
-                                                            <!-- react-text: 2050 -->0
-                                                            <!-- /react-text -->
-                                                            <!-- react-text: 2051 -->%
-                                                            <!-- /react-text --></span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="lk-reviews-function-command">
-                                            <div class="lk-reviews-function-command-title">Nhận xét về sản phẩm
-                                            </div>
-                                            <div class="lk-reviews-function-command-width lk-reviews-function-btn">
-                                                Viết đánh giá</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
+                        <!-- ĐÁNH GIÁ VÀ HIỆN ĐÁNH GIÁ SẢN PHẨM -->
+                        <div class="row row-nopad-col product-detail-block" id="review">
+                            <div class="row row-nopad-col rx-pad-30" style="width: 100%;">
+                                <div class="col-sm col-md-12">
                                     <div>
-                                        <div class="lk-reviews-main-box clearfix">
-                                            <div class="lk-reviews-main-title-select">Chọn xem nhận xét</div>
-                                            <div class="lk-reviews-line-start">
-                                                <div class="lk-reviews-line-start-score"><select
-                                                        class="fullwidth-input">
-                                                        <option value="0">Tất cả khách hàng</option>
-                                                        <option value="1">Khách hàng đã mua sản phẩm</option>
-                                                        <option value="2">Khách hàng chưa mua sản phẩm</option>
-                                                    </select></div>
-                                                <div class="lk-reviews-line-start-score"><select
-                                                        class="fullwidth-input">
-                                                        <option value="0">Tất cả sao</option>
-                                                        <option value="1">1 sao</option>
-                                                        <option value="2">2 sao</option>
-                                                        <option value="3">3 sao</option>
-                                                        <option value="4">4 sao</option>
-                                                        <option value="5">5 sao</option>
-                                                    </select></div>
+                                        <div class="lk-product-reviews-title"></div>
+                                        <div class="lk-reviews-start-main">
+                                            <div class="lk-reviews-progress-start-position">
+                                                <div class="lk-reviews-start">
+                                                    <div class="lk-reviews-start-title">Đánh giá trung bình</div>
+                                                    <div class="lk-reviews-start-divice">
+                                                        <!-- react-text: 2746 -->5
+                                                        <!-- /react-text -->
+                                                        <!-- react-text: 2547 -->/5
+                                                        <!-- /react-text -->
+                                                    </div>
+                                                    <div class="lk-reviews-start-icon clearfix">
+                                                        <div>
+                                                            <div class="rx-star-big"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="rx-star-big"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="rx-star-big"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="rx-star-big"></div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="rx-star-big"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lk-reviews-start-command">
+                                                        <!-- react-text: 2560 -->(
+                                                        <!-- /react-text -->
+                                                        <!-- react-text: 2752 -->1
+                                                        <!-- /react-text -->
+                                                        <!-- react-text: 2561 -->
+                                                        <!-- /react-text -->
+                                                        <!-- react-text: 2563 --> nhận xét)
+                                                        <!-- /react-text -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lk-reviews-progress-center-position">
+                                                <div class="lk-reviews-progress-start">
+                                                    <ul>
+                                                        <li class="lk-list-product-rating-gui clearfix"><span
+                                                                class="lk-list-product-rating-start">
+                                                                <!-- react-text: 2569 -->5
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2570 -->
+                                                                <!-- /react-text -->
+                                                                <div class="rx-star"></div>
+                                                            </span><span class="lk-list-rating-progress"><span
+                                                                    class="lk-list-rating-progress-bar"><span
+                                                                        class="lk-list-rating-progress-bar-choosed"
+                                                                        style="width: 100%;"></span></span></span><span
+                                                                class="lk-list-product-rating-count">
+                                                                <!-- react-text: 2576 -->100
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2577 -->%
+                                                                <!-- /react-text --></span></li>
+                                                        <li class="lk-list-product-rating-gui clearfix"><span
+                                                                class="lk-list-product-rating-start">
+                                                                <!-- react-text: 2580 -->4
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2581 -->
+                                                                <!-- /react-text -->
+                                                                <div class="rx-star"></div>
+                                                            </span><span class="lk-list-rating-progress"><span
+                                                                    class="lk-list-rating-progress-bar"><span
+                                                                        class="lk-list-rating-progress-bar-choosed"
+                                                                        style="width: 0%;"></span></span></span><span
+                                                                class="lk-list-product-rating-count">
+                                                                <!-- react-text: 2587 -->0
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2588 -->%
+                                                                <!-- /react-text --></span></li>
+                                                        <li class="lk-list-product-rating-gui clearfix"><span
+                                                                class="lk-list-product-rating-start">
+                                                                <!-- react-text: 2591 -->3
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2592 -->
+                                                                <!-- /react-text -->
+                                                                <div class="rx-star"></div>
+                                                            </span><span class="lk-list-rating-progress"><span
+                                                                    class="lk-list-rating-progress-bar"><span
+                                                                        class="lk-list-rating-progress-bar-choosed"
+                                                                        style="width: 0%;"></span></span></span><span
+                                                                class="lk-list-product-rating-count">
+                                                                <!-- react-text: 2598 -->0
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2599 -->%
+                                                                <!-- /react-text --></span></li>
+                                                        <li class="lk-list-product-rating-gui clearfix"><span
+                                                                class="lk-list-product-rating-start">
+                                                                <!-- react-text: 2602 -->2
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2603 -->
+                                                                <!-- /react-text -->
+                                                                <div class="rx-star"></div>
+                                                            </span><span class="lk-list-rating-progress"><span
+                                                                    class="lk-list-rating-progress-bar"><span
+                                                                        class="lk-list-rating-progress-bar-choosed"
+                                                                        style="width: 0%;"></span></span></span><span
+                                                                class="lk-list-product-rating-count">
+                                                                <!-- react-text: 2609 -->0
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2610 -->%
+                                                                <!-- /react-text --></span></li>
+                                                        <li class="lk-list-product-rating-gui clearfix"><span
+                                                                class="lk-list-product-rating-start">
+                                                                <!-- react-text: 2613 -->1
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2614 -->
+                                                                <!-- /react-text -->
+                                                                <div class="rx-star"></div>
+                                                            </span><span class="lk-list-rating-progress"><span
+                                                                    class="lk-list-rating-progress-bar"><span
+                                                                        class="lk-list-rating-progress-bar-choosed"
+                                                                        style="width: 0%;"></span></span></span><span
+                                                                class="lk-list-product-rating-count">
+                                                                <!-- react-text: 2620 -->0
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2621 -->%
+                                                                <!-- /react-text --></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="lk-reviews-function-command">
+                                                <div class="lk-reviews-function-command-title">Nhận xét về sản phẩm
+                                                </div>
+                                                <div class="lk-reviews-function-command-width lk-reviews-function-btn">
+                                                    Viết đánh giá</div>
                                             </div>
                                         </div>
-                                        <div class="admin-table-pagination admin-pagin-right">
-                                            <div class="pagin-curr">1</div>
+                                        <div>
+                                            <!-- CHI TIẾT SẢN PHẨM ĐƯỢC ĐÁNH GIÁ -->
+                                            
+                                            <div class="lk-box-product-reviews-main">
+                                                    <%singleProduct.forEach(function(product){ %>
+                                                <div class="lk-box-product-reviews-main-rating">
+                                                    <div class="lk-box-product-reviews-img"><img class="lk-img-rating"
+                                                            src="<%=product.image%>"
+                                                            alt="" title="{this.state.infodata.name}"></div>
+                                                    <div class="lk-box-product-reviews-main-inforating">
+                                                        <div class="cart-page-customer-name"><%=product.name%></div>
+                                                        <div class="cart-page-customer-price-review">
+                                                            <div class="cart-popup-product-price">
+                                                                <!-- react-text: 2906 --><%=product.price%>
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 2907 -->đ
+                                                                <!-- /react-text -->
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="figure-body-rating-star">
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div class="rx-star-text">
+                                                                    <!-- react-text: 2924 -->(
+                                                                    <!-- /react-text -->
+                                                                    <!-- react-text: 2925 -->1
+                                                                    <!-- /react-text -->
+                                                                    <!-- react-text: 2926 -->
+                                                                    <!-- /react-text -->
+                                                                    <!-- react-text: 2927 -->)
+                                                                    <!-- /react-text -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }); %>
+                                                <!-- FROM ĐÁNH GIÁ -->
+                                                <div class="lk-box-product-reviews-main-formrating">
+                                                    <div class="lk-box-product-reviews-title lk-margin-bottom">Gửi đánh
+                                                        giá của bạn</div>
+                                                    <div class="clearfix lk-margin-bottom">
+                                                        <div class="figure-body-rating-star">
+                                                            <div>
+                                                                <div class="rx-star-big"></div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="rx-star-big"></div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="rx-star-big"></div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="rx-star-big"></div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="rx-star-big"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lk-margin-bottom">
+                                                            <div class="cart-page-customer-name fontsize-15">Họ tên người đánh giá
+                                                                </div><input type="text" tabindex="1" name="name"
+                                                                class="fullwidth-input" value="Nguyễn Văn A">
+                                                    <div class="lk-margin-bottom">
+                                                        <div class="cart-page-customer-name fontsize-15">Tiêu đề đánh
+                                                            giá</div><input type="text" tabindex="1" name="name"
+                                                            class="fullwidth-input" value="Rất tốt">
+                                                    </div>
+                                                    <div class="lk-margin-bottom">
+                                                        <div class="cart-page-customer-name fontsize-15">Nhận xét sản
+                                                            phẩm</div><textarea tabindex="2" name="name"
+                                                            class="fullwidth-input" rows="5"
+                                                            placeholder="Nhận xét của bạn về sản phẩm này"></textarea>
+                                                    </div>
+                                                    <div class="lk-box-product-reviews-botton">
+                                                        <div tabindex="3" class="lk-reviews-product-submit">Lưu thay đổi
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <div class="lk-reviews-main-box clearfix">
+                                                <div class="lk-reviews-main-title-select">Chọn xem nhận xét</div>
+                                                <div class="lk-reviews-line-start">
+                                                    <div class="lk-reviews-line-start-score"><select
+                                                            class="fullwidth-input">
+                                                            <option value="0">Tất cả khách hàng</option>
+                                                            <option value="1">Khách hàng đã mua sản phẩm</option>
+                                                            <option value="2">Khách hàng chưa mua sản phẩm</option>
+                                                        </select></div>
+                                                    <div class="lk-reviews-line-start-score"><select
+                                                            class="fullwidth-input">
+                                                            <option value="0">Tất cả sao</option>
+                                                            <option value="1">1 sao</option>
+                                                            <option value="2">2 sao</option>
+                                                            <option value="3">3 sao</option>
+                                                            <option value="4">4 sao</option>
+                                                            <option value="5">5 sao</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                            <!-- 1 NHẬN XÉT TỪ NGƯỜI MUA -->
+                                            <div class="lk-reviews-line-main">
+                                                <div class="lk-reviews-line-main-body">
+                                                    <div class="lk-reviews-main-title-select">
+                                                        <div class="lk-position-img-icon-account">
+                                                            <div class="figure-body-account mlkicon-Profile"></div>
+                                                        </div>
+                                                        <div class="lk-reviews-line-body-name">Anonymous</div>
+                                                        <div class="lk-reviews-line-body-time">2019-04-22 07:33:40</div>
+                                                    </div>
+                                                    <div class="lk-reviews-line-start">
+                                                        <div class="lk-reviews-line-info">
+                                                            <div class="lk-reviews-line-header-score">
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="rx-star"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="lk-reviews-line-header-title">Rất tốt</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lk-reviews-line-start">
+                                                        <div class="lk-reviews-line-content"><span>Hoa đẹp nhưng giá
+                                                                khá cao,
+                                                                Giao hàng hơi trễ so với thời gian hẹn</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="admin-table-pagination admin-pagin-right">
+                                                <div class="pagin-curr">1</div>
+                                                <div class="pagin-next"><i class="icon-arrow-right"></i></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-nopad-col product-detail-block" id="faq">
-                        <div class="row row-nopad-col rx-pad-30 rx-product-faq">
-                            <div class="rx-product-faq-title">Câu hỏi thường gặp</div>
-                            <div>
-                                <div class="rx-product-faq-quest">
-                                    <!-- react-text: 2145 -->Q:
-                                    <!-- /react-text -->
-                                    <!-- react-text: 2146 -->Tôi muốn mua trả góp thì làm thế nào?
-                                    <!-- /react-text -->
+                        <!-- CÂU HỎI THƯỜNG GẶP -->
+                        <div class="row row-nopad-col product-detail-block" id="faq">
+                            <div class="row row-nopad-col rx-pad-30 rx-product-faq">
+                                <div class="rx-product-faq-title">Câu hỏi thường gặp</div>
+                                <div>
+                                    <div class="rx-product-faq-quest">
+                                        <!-- react-text: 2779 -->Q:
+                                        <!-- /react-text -->
+                                        <!-- react-text: 2780 -->Tôi muốn mua trả góp thì làm thế nào?
+                                        <!-- /react-text -->
+                                    </div>
+                                    <div class="rx-product-faq-anwser">
+                                        <p>A: Hđtm hiện áp dụng 2 hình thức trả góp. Quý khách có thể tham khảo chi
+                                            tiết: - Trả góp 0% bằng thẻ tín dụng trong 6 tháng với sản phẩm từ 3 triệu
+                                            đồng. Chi tiết tại: https://Hđtm.vn/lp/tra-gop - Trả góp tiêu dùng trong 12
+                                            tháng, trả trước 10% giá trị sản phẩm. Chi tiết tại:
+                                            https://Hđtm.vn/lp/mua-tra-gop</p>
+                                    </div>
                                 </div>
-                                <div class="rx-product-faq-anwser">
-                                    <p>A: Hđtm hiện áp dụng 2 hình thức trả góp. Quý khách có thể tham khảo chi
-                                        tiết: - Trả góp 0% bằng thẻ tín dụng trong 6 tháng với sản phẩm từ 3 triệu
-                                        đồng. Chi tiết tại: https://Hđtm.vn/lp/tra-gop - Trả góp tiêu dùng trong 12
-                                        tháng, trả trước 10% giá trị sản phẩm. Chi tiết tại:
-                                        https://Hđtm.vn/lp/mua-tra-gop</p>
+                                <div>
+                                    <div class="rx-product-faq-quest">
+                                        <!-- react-text: 2784 -->Q:
+                                        <!-- /react-text -->
+                                        <!-- react-text: 2785 -->Thời gian giao hàng trong bao lâu?
+                                        <!-- /react-text -->
+                                    </div>
+                                    <div class="rx-product-faq-anwser">
+                                        <p>A:Đối với khu vực HCM và Hà Nội thời gian giao từ 1 - 3 ngày (không tính Chủ
+                                            nhật và ngày lễ). Các tỉnh thành còn lại giao từ 3 - 7 ngày (không tính Chủ
+                                            nhật và ngày lễ).</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="rx-product-faq-quest">
-                                    <!-- react-text: 2150 -->Q:
-                                    <!-- /react-text -->
-                                    <!-- react-text: 2151 -->Thời gian giao hàng trong bao lâu?
-                                    <!-- /react-text -->
+                                <div>
+                                    <div class="rx-product-faq-quest">
+                                        <!-- react-text: 2789 -->Q:
+                                        <!-- /react-text -->
+                                        <!-- react-text: 2790 -->Sản phẩm này có phải là hàng chính hãng hay không? Bảo
+                                        hành như thế nào?
+                                        <!-- /react-text -->
+                                    </div>
+                                    <div class="rx-product-faq-anwser">
+                                        <p>A:Các sản phẩm âm thanh Hđtm bán cam kết chính hãng 100%, và đều được bảo
+                                            hành tại các trung tâm bảo hành của hãng trên toàn quốc. Hoặc Khách hàng có
+                                            thể liên hệ với Hđtm để được hỗ trợ nhanh nhất.</p>
+                                    </div>
                                 </div>
-                                <div class="rx-product-faq-anwser">
-                                    <p>A:Đối với khu vực HCM và Hà Nội thời gian giao từ 1 - 3 ngày (không tính Chủ
-                                        nhật và ngày lễ). Các tỉnh thành còn lại giao từ 3 - 7 ngày (không tính Chủ
-                                        nhật và ngày lễ).</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="rx-product-faq-quest">
-                                    <!-- react-text: 2155 -->Q:
-                                    <!-- /react-text -->
-                                    <!-- react-text: 2156 -->Sản phẩm này có phải là hàng chính hãng hay không? Bảo
-                                    hành như thế nào?
-                                    <!-- /react-text -->
-                                </div>
-                                <div class="rx-product-faq-anwser">
-                                    <p>A:Các sản phẩm âm thanh Hđtm bán cam kết chính hãng 100%, và đều được bảo
-                                        hành tại các trung tâm bảo hành của hãng trên toàn quốc. Hoặc Khách hàng có
-                                        thể liên hệ với Hđtm để được hỗ trợ nhanh nhất.</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="rx-product-faq-quest">
-                                    <!-- react-text: 2160 -->Q:
-                                    <!-- /react-text -->
-                                    <!-- react-text: 2161 -->Tôi có thể nhận hàng rồi thanh toán? Có được đổi trả
-                                    hàng khi bị lỗi kỹ thuật?
-                                    <!-- /react-text -->
-                                </div>
-                                <div class="rx-product-faq-anwser">
-                                    <p>A:Đối với đơn hàng từ 50 triệu trở xuống Khách hàng hoàn toàn có thể nhận và
-                                        kiểm tra hàng rồi mới thanh toán. Trong 7 ngày tính từ ngày Khách hàng mua
-                                        nếu phát sinh lỗi kỹ thuật từ nhà sản xuất Hđtm sẽ đổi mới hoàn toàn.</p>
+                                <div>
+                                    <div class="rx-product-faq-quest">
+                                        <!-- react-text: 2794 -->Q:
+                                        <!-- /react-text -->
+                                        <!-- react-text: 2795 -->Tôi có thể nhận hàng rồi thanh toán? Có được đổi trả
+                                        hàng khi bị lỗi kỹ thuật?
+                                        <!-- /react-text -->
+                                    </div>
+                                    <div class="rx-product-faq-anwser">
+                                        <p>A:Đối với đơn hàng từ 50 triệu trở xuống Khách hàng hoàn toàn có thể nhận và
+                                            kiểm tra hàng rồi mới thanh toán. Trong 7 ngày tính từ ngày Khách hàng mua
+                                            nếu phát sinh lỗi kỹ thuật từ nhà sản xuất Hđtm sẽ đổi mới hoàn toàn.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -600,8 +580,9 @@
             </div>
         </div>
     </div>
+    </div>
 </main>
-<!--  --> f
+<!--  -->
 
 <!--  -->
 

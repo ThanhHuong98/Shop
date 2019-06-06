@@ -1,5 +1,6 @@
 var db = require('../db');
 var ObjectId = require('mongodb').ObjectID;
+const QUANTITY = 10;
 
 exports.find = function (id, cb) {
     var collection = db.get().collection('Product');
@@ -63,7 +64,7 @@ exports.allProduct = function(cb) {
 exports.randomProduct = function(cb){
     var collection = db.get().collection('Product');
 
-    collection.aggregate([{$sample: {size : 20}}
+    collection.aggregate([{$sample: {size : QUANTITY}}
     ]).toArray(function(err, result){
         cb(err, result)
     })
