@@ -77,7 +77,7 @@ exports.randomProduct = function(cb){
 exports.findOne = function(id, cb) {
     var collection = db.get().collection('Product');
 
-    collection.find({_id: ObjectId(id) }).toArray(function(err, result){
+    collection.findOne({_id: ObjectId(id) }, function(err, result){
         cb(err, result)
         console.log("Single - Product");
         console.log(result);
@@ -122,4 +122,18 @@ exports.saveComment=function(id, name_user, title, content, cb){
         }, function(err, result){
             cb(err, result);
         });
+}
+
+exports.search = function(name, cb){
+    
+    var collection = db.get().collection('Product');
+    collection.findOne({name:name}
+      ,function(err, result){
+          cb(err, result);
+      })
+    // collection.find({name:name}).collation( { locale: 'vi', strength: 2 }).toArray(function(err, result){
+    //     cb(err, result[0])
+    //     console.log("result[0]")
+    //     console.log(result[0]);
+    // })
 }

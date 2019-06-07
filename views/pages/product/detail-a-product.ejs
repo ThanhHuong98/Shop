@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <!-- CHI TIẾT 1 SẢN PHẨM -->
-                            <%singleProduct.forEach(function(product){ %>
+                           
                             <div class="col-sm-lg col-sm-4" id="detail">
                                 <div class="product-left-img">
                                     <div class="thumbZomin-hidden"><span class="mlkicon-Close icon-Close"></span>
@@ -86,7 +86,7 @@
                                             <div class="Slider-single rx-slider-custom-single"
                                                 style="width: 700%; transform: translateX(0%);">
                                                 <!-- Add thumb -->
-                                                <div class="rx-thumb"><img class="" src="<%=product.image%>" alt=""
+                                                <div class="rx-thumb"><img class="" src="<%=singleProduct.image%>" alt=""
                                                         title="Hoa hồng"></div>
                                             </div>
                                         </div>
@@ -101,8 +101,8 @@
                             </div>
                             <div class="col-sm-lg col-sm-5">
                                 <div class="content product-right">
-                                    <div class="rxfigure-body-brand-inlist"><%=product.category%></div>
-                                    <div class="rxname"><%=product.name%></div>
+                                    <div class="rxfigure-body-brand-inlist"><%=singleProduct.category%></div>
+                                    <div class="rxname"><%=singleProduct.name%></div>
                                     <div class="clearfix">
                                         <div class="figure-body-rating-star">
                                             <div>
@@ -135,7 +135,7 @@
                                     <div class="clearfix"></div>
                                     <div class="rxprice-container">
                                         <div class="rxprice">
-                                            <!-- react-text: 1932 --><%=product.price%>
+                                            <!-- react-text: 1932 --><%=singleProduct.price%>
                                             <!-- /react-text -->
                                             <!-- react-text: 1933 -->đ
                                             <!-- /react-text -->
@@ -173,7 +173,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <% }); %>
+                            
                             <!-- SẢN PHẨM CÙNG LOẠI -->
                             <div class="col-sm-lg col-sm-3">
                                 <div class="rx-product-relasted">
@@ -349,16 +349,16 @@
                                             <!-- CHI TIẾT SẢN PHẨM ĐƯỢC ĐÁNH GIÁ -->
                                             
                                             <div class="lk-box-product-reviews-main">
-                                                    <%singleProduct.forEach(function(product){ %>
-                                                <div class="lk-box-product-reviews-main-rating" id="single-product-form" data-id="<%=product._id%>">
+                                                   
+                                                <div class="lk-box-product-reviews-main-rating" id="single-product-form" data-id="<%=singleProduct._id%>">
                                                     <div class="lk-box-product-reviews-img"><img class="lk-img-rating"
-                                                            src="<%=product.image%>"
+                                                            src="<%=singleProduct.image%>"
                                                             alt=""></div>
                                                     <div class="lk-box-product-reviews-main-inforating">
-                                                        <div class="cart-page-customer-name"><%=product.name%></div>
+                                                        <div class="cart-page-customer-name"><%=singleProduct.name%></div>
                                                         <div class="cart-page-customer-price-review">
                                                             <div class="cart-popup-product-price">
-                                                                <!-- react-text: 2906 --><%=product.price%>
+                                                                <!-- react-text: 2906 --><%=singleProduct.price%>
                                                                 <!-- /react-text -->
                                                                 <!-- react-text: 2907 -->đ
                                                                 <!-- /react-text -->
@@ -395,7 +395,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <% }); %>
+                                                
                                                 <!-- FROM ĐÁNH GIÁ -->
                                                     <form method="POST" action="/detail-a-product" id="myForm" class="lk-box-product-reviews-main-formrating"
                                                     style="background-color: transparent">

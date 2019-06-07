@@ -76,3 +76,45 @@ exports.post_comment_product = function(req, res, next){
         res.redirect('/');
         })
 }
+
+exports.search_product = function(req, res, next){
+
+    var param = req.query.name;
+    if(param != undefined){
+        var str = param.toLowerCase();
+    const name = str.charAt(0).toUpperCase() + str.slice(1);
+    console.log("nameSearch: ", str +" " + name);
+
+    Product.search(name, function(err, product){
+        if(err) {res.err(err);}
+        else{
+            if(product!=null){
+                console.log("Ket qua search");
+                console.log(product);
+                const id = product._id;
+                const code = product.category;
+
+                async.parallel({
+                    listCategory: function(callback){
+                        Category.allCategory(callback);
+                    },  
+                    relatedProducts: function(callback){
+                        Product.findRelatedProducts(code, callback);
+                    },
+                    listComment: function(callBack){
+                    Product.allComment(id, callBack);
+                    }
+            
+                },function(err, results) {
+                    if (err) { return next(err); }
+                    res.render('pages/product/detail-a-product', {singleProduct:product,listCategory: results.listCategory, 
+                                                                relatedProducts: results.relatedProducts, listComment:results.listComment});
+                });
+            }else{
+                res.status(401).json({error: 'Sản phẩm này đã hết hàng hoặc shop chưa cung cấp!'});
+            }
+        }
+    })
+    }else
+        res.status(401).json({error: 'Tên sản phẩm cần tìm không được để trống, vui lòng nhập lại!'});
+}

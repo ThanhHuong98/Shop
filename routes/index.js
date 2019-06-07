@@ -21,7 +21,8 @@ router.get('/list-product/:id', product_controller.product_list);
 router.get('/detail-a-product', product_controller.product_detail);
 // POST A COMMENT ABOUT PRODUCT
 router.post('/detail-a-product',product_controller.post_comment_product);
-
+//SEARCH A PRODUCT
+router.post('/search', product_controller.search_product);
 // GET request for list of the favorite products
 router.get('pages/love-product', product_controller.product_favorite_list)
 
