@@ -81,22 +81,21 @@ exports.findOne = function(id, cb) {
         cb(err, result)
         console.log("Single - Product");
         console.log(result);
-        console.log(result[0].comment[0].name_user);
-        console.log(result[0].comment[1].name_user);
-
     })
 }
 
 exports.allComment = function(id, cb) {
     var collection = db.get().collection('Product');
-    collection.find({_id: ObjectId(id)}).toArray(function(err, result){
-        var listComment = result[0].comment;
+    collection.findOne({_id: ObjectId(id)},function(err, result){
+        var listComment = result.comment;
+        if(listComment == undefined){
+            listComment=[];
+        }
         cb(err, listComment)
-
+        console.log("list-comment");
+        console.log(listComment);
     })  
 }
-
-
 
 exports.findRelatedProducts = function(code, cb){
 

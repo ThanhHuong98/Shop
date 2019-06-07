@@ -34,9 +34,8 @@ exports.product_favorite_list = function(req, res, next){
 // Display detail page for a specific product.
 exports.product_detail = function(req, res, next){
     
-    //const id = req.query.id;
+    const id = req.query.id;
     const code = req.query.code;
-    const id = "5cd81e2ee7b5fd028a1eb697";
 
      async.parallel({
         singleProduct: function(callback){
@@ -48,22 +47,21 @@ exports.product_detail = function(req, res, next){
 
         relatedProducts: function(callback){
             Product.findRelatedProducts(code, callback);
-        }
-        
-        // listComment: function(callBack){
-        //    // Product.allComment(id, callBack);
-        // }
+        },
+        listComment: function(callBack){
+          Product.allComment(id, callBack);
+         }
 
     },function(err, results) {
         if (err) { return next(err); }
-        res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, relatedProducts: results.relatedProducts});
+        res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, 
+                                                      relatedProducts: results.relatedProducts, listComment:results.listComment});
     });
 }
 
 exports.post_comment_product = function(req, res, next){
     
-    //const id = req.body.id;
-    const id = "5cd81e2ee7b5fd028a1eb697";
+    const id = req.query.id;
 
     const name_user = req.body.name;
     const title = req.body.title;
@@ -77,5 +75,4 @@ exports.post_comment_product = function(req, res, next){
         if(err) {res.err(err);}
         res.redirect('/');
         })
-
 }

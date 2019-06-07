@@ -160,7 +160,7 @@
                                             <!-- /react-text -->
                                         </div>
                                         <div class="rx-action-addcart-mainbox clearfix">
-                                            <div class="rx-action-addcart rx-action-addcart-lg">Thêm vào giỏ hàng
+                                            <div class="rx-action-addcart rx-action-addcart-lg" id="btn">Thêm vào giỏ hàng
                                             </div>
                                         </div>
                                         <div class="rx-action-favorite clearfix">
@@ -350,7 +350,7 @@
                                             
                                             <div class="lk-box-product-reviews-main">
                                                     <%singleProduct.forEach(function(product){ %>
-                                                <div class="lk-box-product-reviews-main-rating" data-id="<%=product._id%>">
+                                                <div class="lk-box-product-reviews-main-rating" id="single-product-form" data-id="<%=product._id%>">
                                                     <div class="lk-box-product-reviews-img"><img class="lk-img-rating"
                                                             src="<%=product.image%>"
                                                             alt=""></div>
@@ -436,11 +436,11 @@
                                                                 placeholder="Nhận xét của bạn về sản phẩm này"></textarea>
                                                         </div>
                                                         <div class="lk-box-product-reviews-botton">
-                                                            <button id="btnSubmit" tabindex="3" class="lk-reviews-product-submit" type="submit">Lưu thay đổi
+                                                            <button id="btnSubmit" tabindex="3" class="lk-reviews-product-submit" type="submit" onClick="check()">Lưu thay đổi
                                                             </button>
                                                         </div>
                                                     </div>
-                                                    </form>
+                                                 </form>
                                         </div>
                                     </div>
                                     <div>
@@ -466,16 +466,16 @@
                                                 </div>
                                             </div>
                                             <!-- 1 NHẬN XÉT TỪ NGƯỜI MUA -->
-                                            <%singleProduct.forEach(function(product){ %>
+                                            <%listComment.forEach(function(comment){ %>
                                             <div class="lk-reviews-line-main">
                                                 <div class="lk-reviews-line-main-body">
                                                     <div class="lk-reviews-main-title-select">
                                                         <div class="lk-position-img-icon-account">
                                                             <div class="figure-body-account mlkicon-Profile"></div>
                                                         </div>
-                                                        <div class="lk-reviews-line-body-name"><%=product.name%></div>
+                                                        <div class="lk-reviews-line-body-name"><%=comment.name%></div>
                                                         <div class="lk-reviews-line-body-time">2019-04-22 07:33:40</div>
-                                                    </div>
+                                                    </div>=
                                                     <div class="lk-reviews-line-start">
                                                         <div class="lk-reviews-line-info">
                                                             <div class="lk-reviews-line-header-score">
@@ -495,11 +495,11 @@
                                                                     <div class="rx-star"></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="lk-reviews-line-header-title"><%=product.name%></div>
+                                                            <div class="lk-reviews-line-header-title"><%=comment.title%></div>
                                                         </div>
                                                     </div>
                                                     <div class="lk-reviews-line-start">
-                                                        <div class="lk-reviews-line-content"><span><%=product.name%>
+                                                        <div class="lk-reviews-line-content"><span><%=comment.content%>
                                                                 </span></div>
                                                     </div>
                                                 </div>
@@ -588,13 +588,16 @@
 <!--  -->
 <!--  -->
 <!-- CORE JQUERY  -->
-<script src="javascripts/jquery-1.10.2.js"></script>
-
+<script src="/template/js/jquery-1.10.2.js"></script>
+<script type="text/javascript"></script>
 <script>
-        $("#btnSubmit").click(function(){
-            var id = $(this).data('id');
+        function check(){
+            var x = document.getElementById("single-product-form");
+            var id = x.getAttribute('data-id');
             $("#myForm").attr('action','/detail-a-product?id=' +id);
-        });
+            //alert(id);  
+        }
+        
 </script>
 
 <% include ../../partials/footer.ejs %>
