@@ -86,8 +86,38 @@ a.mainhead-account-login {
   letter-spacing: 2.1px;
   line-height: 30px;
   margin-top: 20px;
+  border: none;
+  
+}
+#hidden-input{
+  height: 0px;
+  width: 0px;
+  visibility: hidden;
 }
 .lk-page-login-customer-submit a {
+  color: white;
+  font-size: 18px;
+}
+.lk-page-reset-password-submit {
+  cursor: pointer;
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto;
+  background-color: #161616;
+  height: 50px;
+  width: 300px;
+  font-weight: 500;
+  letter-spacing: 2.1px;
+  line-height: 30px;
+  margin-top: 20px;
+  border: none;
+}
+.lk-page-reset-password-submit a {
   color: white;
   font-size: 18px;
 }

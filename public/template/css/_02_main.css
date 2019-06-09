@@ -57,8 +57,8 @@ a.topbar-item {
 }
 
 .mainhead-logo {
-  width: 155px;
-  height: 60px;
+  width: 130px;
+  height: -webkit-fill-available;
   display: block;
   text-align: center;
   vertical-align: middle;
@@ -1211,6 +1211,7 @@ input.rx-quanty-input {
   text-align: center;
   width: 40px;
   line-height: 21px;
+  padding-left: 22px;
 }
 
 .rx-action-addcart-info {

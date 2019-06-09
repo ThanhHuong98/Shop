@@ -181,11 +181,18 @@ $(document).ready(function()
 					num.text(newValue);
 				});
 
-				add.on('click', function()
+				add.on('click', function(e)
 				{
 					original = parseFloat(qty.find('.product_num').text());
-					newValue = original + 1;
-					num.text(newValue);
+					newValue = original + 1;					
+					var max = $(num).data("quantity");
+					if(newValue<=max){
+						newValue = newValue > max ? max : newValue;
+						num.text(newValue);
+					}else{
+						e.preventDefault();
+					}
+					
 				});
 			});
 		}

@@ -42,7 +42,6 @@ router.get('/login', forwardAuthenticated, account_controller.account_login_get)
 router.post('/login', function (req, res, next) {
     passport.authenticate('local', function (err, user) {
         if (err) {
-            console.log(err)
             return next(err);
         }
         if (!user) {
@@ -50,35 +49,50 @@ router.post('/login', function (req, res, next) {
             res.redirect('/login');
         }
         else {
-            req.logIn(user, function (err) {
-                if (err) { return next(err); }
-                return res.redirect('/edit-profile/' + user._id);
-            });
+            console.log(user.isVerified);
+            if (user.isVerified == false) {
+                req.flash('error', 'Vui lòng kích hoạt tài khoản trước khi đăng nhập!');
+                res.redirect('/login');
+            } else{
+                req.logIn(user, function (err) {
+                    if (err) { return next(err); }
+                    res.redirect('/edit-profile');
+                });
+            }
         }
     })(req, res, next);
 });
 // logout
 router.get('/logout', account_controller.logout);
 
-// forget - password
+// RESET PASSWORD
 router.get('/forget-password', account_controller.account_forget_password_post);
+router.post('/email-reset-password', account_controller.email_reset_password);
+router.get('/reset-password',account_controller.reset_password_get);
+router.post('/reset-password',account_controller.reset_password_post);
 // edit - profile
 
 
-router.get('/edit-profile/:id',account_controller.account_edit_profile_get);
+router.get('/edit-profile', ensureAuthenticated, account_controller.account_edit_profile_get);
 
-router.post('/edit-profile/:id', account_controller.account_edit_profile_post);
+router.post('/edit-profile', ensureAuthenticated, account_controller.account_edit_profile_post);
 
-router.get('/edit-profile', ensureAuthenticated, function(req,res){
-    res.redirect('/edit-profile/'+req.user._id);
-});
+
 // ORDER SECTION
-router.get('/cart', order_controller.order_cart)
+router.get('/cart', order_controller.order_cart);
+router.get('/add-to-cart', order_controller.add);
+router.get('/increase/:id', order_controller.increase);
+router.get('/reduce/:id', order_controller.reduce);
+router.get('/remove-cart', order_controller.remove);
 
-router.get('/checkout', order_controller.order_checkout)
+router.get('/checkout', ensureAuthenticated, order_controller.order_checkout)
+router.post('/place-order', ensureAuthenticated, order_controller.place_order);
 
-router.get('/trackorder/:id', order_controller.order_trackOrder)
+router.get('/trackorder/:id', ensureAuthenticated, order_controller.order_trackOrder)
+router.get('/order-management', ensureAuthenticated, order_controller.manage)
 //CHECK AVAILABILITY
 router.post('/check-email', account_controller.check_email)
 router.post('/check-pass', account_controller.check_pass)
+//VERIFICATION
+router.get('/verification',account_controller.verify)
 module.exports = router;

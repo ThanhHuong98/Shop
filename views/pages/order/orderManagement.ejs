@@ -1,0 +1,150 @@
+<% include ../../partials/head.ejs %>
+<link rel="stylesheet" type="text/css" href="/profileEdit/css/style.css">
+<link rel="stylesheet" type="text/css" href="/profileEdit/css/responsive.css">
+<style>
+    #order-list-container {
+        width: 860px;
+        background-color: #FFFFFF;
+        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #order-list-title {
+        border-bottom: 2px solid #324041;
+        padding-bottom: 15px;
+    }
+
+    #order-list-title div {
+        padding: 0px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    #order-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .order-list-element div,
+    .order-list-element a,
+    .order-list-element span {
+        padding: 0px;
+        font-size: 14px;
+    }
+
+    .order-product-element {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order-product-detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .order-list-element {
+        padding: 10px 0px;
+    }
+
+    .order-list-element:hover {
+        background-color: rgba(46, 134, 222, 0.07);
+    }
+
+    .orderID {
+        font-weight: 500;
+        cursor: pointer;
+        color: #218c74 !important;
+    }
+</style>
+<% include ../../partials/header.ejs %>
+<% 
+function formatDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+  
+    return day + '/' + month + '/' + year;
+  }
+%>
+<div class="super_container_inner">
+    <div class="super_overlay"></div>
+
+    <div id="content" class="row">
+        <div class="col-md-6 col-lg-4 account-box-container">
+            <div id="account-box">
+                <div id="name">
+                    <p><%=account.name%></p>
+                </div>
+                <div class="option">
+                    <a href="/edit-profile">
+                        <p>Thông tin tài khoản</p>
+                    </a>
+                </div>
+                <div class="option">
+                    <a href="/order-management">
+                        <p>Quản lý đơn hàng</p>
+                    </a>
+                </div>
+                <div class="option" id="last">
+                    <a href="/logout">
+                        <p>Đăng xuất</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-8 content-box-container">
+            <div id="order-list-container">
+                <div id="order-list-title" class="row">
+                    <div class="col-2">Mã đơn hàng</div>
+                    <div class="col-2">Ngày mua</div>
+                    <div class="col-4">Sản phẩm</div>
+                    <div class="col-2">Tổng tiền</div>
+                    <div class="col-2">Trạng thái đơn hàng</div>
+                </div>
+                <div id="order-list">
+                    <%if(!list) {%>
+                    <p id="no-order">Không có đơn hàng</p>
+                    <%} else {%>
+                    <% list.forEach(function(e){ %>
+                    <div class="order-list-element row">
+                        <div class="col-2">
+                            <a class="orderID" href="/trackOrder/<%=e._id%>"><%=e.orderID%></a>
+                        </div>
+                        <div class="col-2"><%=formatDate(e.update)%></div>
+                        <div class="col-4 order-product-detail">
+                            <% var arr = e.products.items%>
+                            <% Object.keys(arr).forEach(function(f){%>
+                            <div class="order-product-element">
+                                <span class="order-product-name">
+                                    <%= arr[f].item.name%>
+                                </span>
+                                <span class="order-product-quantity" style="margin-right: 20px">x
+                                    <%= arr[f].qty%></span>
+                            </div>
+                            <% }); %>
+                        </div>
+                        <div class="col-2"><%=e.products.totalPrice%> VND</div>
+                        <div class="col-2" style="text-align: end">
+                            <%if(e.status==0) {%> Đặt hàng thành công
+                            <%} else if(e.status==1) {%> Tiếp nhận đơn hàng
+                            <%} else if(e.status==2) {%> Đóng gói
+                            <%} else if(e.status==3) {%> Giao hàng
+                            <%} else if(e.status==4) {%> Giao hàng thành công
+                            <%}%>                          
+                        </div>
+                    </div>
+                    <% }); }%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <% include ../../partials/footer.ejs %>

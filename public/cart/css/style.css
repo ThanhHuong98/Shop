@@ -1021,7 +1021,8 @@ section
 }
 .cart_extra_2
 {
-	
+	margin: 0px 300px;
+	margin-top: 80px;
 }
 .cart_extra_content
 {
@@ -1199,9 +1200,8 @@ section
 }
 .cart_extra_total_list
 {
-	margin-top: 97px;
-	padding-right: 48px;
-	padding-left: 20px;
+	margin-top: 70px;
+	padding-left: 0px !important;
 }
 .cart_extra_total_list li
 {
@@ -1275,4 +1275,7 @@ section
 {
 	background: #4a4a4a;
 }
-
+#no-product{
+	font-size: 16px;
+    margin-left: 24px;
+}

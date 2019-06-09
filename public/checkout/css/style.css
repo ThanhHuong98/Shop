@@ -727,8 +727,7 @@ section
 .home
 {
 	width: 100%;
-	height: 200px;
-	padding-top: 140px;
+	padding-top: 50px;
 	background: white;
 }
 .home_container	
@@ -744,7 +743,7 @@ section
 {
 	font-size: 40px;
 	color: black;
-	font-weight: 500;
+	font-weight: 700;
 }
 .breadcrumbs
 {
@@ -794,12 +793,17 @@ section
 
 .billing
 {
-	padding-top: 51px;
+	padding-top: 50px;
 	padding-left: 68px;
 	padding-right: 68px;
-	padding-bottom: 32px;
+	padding-bottom: 60px;
 	background: white;
 	box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+#checkout_note{
+	height: 100px;
+	padding-top: 13px;
+	padding-bottom: 13px;
 }
 .checkout_box
 {
@@ -811,6 +815,9 @@ section
 	color: #4a4a4a;
 	font-size: 24px;
 	line-height: 0.75;
+}
+#checkout_form{
+	padding: 0px;
 }
 .checkout_form_container
 {
@@ -829,6 +836,7 @@ section
 }
 .checkout_input
 {
+	font-size: 15px;
 	width: 100%;
 	height: 52px;
 	background: #FFFFFF;
@@ -1015,9 +1023,9 @@ section
 }
 .cart_extra_total_list
 {
-	margin-top: 36px;
-	padding-right: 48px;
-	padding-left: 20px;
+	margin-top: 70px;
+	padding-left: 0px !important;
+	margin-bottom: 70px;
 }
 .cart_extra_total_list li
 {
@@ -1044,7 +1052,7 @@ section
 	color: #4a4a4a;
 	font-weight: 800;
 }
-.cart_extra_total_list li:last-child::before
+/* .cart_extra_total_list li:last-child::before
 {
 	display: block;
 	position: absolute;
@@ -1060,7 +1068,7 @@ section
 	background: #FFFFFF;
 	content: '';
 	z-index: 0;
-}
+} */
 .payment_options
 {
 	margin-top: 53px;
@@ -1072,14 +1080,15 @@ section
 	text-align: center;
 	background: #324041;
 	border-radius: 3px;
-	margin-top: 32px;
+	margin-top: 20px;
+	border: none;
 }
 .checkout_button a
 {
 	display: block;
 	font-size: 18px;
 	font-weight: 500;
-	color: #FFFFFF;
+	color: #FFFFFF !important;
 	line-height: 44px;
 	text-transform: uppercase;
 	-webkit-transition: all 200ms ease;
@@ -1090,7 +1099,8 @@ section
 }
 .checkout_button:hover
 {
-	background: #4a4a4a;
+	background: #1e272e;
+	cursor: pointer;
 }
 .payment_options ul
 {

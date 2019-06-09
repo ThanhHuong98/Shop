@@ -29,7 +29,6 @@ module.exports = function(passport) {
                     }
                     Account.validatePass(username, password, function (rs) {
                         if (!rs) {
-                            console.log("inside2")
                             return done(null, false, { message: 'Email hoặc mật khẩu không hợp lệ' });
                         }
                         return done(null, user);

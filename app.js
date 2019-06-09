@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 var createError = require('http-errors');
 const flash = require('connect-flash');
@@ -50,7 +51,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'eminem', // session secret
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({url: 'mongodb://admin:1234@floralcluster-shard-00-00-g48mu.mongodb.net:27017,floralcluster-shard-00-01-g48mu.mongodb.net:27017,floralcluster-shard-00-02-g48mu.mongodb.net:27017/test?ssl=true&replicaSet=FloralCluster-shard-0&authSource=admin&retryWrites=true'}),
+  cookie: {
+    maxAge: 180*60*1000
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -62,6 +67,7 @@ app.use(flash());
 app.use(function (req, res, next) {
   res.locals.error = req.flash('error');
   res.locals.msg = req.flash('msg');
+  //res.locals.session = req.session;
   next();
 })
 

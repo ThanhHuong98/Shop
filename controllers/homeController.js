@@ -2,7 +2,6 @@
 //add more model if need
 var Category = require('../models/category');
 var Product = require('../models/product');
-
 var async = require('async');
 
 
@@ -24,7 +23,6 @@ exports.index = function(req, res, next){
     //        console.log(result1);
     //     }
     // })   
-
     async.parallel({
         list1: function(callback){
             Product.randomProduct(callback);

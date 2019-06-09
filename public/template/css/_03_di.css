@@ -714,7 +714,10 @@ nav {
     margin: 10px 0;
 }
 .rx-quanty-order {
-    margin-top: 10px;
+    margin-top: 45px;
+}
+.rx-action-order{
+    margin-top: 50px;
 }
 .rx-quanty-order-right {    
 }

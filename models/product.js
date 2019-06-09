@@ -1,10 +1,17 @@
 var db = require('../db');
 var ObjectId = require('mongodb').ObjectID;
 
+exports.updateType = function(){
+    var collection = db.get().collection('Product')
+    collection.find({price: {$exists: true}}).forEach(function(obj) { 
+        obj.price = parseInt(obj.price);
+        collection.save(obj);
+    });
+}
 exports.find = function (id, cb) {
     var collection = db.get().collection('Product');
 
-    collection.findOne({ category: "MX" }, (err, result) => {
+    collection.findOne({ _id: ObjectId(id) }, (err, result) => {
         cb(err, result)
     });
 }
@@ -31,7 +38,6 @@ exports.all = function (id, cb) {
                     }
                 }
             ]).toArray((err, result) => {
-                console.log(result)
                 cb(err, result)
             })
         })
@@ -78,8 +84,6 @@ exports.findOne = function(id, cb) {
 
     collection.find({_id: ObjectId(id) }).toArray(function(err, result){
         cb(err, result)
-        console.log("Single - Product");
-        console.log(result);
     })
 }
 
@@ -88,7 +92,5 @@ exports.findRelatedProducts = function(code, cb){
     var collection = db.get().collection('Product');
     collection.find({category: code}).toArray(function(err, result){
         cb(err, result)
-        console.log("Related-Products");
-        console.log(result);
     })
 }

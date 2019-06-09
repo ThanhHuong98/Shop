@@ -37,11 +37,6 @@ exports.product_detail = function(req, res, next){
     const id = req.query.id;
     const code = req.query.code;
 
-    console.log("ObjectID:");
-    console.log(id);
-
-    console.log(code);
-
      async.parallel({
         singleProduct: function(callback){
             Product.findOne(id, callback);

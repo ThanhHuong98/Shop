@@ -3,6 +3,7 @@ var bcrypt = require('bcrypt');
 var ObjectId = require('mongodb').ObjectID;
 var saltRounds = 10;
 
+
 exports.all = function (cb) {
     var collection = db.get().collection('Customer');
 
@@ -22,17 +23,19 @@ exports.findID = function (id, cb) {
         cb(err, rs)
     })
 }
-exports.add = function (email, pass, name, phone, address, cb) {
+exports.add = function (email, pass, name, phone, address, token, cb) {
     var collection = db.get().collection("Customer");
     var role = 0;
-    bcrypt.hash(pass,saltRounds,function(error,hash){
+    bcrypt.hash(pass, saltRounds, function (error, hash) {
         collection.insert({
             email: email,
             pass: hash,
             role: role,
             name: name,
             phone: phone,
-            address: address
+            address: address,
+            isVerifed: false,
+            token: token
         }, function (err, rs) {
             if (rs) {
                 collection.findOne({ email: email }, function (error, result) {
@@ -60,8 +63,8 @@ exports.checkEmail = function (email, cb) {
 }
 exports.validatePass = function (email, pass, cb) {
     var collection = db.get().collection("Customer");
-    collection.findOne({email: email}, function (err, user) {
-        bcrypt.compare(pass,user.pass,function(error,rs){
+    collection.findOne({ email: email }, function (err, user) {
+        bcrypt.compare(pass, user.pass, function (error, rs) {
             cb(rs);
         })
     })
@@ -69,7 +72,6 @@ exports.validatePass = function (email, pass, cb) {
 exports.edit = function (id, name, phone, address, pass, cb) {
     var collection = db.get().collection("Customer");
     if (pass) {
-        console.log("update pass")
         collection.update({ _id: ObjectId(id) },
             {
                 $set: {
@@ -93,4 +95,62 @@ exports.edit = function (id, name, phone, address, pass, cb) {
                 cb(err, cb)
             })
     }
+}
+exports.verify = function (email, token, cb) {
+    var account = db.get().collection('Customer');
+    account.findOne({ email: email, token: token }, function (err, rs) {
+        if (rs) {
+            account.update({ _id: ObjectId(rs._id) },
+                {
+                    $set: {
+                        isVerifed: true
+                    }
+                }, function (error, result) {
+                    cb(error, result)
+                })
+        }
+    })
+}
+exports.addResetPassToken = function (id, token, cb) {
+    var account = db.get().collection('Customer');
+    account.update(
+        {
+            _id: ObjectId(id)
+        },
+        {
+            $set:
+            {
+                ResetPassToken: token
+            }
+        }, function (err, rs) {
+            cb(err, rs);
+        }
+    )
+}
+exports.checkResetPassToken = function (email, token, cb) {
+    var account = db.get().collection('Customer');
+    account.findOne({ email: email, ResetPassToken: token }, function (err, rs) {
+        cb(rs);
+    })
+}
+exports.reset_password = function (id, pass, cb) {
+    var account = db.get().collection('Customer');
+    bcrypt.hash(pass, saltRounds, function (error, hash) {
+        account.update(
+            {
+                _id: ObjectId(id)
+            },
+            {
+                $set:
+                {
+                    pass: hash
+                }
+            }, function (err, rs) {
+                if (rs) {
+                    account.findOne({ _id: ObjectId(id) }, function (e, result) {
+                        cb(result);
+                    })
+                }
+            })
+    })
 }

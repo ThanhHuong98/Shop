@@ -202,7 +202,6 @@ $(document).ready(function () {
                     },
                     type: "POST",
                     success: function () {
-                        console.log("success section")
                         $("#edit-profile-form").submit();
                     },
                     error: function (err) {
@@ -215,5 +214,32 @@ $(document).ready(function () {
             $("#edit-profile-form").submit();
         }
         
+    })
+    $(".rx-quanty-order-right-body button:first-child").click(function(){
+        var input = $(".rx-quanty-order-right-body input");
+        var count = parseInt($(input).val())-1;
+        count = count < 1 ? 1 : count;
+        $(input).val(count);
+        $(input).change();
+        var url = $(".rx-action-addcart-mainbox");
+        var s = $(url).attr("href");
+        s = s.substring(0,s.lastIndexOf("quantity"));
+        s = s + "quantity=" + count;
+        $(url).attr("href",s);
+        alert($(url).attr("href"));
+    })
+    $(".rx-quanty-order-right-body button:last-child").click(function(){
+        var input = $(".rx-quanty-order-right-body input");
+        var max = $(input).data("quantity");
+        var count = parseInt($(input).val()) + 1;
+        count = count > max ? max : count;
+        $(input).val(count);
+        $(input).change();
+        var url = $(".rx-action-addcart-mainbox");
+        var s = $(url).attr("href");
+        s = s.substring(0,s.lastIndexOf("quantity"));
+        s = s + "quantity=" + count;
+        $(url).attr("href",s);
+        alert($(url).attr("href"));
     })
 })

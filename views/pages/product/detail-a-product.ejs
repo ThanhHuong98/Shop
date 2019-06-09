@@ -155,9 +155,10 @@
                                         <div class="rx-quanty-order-left">Số lượng:</div>
                                         <div class="rx-quanty-order-right">
                                             <div class="rx-quanty-order-right-head"></div>
-                                            <div class="rx-quanty-order-right-body"><button>-</button><input
-                                                    type="number" value="1" readonly=""
-                                                    class="rx-quanty-input"><button>+</button></div>
+                                            <div class="rx-quanty-order-right-body">
+                                                <button>-</button>
+                                                <input type="number" value="1" readonly="" class="rx-quanty-input" data-quantity="<%=product.quantity%>">
+                                                <button>+</button></div>
                                         </div>
                                     </div>
                                     <div class="rx-action-order">
@@ -167,10 +168,10 @@
                                             <!-- react-text: 1950 -->
                                             <!-- /react-text -->
                                         </div>
-                                        <div class="rx-action-addcart-mainbox clearfix">
+                                        <a class="rx-action-addcart-mainbox clearfix" href="/add-to-cart?id=<%=product._id%>&&quantity=1">
                                             <div class="rx-action-addcart rx-action-addcart-lg">Thêm vào giỏ hàng
                                             </div>
-                                        </div>
+                                        </a>
                                         <div class="rx-action-favorite clearfix">
                                             <div>
                                                 <div class="rx-heart-medium mlkicon-Heart"></div>

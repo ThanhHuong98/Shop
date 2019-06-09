@@ -175,9 +175,9 @@ $(document).ready(function()
 				{
 					original = parseFloat(qty.find('.product_num').text());
 					if(original > 0)
-						{
-							newValue = original - 1;
-						}
+					{
+						newValue = original - 1;
+					}
 					num.text(newValue);
 				});
 
@@ -185,6 +185,8 @@ $(document).ready(function()
 				{
 					original = parseFloat(qty.find('.product_num').text());
 					newValue = original + 1;
+					var max = $(num).data("quantity");
+					newValue = newValue > max ? max : newValue;
 					num.text(newValue);
 				});
 			});

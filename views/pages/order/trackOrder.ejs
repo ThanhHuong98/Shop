@@ -1,69 +1,178 @@
 <% include ../../partials/head.ejs %>
+<link rel="stylesheet" type="text/css" href="/profileEdit/css/style.css">
+<link rel="stylesheet" type="text/css" href="/profileEdit/css/responsive.css">
 <link rel="stylesheet" type="text/css" href="/trackOrder/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/trackOrder/css/responsive.css">
+<style>
+    #track-order-container {
+        width: 860px;
+        background-color: #FFFFFF;
+        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #track-order-container p {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+
+    #progress-bar {
+        margin-bottom: 30px;
+    }
+
+    #orderID-title {
+        font-size: 17px;
+        font-weight: 700;
+        color: #218c74;
+    }
+
+    #stage0::before {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+
+    .progressbar {
+        padding: 0px;
+    }
+
+    #stage1::after {
+        left: -90%;
+        width: 135%;
+    }
+
+    #stage4::before {
+        margin: 0px 0px 10px auto;
+    }
+
+    #stage4::after {
+        left: -46%;
+        width: 135%;
+    }
+
+    .stage-active {
+        font-weight: 700 !important;
+        color: #313F40 !important;
+    }
+
+    .stage-active::before {
+        border: 5px solid;
+    }
+
+    .package-element-img {
+        width: 72px;
+        height: auto;
+        margin-right: 30px;
+    }
+
+    .package-element {
+        margin-bottom: 20px;
+    }
+
+    .package-element div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .package-element span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+</style>
 <% include ../../partials/header.ejs %>
 <div class="super_container_inner">
-    <div class="content">
-        <p id="page-title">THEO DÕI ĐƠN HÀNG <span><strong>#71238</strong></span></p>
-        <div id="progress-bar">
-            <div class="root-container">
-                <ul class="progressbar">
-                    <li>Đặt hàng thành công</li>
-                    <li>Tiếp nhận đơn hàng</li>
-                    <li>Đóng gói</li>
-                    <li>Giao hàng</li>
-                    <li id="finalStage">Giao hàng thành công</li>
-                </ul>
-            </div>
-        </div>
-        <div id="infor" class="row">
-            <div class="col-lg-8 history-container">
-                <div id="history">'
-                    <p id="title">Chi tiết trạng thái đơn hàng</p>
-                    <div class="row">
-                        <div class="col-sm-6" id="timeline">
-                            <p class="date"><b>Thứ sáu, 04/01/2019</b></p>
-                            <p class="time">15:30</p>
-                            <p class="time">09:12</p>
-                            <p class="date"><b>Thứ năm, 03/01/2019</b></p>
-                            <p class="time">18:17</p>
-                            <p class="time">14:12</p>
-                            <p class="time">14:11</p>
-                        </div>
-                        <div class="col-sm-6" id="task">
-                            <p class="date" style="font-size: 16px;">&nbsp;</p>
-                            <p class="date" style="color: #10AC84;">Giao thành thành công</p>
-                            <p class="date">Đang vận chuyển</p>
-                            <p class="date" style="font-size: 16px">&nbsp;</p>
-                            <p class="date">Đang đóng gói</p>
-                            <p class="date">Tiếp nhận đơn hàng</p>
-                            <p class="date">Đặt hàng thành công</p>
-                        </div>
-                    </div>
+    <div class="super_overlay"></div>
+
+    <div id="content" class="row">
+        <div class="col-md-6 col-lg-4 account-box-container">
+            <div id="account-box">
+                <div id="name">
+                    <p><%=account.name%></p>
                 </div>
-            </div>
-            <div class="col-lg-4" id="cart">
-                <p id="title">KIỆN HÀNG</p>
-                <div class="product">                    
-                    <p class="product-info">Lọ hoa sensational</p>
-                    <a href="/detail-a-product">
-                        <img class="product-img" src="/trackOrder/image/sample.png">
+                <div class="option">
+                    <a href="/edit-profile">
+                        <p>Thông tin tài khoản</p>
                     </a>
                 </div>
-                <div class="product">
-                    <p class="product-info">Hoa hồng leo</p>
-                    <a href="/detail-a-product">
-                    <img class="product-img" src="/trackOrder/image/shop-img-13.jpg"></a>
+                <div class="option">
+                    <a href="/order-management">
+                        <p>Quản lý đơn hàng</p>
+                    </a>
                 </div>
-                <div class="pagination" id="page-box">
-                    <a href="#">&laquo;</a>
-                    <a class="active" href="#">1</a>
-                    <a  href="#">2</a>
-                    <a href="#">&raquo;</a>
+                <div class="option" id="last">
+                    <a href="/logout">
+                        <p>Đăng xuất</p>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>			
+        <div class="col-md-6 col-lg-8 content-box-container">
+            <div id="track-order-container">
+                <p>Theo dõi đơn hàng &nbsp;&nbsp;<span id="orderID-title"><%=cart.orderID%></span></p>
+                <p>Trạng thái đơn hàng</p>
+                <div id="progress-bar" data-id="<%=cart.status%>">
+                    <div class="root-container">
+                        <ul class="progressbar">
+                            <li id="stage0">Đặt hàng thành công</li>
+                            <li id="stage1">Tiếp nhận đơn hàng</li>
+                            <li id="stage2">Đóng gói</li>
+                            <li id="stage3">Giao hàng</li>
+                            <li id="stage4">Giao hàng thành công</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>Thông tin kiện hàng</p>
+                <div id="package-container">
+                    <% var arr = cart.products.items; var i = 1;%>
+                    <% Object.keys(arr).forEach(function(f){%>
+                    <div class="package-element row">
+                        <div class="col-1"><%=i%></div>
+                        <div class="col-8">
+                            <img src="<%=arr[f].item.image%>" class="package-element-img">
+                            <span><%=arr[f].item.name%></span>
+                        </div>
+                        <div class="col-3" style="justify-content: flex-end"><%=arr[f].qty%> sản phẩm</div>
+                    </div>
+                    <%i=i+1;%>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var stage = parseInt($("#progress-bar").data("id"));
+    switch(stage){
+        case 0: {
+            $("#stage0").addClass("stage-active");
+            break;
+        }
+        case 1: {
+            $("#stage1").addClass("stage-active");
+            break;
+        }
+        case 2: {
+            $("#stage2").addClass("stage-active");
+            break;
+        }
+        case 3: {
+            $("#stage3").addClass("stage-active");
+            break;
+        }
+        case 4: {
+            $("#stage4").addClass("stage-active");
+            break;
+        }
+    }
+})
+</script>
 
 <% include ../../partials/footer.ejs %>
