@@ -60,22 +60,31 @@
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="rx-product-action"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>">
-                                            <div class="rx-action-like"></div>
-                                            <div class="rx-action-card"></div>
-                                            <div class="rx-action-addcart">Mua ngay</div>
-                                    </div>
+                                    <div class="rx-product-action">
+                                        <div class="rx-action-like"></div>
+                                        <div class="rx-action-card"></div>
+                                        <div class="rx-action-addcart"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>" style = "color:white">Mua ngay</div></a>
+                                </div>
                             </div>
                         </div>
                         <% }); %>
                     </div>
                 </div>
                 <div class='blockproduct-arr jcarousel-control-prev carousel__arrow'><span
-                        class='mlkicon-Right mlkicon-Arrows'></span></div>
+                        class='mlkicon-Right mlkicon-Arrows' onClick="loadData()"></span></div>
                 <div class='blockproduct-arr jcarousel-control-next carousel__arrow'><span
-                        class='mlkicon-Left mlkicon-Arrows'></span></div>
+                        class='mlkicon-Left mlkicon-Arrows'onClick="loadData()"></span></div>
             </div>
         </div>
     </div>
     <a href=""><div class="blockproduct__more" style = "margin-bottom: 100px">Xem thêm</div></a>
 </div>
+<script type="text/javascript">
+    function loadData(){
+       // var elements = element.getElementsByClassName('mlkicon-Right mlkicon-Left');
+        alert("Click click");  
+    }
+
+    
+    
+ </script>

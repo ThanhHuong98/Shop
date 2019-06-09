@@ -26,16 +26,6 @@
                                 <a href="/cart">
                                     <span class='rxico-cart mlkicon-Cart'></span>
                                     <span class='mainhead-cart-number'>1</span>
-                                    <!-- <div class='mainhead-cart-popup'> -->
-                                    <!-- <div>
-                              <div class='cart-popup-header'>Giỏ hàng có 5 sản phẩm</div>
-                              <div class='cart-popup-body'>{tempCartDetail}</div>
-                                                      <div style="padding: '15px'"> <a href="" ><div class='cart-popup-payment'>Đặt hàng</div></Link> </div>
-                            </div> : <div>
-                              <div class='cart-popup-header'>Giỏ hàng của bạn</div>
-                              <div class='cart-popup-emptytext'>Giỏ hàng đang trống, Hãy tiếp tục lựa chọn sản phẩm</div>                            
-                            </div>} -->
-                                    <!-- </div> } -->
                                 </a>
                             </div>
                             <!-- Love icon -->
@@ -51,32 +41,23 @@
                                     <div class='rxico-account mlkicon-Profile'></div>
                                 </a>                                
                             </div>
+                            <!-- Search basic by name product -->
                             <div class='mainhead-search-btn'>
                                 <div class='rxico-search mlkicon-Search'></div>
-
-                                <div class='mainhead-search'>
-                                    <div class='mainhead-search-box'>
-                                        <input auto-focus tab-index='1' type='text' auto-complete='search' name='name'
-                                            placeholder='Tìm kiếm ...' />
-                                        <a href="">
-                                            <div class='mainhead-search-button'><i class='icon-magnifier'></i></div>
-                                        </a>
-                                        <!-- <div class='mainhead-search-category'>
-                                            <select class='select-search-category'>
-                                                <option value='0'>Tất cả danh mục</option>
-                                                {arrCategories.map((perdata,index) => <option key={index} value={perdata._id}>{perdata.name}</option>)}
-                                            </select>
-                                        </div> -->
+                                <!-- form search -->
+                                <form method="POST" action="/search" id="myForm">
+                                    <div class='mainhead-search'>
+                                        <div class='mainhead-search-box'>
+                                            <input auto-focus tab-index='1' type='text' auto-complete='search' 
+                                                name='inputSearch'
+                                                id='inputSearch'
+                                                placeholder='Hoa anh thảo' />
+                                            <a href="">
+                                                <div class='mainhead-search-button'><i class='icon-magnifier'></i></div>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <!-- <div class='mainhead-search-suggestion'>
-                                        <div class='cart-popup-body'>{tempSearchDetail}</div>
-                                        <div style="padding: '10px'"> <a href="">
-                                                <div class='cart-popup-payment'>Xem tất cả</div>
-                                            </a> </div>
-                                    </div> : <div class='mainhead-search-suggestion'>
-                                        <div class='cart-popup-emptytext'>Không tìm thấy kết quả nào phù hợp</div>
-                                    </div>} -->
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -139,121 +120,6 @@
                             </div>
                         </li>
                         <% }); %>
-
-                        <!-- Add more categories ... -->
-                        <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/quan-">Quần </a><span
-                                class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                        
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url(&quot;http://apimualaketv1.ecdc.vn/upload/image/2324487612501u5SgAzZy.jpg&quot;);">
-                                        </div>
-                                        <div class="image-category-title">Quần </div>
-                                        <div class="image-category-link"><a href="/search/quan-">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/quan-short">Quần Short</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/quan-dai">Quần Dài</a></div>
-                                </div>
-                            </div>
-                        </li> -->
-                        <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/tui-xach">Túi
-                                Xách</a><span class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                       
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url(&quot;http://apimualaketv1.ecdc.vn/upload/image/100991923714EEpNPJNu.jpg&quot;);">
-                                        </div>
-                                        <div class="image-category-title">Túi Xách</div>
-                                        <div class="image-category-link"><a href="/search/tui-xach">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/tui-bao-tu">Túi Bao Tử</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/tui-deo-cheo-vai">Túi Đeo Chéo Vai</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/tui-trong">Túi Trống</a></div>
-                                </div>
-                            </div>
-                        </li> -->
-                        <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/balo">Balo</a><span
-                                class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                       
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url(&quot;http://apimualaketv1.ecdc.vn/upload/image/100832388810eQ203DAt.jpg&quot;);">
-                                        </div>
-                                        <div class="image-category-title">Balo</div>
-                                        <div class="image-category-link"><a href="/search/balo">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/balo-rth">Balo RTH</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/balo-rc">Balo RC</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/balo-ppr">Balo PPR</a></div>
-                                </div>
-                            </div>
-                        </li> -->
-                        <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/giay">Giày</a><span
-                                class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                        
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url(&quot;http://apimualaketv1.ecdc.vn/upload/image/100675816327rCiJqdiw.jpg&quot;);">
-                                        </div>
-                                        <div class="image-category-title">Giày</div>
-                                        <div class="image-category-link"><a href="/search/giay">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/giay-boot-thap-co">Giày Boot Thấp Cổ</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/giay-boot-cao-co">Giày Boot Cao Cổ</a></div>
-                                </div>
-                            </div>
-                        </li> -->
-                        <!-- <li class="nav-menu-item "><a class="nav-menu-item-hover " href="/search/phu-kien">Phụ
-                                Kiện</a><span class="btn-menu-right mlkicon-Right "></span>
-                            <div>
-                                <div class="dropdown-content ">
-                                    <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
-                                       
-                                    </div>
-                                    <div class="image-category">
-                                        <div class="image-category-thumb"
-                                            style="background-image: url(&quot;http://apimualaketv1.ecdc.vn/upload/image/100521332632nfGyLSji.jpg&quot;);">
-                                        </div>
-                                        <div class="image-category-title">Phụ Kiện</div>
-                                        <div class="image-category-link"><a href="/search/phu-kien">Shop Now</a></div>
-                                    </div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/kinh-ao">Kính AO</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/that-lung">Thắt Lưng</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/tui-di-kem-balo">Túi Đi Kèm Balo</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title"
-                                            href="/search/day-the-bai">Dây thẻ bài</a></div>
-                                </div>
-                            </div>
-                        </li> -->
                     </ul>
                     <!-- Option languages: vi -->
                     <div class="nav-menu-lang" data-reactid="61"><span class="mlkicon-Vn" data-reactid="62"><span
@@ -261,24 +127,6 @@
                                 data-reactid="64"></span></span>VN(vnd)
                     </div>
                 </nav>
-                <!-- Menu icon -->
-                <!-- <div class="rx-mobile-show mobile-nav-block-user" data-reactid="66">
-                    <div data-reactid="67"><span class="mlkicon-Profile" data-reactid="68"></span><a href="/login"
-                            data-reactid="69">Đăng nhập</a>
-                      <a href="/register" data-reactid="71">Đăng ký</a></div>
-                    <div data-reactid="72"><span class="mlkicon-Heart" data-reactid="73"></span><a
-                            href="/customer/favorite" data-reactid="74">Danh sách ưa thích</a></div>
-                    <div data-reactid="75"><span class="mlkicon-Order" data-reactid="76"></span><a
-                            href="/customer/order" data-reactid="77">Đơn hàng</a></div>
-                </div> -->
-
-                <!-- <div class="rx-mobile-show mobile-nav-block-lang" data-reactid="78">
-                    <div data-reactid="79"><span class="mlkicon-Vn mlkicon-Vn-mobile" data-reactid="80"><span
-                                class="path1" data-reactid="81"></span><span class="path2"
-                                data-reactid="82"></span></span>VN (vnd)
-                    </div>
-                </div> -->
-                <!-- <div class="rx-bg-nav " data-reactid="84"></div> -->
             </div>
         </div>
         <!-- Sub header - bottom menu Categories -->
@@ -297,3 +145,14 @@
         </div>
     </div>
     <!-- Header -->
+    <script>
+        var input = document.getElementById("inputSearch");
+        input.addEventListener("keyup", function(event){
+            if(event.keyCode === 13){//enter
+                event.preventDefault();
+                var currentVal = input.value;
+                if(currentVal.length > 0)
+                    $("#myForm").attr('action','/search?name=' +currentVal);
+            }
+        })
+    </script>

@@ -1,5 +1,6 @@
 var db = require('../db');
 var ObjectId = require('mongodb').ObjectID;
+const QUANTITY = 10;
 
 exports.updateType = function(){
     var collection = db.get().collection('Product')
@@ -69,7 +70,7 @@ exports.allProduct = function(cb) {
 exports.randomProduct = function(cb){
     var collection = db.get().collection('Product');
 
-    collection.aggregate([{$sample: {size : 20}}
+    collection.aggregate([{$sample: {size : QUANTITY}}
     ]).toArray(function(err, result){
         cb(err, result)
     })
@@ -82,9 +83,22 @@ exports.randomProduct = function(cb){
 exports.findOne = function(id, cb) {
     var collection = db.get().collection('Product');
 
-    collection.find({_id: ObjectId(id) }).toArray(function(err, result){
+    collection.findOne({_id: ObjectId(id) }, function(err, result){
         cb(err, result)
     })
+}
+
+exports.allComment = function(id, cb) {
+    var collection = db.get().collection('Product');
+    collection.findOne({_id: ObjectId(id)},function(err, result){
+        var listComment = result.comment;
+        if(listComment == undefined){
+            listComment=[];
+        }
+        cb(err, listComment)
+        console.log("list-comment");
+        console.log(listComment);
+    })  
 }
 
 exports.findRelatedProducts = function(code, cb){
@@ -93,4 +107,37 @@ exports.findRelatedProducts = function(code, cb){
     collection.find({category: code}).toArray(function(err, result){
         cb(err, result)
     })
+}
+
+exports.saveComment=function(id, name_user, title, content, cb){
+    var collection = db.get().collection('Product');
+    var comment = {name_user,
+        title,
+        content};
+
+        collection.updateOne({_id : ObjectId(id)}, {
+            $push: {
+                comment:{
+                    name_user,
+                    title,
+                    content
+                }
+            }
+        }, function(err, result){
+            cb(err, result);
+        });
+}
+
+exports.search = function(name, cb){
+    
+    var collection = db.get().collection('Product');
+    collection.findOne({name:name}
+      ,function(err, result){
+          cb(err, result);
+      })
+    // collection.find({name:name}).collation( { locale: 'vi', strength: 2 }).toArray(function(err, result){
+    //     cb(err, result[0])
+    //     console.log("result[0]")
+    //     console.log(result[0]);
+    // })
 }
