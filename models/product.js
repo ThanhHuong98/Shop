@@ -176,8 +176,10 @@ exports.paginate = function (id, page, cb) {
                 collection.find({ category: categoryId }).count(function (e, count) {
                     if (e) return next(e)
                     var callBackString = {}
+                    callBackString.title = "Sản phẩm " + (result.name).toUpperCase();
                     callBackString.pages = Math.ceil(count / perPage);
                     callBackString.products = products;
+                    callBackString.count = count;
                     cb(null, callBackString);
                 })
             })
@@ -205,8 +207,10 @@ exports.paginate = function (id, page, cb) {
             collection.find({}).count(function (e, count) {
                 if (e) return next(e)
                 var callBackString = {}
+                callBackString.title = "Tất cả sản phẩm";
                 callBackString.pages = Math.ceil(count / perPage);
                 callBackString.products = products;
+                callBackString.count = count;
                 cb(null, callBackString);
             })
         })

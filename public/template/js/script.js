@@ -226,7 +226,6 @@ $(document).ready(function () {
         s = s.substring(0,s.lastIndexOf("quantity"));
         s = s + "quantity=" + count;
         $(url).attr("href",s);
-        alert($(url).attr("href"));
     })
     $(".rx-quanty-order-right-body button:last-child").click(function(){
         var input = $(".rx-quanty-order-right-body input");
@@ -240,6 +239,29 @@ $(document).ready(function () {
         s = s.substring(0,s.lastIndexOf("quantity"));
         s = s + "quantity=" + count;
         $(url).attr("href",s);
-        alert($(url).attr("href"));
+    })
+    $(".rxmlkiconPlus").click(function(){
+        if($(this).hasClass("mlkicon-Plus")){
+            $(this).addClass("mlkicon-Minus");
+            $(this).removeClass("mlkicon-Plus");
+        }else 
+        if($(this).hasClass("mlkicon-Minus")){
+            $(this).addClass("mlkicon-Plus");
+            $(this).removeClass("mlkicon-Minus");
+        }
+    })
+    $("#category-btn").click(function(){
+        if($(this).hasClass("mlkicon-Minus")){
+            $(".rx-cat-bg").hide();
+        }else if($(this).hasClass("mlkicon-Plus")){
+            $(".rx-cat-bg").show();
+        }
+    })
+    $("#price-btn").click(function(){
+        if($(this).hasClass("mlkicon-Minus")){
+            $(".filter-price").hide();
+        }else if($(this).hasClass("mlkicon-Plus")){
+            $(".filter-price").show();
+        }
     })
 })

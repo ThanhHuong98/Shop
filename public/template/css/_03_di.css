@@ -2094,6 +2094,7 @@ a.rx-footer-img-connect, a.rx-footer-img {
     border-bottom: 1px solid #eee;
     background: #fff;
     margin-bottom: 5px;
+    display: none;
 }
 .price-discount {
     color: #888;
@@ -2587,6 +2588,15 @@ b.carret {
 }
 .mlk-banner1 {
     margin-right: 10px;
+}
+.filter-price{
+    height: 96px;
+    display: none;
+}
+.filter-body{
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid;
 }
 .banner- {
     min-height: 460px;

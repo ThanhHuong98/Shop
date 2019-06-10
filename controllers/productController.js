@@ -38,7 +38,7 @@ exports.pagination = function(req, res, next){
         if (err){
             res.send(err);
         }else{
-            res.render('pages/product/list-product', {list: result.list.products, listCategory:result.listCategory, id: id, current: page, pages: result.list.pages})
+            res.render('pages/product/list-product', {list: result.list.products, listCategory:result.listCategory, id: id, current: page, pages: result.list.pages, title : result.list.title, count: result.list.count})
         }
     })
 
