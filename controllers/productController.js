@@ -16,13 +16,32 @@ exports.product_list = function(req, res, next){
         list: function (callBack) {
             Product.all(id, callBack);
         }
-    },function(err,result){
+    },function(err, result){
         if (err){
-            res.err(err);
+            res.error(err);
         }else{
-            res.render('pages/product/list-product', {list: result.list,listCategory:result.listCategory})
+            res.render('pages/product/list-product', {list: result.list , listCategory:result.listCategory})
         }
     })
+}
+exports.pagination = function(req, res, next){
+    const id = req.params.id;
+    const page = req.params.page;
+    async.parallel({        
+        listCategory: function(callback){
+            Category.allCategory(callback);
+        },
+        list: function (callBack) {
+            Product.paginate(id, page, callBack);
+        },
+    },function(err,result){
+        if (err){
+            res.send(err);
+        }else{
+            res.render('pages/product/list-product', {list: result.list.products, listCategory:result.listCategory, id: id, current: page, pages: result.list.pages})
+        }
+    })
+
 }
 //Display list of all the favorite products
 exports.product_favorite_list = function(req, res, next){

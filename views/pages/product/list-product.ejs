@@ -2,7 +2,7 @@
 <% include ../../partials/header.ejs %>
 
 <!-- List product-->
-<main class="container main-container" data-reactid="108">    
+<main class="container main-container" data-reactid="108">
     <div class="container--grey">
         <div class="container">
             <div class="rx-main-page-search">
@@ -155,21 +155,47 @@
                                 <option class="" value="price:asc">Giá tăng dần</option>
                                 <option class="" value="price:desc">Giá giảm dần</option>
                             </select></div>
-                        <div class="rx-cat-pagin rxhidden"><span class="mlkicon-Left btn-backs"></span><span
-                                class="rx-active">1</span><span>2</span><span class="mlkicon-Right btn-nexts"></span>
+                        <div class="rx-cat-pagin rxhidden">
+                            <% if (pages > 0) { %>
+                            <div class="rx-cat-pagin">
+                                <% if (current == 1) { %>
+                                <span class="disabled"><a>Đầu</a></span>
+                                <% } else { %>
+                                <span><a href="/list-product/<%=id%>/1">Đầu</a></span>
+                                <% } %>
+                                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                                <% if (i !== 1) { %>
+                                <span class="disabled"><a>...</a></span>
+                                <% } %>
+                                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                                <% if (i == current) { %>
+                                <span class="rx-active"><a><%= i %></a></span>
+                                <% } else { %>
+                                <span><a href="/list-product/<%=id%>/<%= i %>"><%= i %></a></span>
+                                <% } %>
+                                <% if (i == Number(current) + 4 && i < pages) { %>
+                                <span class="disabled"><a>...</a></span>
+                                <% } %>
+                                <% } %>
+                                <% if (current == pages) { %>
+                                <span class="disabled"><a>Cuối</a></span>
+                                <% } else { %>
+                                <span><a href="/list-product/<%=id%>/<%= pages %>">Cuối</a></span>
+                                <% } %>
+                            </div>
+                            <% } %>
                         </div>
                     </div>
                     <!-- *********************** -->
-                    <!-- Multipe product per a sreen:-->
                     <div class="row rx-cat-product">
-                        <!-- Single item: item 1 -->
                         <% list.forEach(function(product){ %>
-                            <div class="rx-product-item col-sm-lg col-sm-3 show">
-                                <div class="rx-product-figure">
-                                    <div class="rx-product-figure-header"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>"><img class=""
-                                                src="<%=product.image%>"" alt="" title=""></a>
+                        <div class="rx-product-item col-sm-lg col-sm-3 show">
+                            <div class="rx-product-figure">
+                                <div class="rx-product-figure-header"><a
+                                        href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>"><img
+                                            class="" src="<%=product.image%>"" alt="" title=""></a>
                                     </div>
-                                    <div class="rx-product-figure-body">
+                                    <div class=" rx-product-figure-body">
                                         <div class="figure-body-brand-inlist"><%=product.category_detail[0].name%></div>
                                         <div class="figure-body-title"><%=product.name%></div>
                                         <div class="rx-relative">
@@ -207,22 +233,48 @@
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
-                                    </div>
-                                    <div class="rx-product-action"><a href="/add-to-cart?id=<%=product._id%>&&quantity=1">
-                                            <div class="rx-action-like"></div>
-                                            <div class="rx-action-card"></div>
-                                            <div class="rx-action-addcart">Mua ngay</div>
-                                    </div>
                                 </div>
-                            </div>   
-                          <% }); %>
-                        
+                                <div class="rx-product-action"><a
+                                        href="/add-to-cart?id=<%=product._id%>&&quantity=1"></a>
+                                    <div class="rx-action-like"></div>
+                                    <div class="rx-action-card"></div>
+                                    <div class="rx-action-addcart">Mua ngay</div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+
                     </div>
                     <div class="clearfix"></div>
                     <div class="rx-cat-sorting clearfix martop20">
-                        <div class="rx-cat-pagin"><span class="mlkicon-Left btn-backs"></span><span
-                                class="rx-active">1</span><span>2</span><span class="mlkicon-Right btn-nexts"></span>
+                        <% if (pages > 0) { %>
+                        <div class="rx-cat-pagin">
+                            <% if (current == 1) { %>
+                            <span class="disabled"><a>Đầu</a></span>
+                            <% } else { %>
+                            <span><a href="/list-product/<%=id%>/1">Đầu</a></span>
+                            <% } %>
+                            <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                            <% if (i !== 1) { %>
+                            <span class="disabled"><a>...</a></span>
+                            <% } %>
+                            <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                            <% if (i == current) { %>
+                            <span class="rx-active"><a><%= i %></a></span>
+                            <% } else { %>
+                            <span><a href="/list-product/<%=id%>/<%= i %>"><%= i %></a></span>
+                            <% } %>
+                            <% if (i == Number(current) + 4 && i < pages) { %>
+                            <span class="disabled"><a>...</a></span>
+                            <% } %>
+                            <% } %>
+                            <% if (current == pages) { %>
+                            <span class="disabled"><a>Cuối</a></span>
+                            <% } else { %>
+                            <span><a href="/list-product/<%=id%>/<%= pages %>">Cuối</a></span>
+                            <% } %>
                         </div>
+                        <% } %>
                     </div>
                 </div>
             </div>

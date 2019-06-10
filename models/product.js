@@ -2,9 +2,9 @@ var db = require('../db');
 var ObjectId = require('mongodb').ObjectID;
 const QUANTITY = 10;
 
-exports.updateType = function(){
+exports.updateType = function () {
     var collection = db.get().collection('Product')
-    collection.find({price: {$exists: true}}).forEach(function(obj) { 
+    collection.find({ price: { $exists: true } }).forEach(function (obj) {
         obj.price = parseInt(obj.price);
         collection.save(obj);
     });
@@ -20,9 +20,9 @@ exports.find = function (id, cb) {
 
 exports.all = function (id, cb) {
     var collection = db.get().collection('Product')
-    if(id!="0"){
-        db.get().collection('Category').findOne({_id : ObjectId(id)},function(err,result){
-            var categoryId=result.code
+    if (id != "0") {
+        db.get().collection('Category').findOne({ _id: ObjectId(id) }, function (err, result) {
+            var categoryId = result.code
             collection.aggregate([
                 {
                     $match: {
@@ -38,11 +38,11 @@ exports.all = function (id, cb) {
                         as: "category_detail"
                     }
                 }
-            ]).toArray((err, result) => {
-                cb(err, result)
+            ]).toArray((error, result) => {
+                cb(error, result)
             })
         })
-    }else{
+    } else {
         collection.aggregate([
             {
                 $lookup:
@@ -53,25 +53,25 @@ exports.all = function (id, cb) {
                     as: "category_detail"
                 }
             }
-        ]).toArray((err, result) => {
-            cb(err, result)
+        ]).toArray((error, result) => {
+            cb(error, result)
         })
-    }    
+    }
 }
 
 //read all products
-exports.allProduct = function(cb) {
+exports.allProduct = function (cb) {
     var collection = db.get().collection('Product');
-    collection.find().toArray(function(err, result){
+    collection.find().toArray(function (err, result) {
         cb(err, result)
     })
 }
 //Read radom 5 products in listProduct
-exports.randomProduct = function(cb){
+exports.randomProduct = function (cb) {
     var collection = db.get().collection('Product');
 
-    collection.aggregate([{$sample: {size : QUANTITY}}
-    ]).toArray(function(err, result){
+    collection.aggregate([{ $sample: { size: QUANTITY } }
+    ]).toArray(function (err, result) {
         cb(err, result)
     })
 
@@ -80,64 +80,136 @@ exports.randomProduct = function(cb){
     //     })
 }
 
-exports.findOne = function(id, cb) {
+exports.findOne = function (id, cb) {
     var collection = db.get().collection('Product');
 
-    collection.findOne({_id: ObjectId(id) }, function(err, result){
+    collection.findOne({ _id: ObjectId(id) }, function (err, result) {
         cb(err, result)
     })
 }
 
-exports.allComment = function(id, cb) {
+exports.allComment = function (id, cb) {
     var collection = db.get().collection('Product');
-    collection.findOne({_id: ObjectId(id)},function(err, result){
+    collection.findOne({ _id: ObjectId(id) }, function (err, result) {
         var listComment = result.comment;
-        if(listComment == undefined){
-            listComment=[];
+        if (listComment == undefined) {
+            listComment = [];
         }
         cb(err, listComment)
         console.log("list-comment");
         console.log(listComment);
-    })  
+    })
 }
 
-exports.findRelatedProducts = function(code, cb){
+exports.findRelatedProducts = function (code, cb) {
 
     var collection = db.get().collection('Product');
-    collection.find({category: code}).toArray(function(err, result){
+    collection.find({ category: code }).toArray(function (err, result) {
         cb(err, result)
     })
 }
 
-exports.saveComment=function(id, name_user, title, content, cb){
+exports.saveComment = function (id, name_user, title, content, cb) {
     var collection = db.get().collection('Product');
-    var comment = {name_user,
+    var comment = {
+        name_user,
         title,
-        content};
+        content
+    };
 
-        collection.updateOne({_id : ObjectId(id)}, {
-            $push: {
-                comment:{
-                    name_user,
-                    title,
-                    content
-                }
+    collection.updateOne({ _id: ObjectId(id) }, {
+        $push: {
+            comment: {
+                name_user,
+                title,
+                content
             }
-        }, function(err, result){
-            cb(err, result);
-        });
+        }
+    }, function (err, result) {
+        cb(err, result);
+    });
 }
 
-exports.search = function(name, cb){
-    
+exports.search = function (name, cb) {
+
     var collection = db.get().collection('Product');
-    collection.findOne({name:name}
-      ,function(err, result){
-          cb(err, result);
-      })
+    collection.findOne({ name: name }
+        , function (err, result) {
+            cb(err, result);
+        })
     // collection.find({name:name}).collation( { locale: 'vi', strength: 2 }).toArray(function(err, result){
     //     cb(err, result[0])
     //     console.log("result[0]")
     //     console.log(result[0]);
     // })
+}
+
+exports.paginate = function (id, page, cb) {
+    var collection = db.get().collection('Product')
+    var perPage = 12;
+    var p = page || 1;
+    if (id != "0") {
+        db.get().collection('Category').findOne({ _id: ObjectId(id) }, function (err, result) {
+            var categoryId = result.code
+            collection.aggregate([
+                {
+                    $match: {
+                        category: categoryId
+                    }
+                },
+                {
+                    $lookup:
+                    {
+                        from: "Category",
+                        localField: "category",
+                        foreignField: "code",
+                        as: "category_detail"
+                    }
+                }, 
+                {
+                    $skip: (perPage * p) - perPage
+                },
+                {
+                    $limit: perPage
+                }
+            ]).toArray(function (e, products) {
+                collection.find({ category: categoryId }).count(function (e, count) {
+                    if (e) return next(e)
+                    var callBackString = {}
+                    callBackString.pages = Math.ceil(count / perPage);
+                    callBackString.products = products;
+                    cb(null, callBackString);
+                })
+            })
+        })
+
+    } else {
+        collection.aggregate([
+            {
+                $lookup:
+                {
+                    from: "Category",
+                    localField: "category",
+                    foreignField: "code",
+                    as: "category_detail"
+                }
+            },
+            {
+                $skip: (perPage * p) - perPage
+            },
+            {
+                $limit: perPage
+            }
+        ]).toArray(function (e, products) {
+            console.log(products);
+            collection.find({}).count(function (e, count) {
+                if (e) return next(e)
+                var callBackString = {}
+                callBackString.pages = Math.ceil(count / perPage);
+                callBackString.products = products;
+                cb(null, callBackString);
+            })
+        })
+    }
+
 }

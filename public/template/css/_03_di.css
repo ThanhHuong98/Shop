@@ -728,6 +728,9 @@ nav {
     padding: 0;
     display: block;
 }
+.disabled{
+    display: none;
+}
 .rx-quanty-order-right-body button {
     margin: 0;
     padding: 6px 16px;
@@ -831,7 +834,7 @@ nav {
 }
 .rx-cat-sorting .rx-cat-pagin {
     float: right;
-    width: 200px;
+    width: 100%;
     text-align: right;
     margin-right: 7px;
 }
@@ -2701,16 +2704,6 @@ li.nav-menu-item span {
   cursor: pointer;
   opacity: .15;
   transition: opacity .15s cubic-bezier(.4, 0, 1, 1);
-
-  &:hover {
-    opacity: .5;
-  }
-  &--active {
-    &,
-    &:hover {
-      opacity: .75;
-    }
-  }
 }
 .carousel__slide.carousel__slide--active {
     visibility: visible;

@@ -45,7 +45,7 @@
                             <div class='mainhead-search-btn'>
                                 <div class='rxico-search mlkicon-Search'></div>
                                 <!-- form search -->
-                                <form method="POST" action="/search" id="myForm">
+                                <form method="POST" action="/search" id="myForm" style="padding: 0px;">
                                     <div class='mainhead-search'>
                                         <div class='mainhead-search-box'>
                                             <input auto-focus tab-index='1' type='text' auto-complete='search' 
@@ -91,7 +91,7 @@
                         <!-- Categories1 -->
                         <%listCategory.forEach(function(category){ %>
                         <li class="nav-menu-item "><a class="nav-menu-item-hover "
-                                href="/list-product/<%=category._id%>"><%=category.name%></a><span
+                                href="/list-product/<%=category._id%>/1"><%=category.name%></a><span
                                 class="btn-menu-right mlkicon-Right "></span>
                             <div>
                                 <div class="dropdown-content ">
