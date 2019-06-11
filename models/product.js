@@ -171,6 +171,9 @@ exports.paginate = function (id, page, cb) {
                 },
                 {
                     $limit: perPage
+                },
+                {
+                    $sort: {_id: 1}
                 }
             ]).toArray(function (e, products) {
                 collection.find({ category: categoryId }).count(function (e, count) {
@@ -201,6 +204,9 @@ exports.paginate = function (id, page, cb) {
             },
             {
                 $limit: perPage
+            },
+            {
+                $sort: {_id: 1}
             }
         ]).toArray(function (e, products) {
             console.log(products);

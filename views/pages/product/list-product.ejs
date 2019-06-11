@@ -1,32 +1,6 @@
 <% include ../../partials/head.ejs %>
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
-<style>
-    .irs--flat .irs-bar {
-        background-color: #404E51;
-    }
-
-    .irs--flat .irs-from,
-    .irs--flat .irs-to,
-    .irs--flat .irs-single {
-        background-color: #404E51;
-    }
-
-    .irs--flat .irs-handle>i:first-child {
-        background-color: #404E51;
-    }
-
-    .irs--flat .irs-from:before,
-    .irs--flat .irs-to:before,
-    .irs--flat .irs-single:before {
-        border-top-color: #404E51;
-    }
-
-    .irs--flat .irs-handle.state_hover>i:first-child,
-    .irs--flat .irs-handle:hover>i:first-child {
-        background-color: #95a5a6;
-    }
-</style>
 <% include ../../partials/header.ejs %>
 
 <!-- List product-->
@@ -282,7 +256,7 @@
         }
     });
     function compare(a,b){
-        if(a<b) return 1;
+        if(a>b) return 1;
         return -1;
     }
 

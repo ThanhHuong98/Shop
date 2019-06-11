@@ -2460,8 +2460,7 @@ nav>ul>li>a {
 
 .dropdown-child-content {
     display: block;
-    posi
-    tion: absolute;
+    position: absolute;
     width: 200px;
     min-width: 160px;
     z-index: 1;
@@ -2585,6 +2584,30 @@ b.carret {
     -webkit-transform: scale(1.1);
     -o-transform: scale(1.1);
     transform: scale(1.1);
+} 
+.irs--flat .irs-bar {
+    background-color: #404E51;
+}
+
+.irs--flat .irs-from,
+.irs--flat .irs-to,
+.irs--flat .irs-single {
+    background-color: #404E51;
+}
+
+.irs--flat .irs-handle>i:first-child {
+    background-color: #404E51;
+}
+
+.irs--flat .irs-from:before,
+.irs--flat .irs-to:before,
+.irs--flat .irs-single:before {
+    border-top-color: #404E51;
+}
+
+.irs--flat .irs-handle.state_hover>i:first-child,
+.irs--flat .irs-handle:hover>i:first-child {
+    background-color: #95a5a6;
 }
 .mlk-banner1 {
     margin-right: 10px;
@@ -2699,12 +2722,6 @@ li.nav-menu-item span {
   flex-direction: row;
   justify-content: center;
   margin-top: 20px;
-
-    li {
-    &:nth-of-type(n + 2) {
-      margin-left: 9px;
-    }
-  }
 }
 .carousel__indicator {
   display: block;
