@@ -1,10 +1,13 @@
-var Product = require('../models/contact');
-//add more model if need
 
+//add more model if need
+var Category = require('../models/category')
 
 // Display contact create form on GET.
 exports.contact_create_get = function(req, res, next){
-    //todo
-     // Successful, so render
-     res.render('pages/contact/contact')
+    Category.allCategory(function (error, cb) {
+        if (error) {
+            return next(err);
+        }
+        res.render('pages/contact/contact', { listCategory: cb })
+    })
 }
