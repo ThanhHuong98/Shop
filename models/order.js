@@ -19,7 +19,7 @@ exports.add = function (userID, customerName, phone, address, note, products, cb
         address : address,
         note: note,
         status: 0,
-        update: new Date(),
+        update: (new Date()).getTime(),
         products :  products
     },function(err,result){
         cb(err,result)
