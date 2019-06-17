@@ -80,17 +80,25 @@ exports.product_detail = function(req, res, next){
 
 exports.post_comment_product = function(req, res, next){
     
-    const id = req.query.id;
+    const id = req.body.id;
 
     const name_user = req.body.name;
     const title = req.body.title;
     const content = req.body.comment;
 
+    var date = new Date();
+    date.setHours(0,0,0,0);
+    const update = date.getTime();
+
+    const userLogin = req.user;
+    if(userLogin) name_user=user.name;
+
+
     console.log("ObjectID comment:");
     console.log(id);
     console.log("from nhan xet", name_user +" " + title +" " + content)
     
-    Product.saveComment(id, name_user, title, content, function(err, result){
+    Product.saveComment(id, name_user, title, content, update, function(err, result){
         if(err) {res.err(err);}
         res.redirect('/');
         })

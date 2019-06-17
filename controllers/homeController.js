@@ -6,29 +6,14 @@ var async = require('async');
 
 
 exports.index = function(req, res, next){ 
-
-    // Product.randomProduct(function(err, result){
-    //     console.log("test");
-    //     if(err){
-    //         console.log(err);
-    //         res.err(err);
-        
-    //     } else{
-    //         console.log("11111111")
-    //         let arr1 =  result.slice(0,5)
-    //         let arr2 = result.slice(6,11)
-    //         let result1 = {list1: arr1, list2: arr2}
-    //         res.render('pages/home/index', {title: 'FloralShop',list: result1});
-    //         console.log("All products random: ");
-    //        console.log(result1);
-    //     }
-    // })   
     async.parallel({
-        list1: function(callback){
-            Product.randomProduct(callback);
+        listNewProduct: function(callback){
+            //Product.getNewProduct(0, callback);
+            Product.randomProduct(callback)
         },
-        list2: function(callback){
-            Product.randomProduct(callback);
+        listPopularProduct: function(callback){
+           // Product.getPopularProduct(callback);
+           Product.randomProduct(callback)
         },
 
         listCategory: function(callback){
@@ -37,12 +22,15 @@ exports.index = function(req, res, next){
 
     },function(err, results) {
         if (err) { return next(err); }
-        // if (results.list1 == null && results.list2 == null) { // No results.
-        //     var err = new Error('Book not found');
-        //     err.status = 404;
-        //     return next(err);
-        // }
-        // Successful, so render.
-        res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory});
+        res.render('pages/home/index', {title: 'FloralShop',listNewProduct: results.listNewProduct, listPopularProduct: results.listPopularProduct, listCategory: results.listCategory});
     });
+}
+
+exports.paginationNew = function(req, res, next){
+    const page = req.params.page;
+    console.log('PAGE', page);
+    Product.getNewProduct(page,function(err, results){
+        if(err) {res.err(err);}
+        res.json(results);
+    })
 }
