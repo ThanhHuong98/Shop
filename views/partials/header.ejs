@@ -51,7 +51,8 @@
                                             <input auto-focus tab-index='1' type='text' auto-complete='search' 
                                                 name='inputSearch'
                                                 id='inputSearch'
-                                                placeholder='Hoa anh thảo' />
+                                                placeholder='Hoa anh thảo' 
+                                                autocomplete="off"/>
                                             <a href="">
                                                 <div class='mainhead-search-button'><i class='icon-magnifier'></i></div>
                                             </a>
@@ -139,8 +140,10 @@
             if(event.keyCode === 13){//enter
                 event.preventDefault();
                 var currentVal = input.value;
-                if(currentVal.length > 0)
-                    $("#myForm").attr('action','/search?name=' +currentVal);
+                //alert(currentVal)
+                console.log(currentVal)
+                $("#myForm").attr('action','/search?name=' +currentVal);
+                 
             }
         })
     </script>

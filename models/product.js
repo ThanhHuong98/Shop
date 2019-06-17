@@ -160,11 +160,6 @@ exports.search = function (name, cb) {
         , function (err, result) {
             cb(err, result);
         })
-    // collection.find({name:name}).collation( { locale: 'vi', strength: 2 }).toArray(function(err, result){
-    //     cb(err, result[0])
-    //     console.log("result[0]")
-    //     console.log(result[0]);
-    // })
 }
 
 exports.paginate = function (id, page, cb) {
