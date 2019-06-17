@@ -3,6 +3,7 @@ module.exports = {
         if(req.isAuthenticated()){
             return next();
         }
+        req.session.returnTo = req.originalUrl;
         req.flash('error','Vui lòng đăng nhập để tiếp tục');
         res.redirect('/login');
     },

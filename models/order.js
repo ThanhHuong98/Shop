@@ -11,6 +11,8 @@ function randomString() {
 }
 exports.add = function (userID, customerName, phone, address, note, products, cb) {
     var order = db.get().collection('Order');
+    var date = new Date();
+    date.setHours(0,0,0,0);
     order.insert({
         orderID: randomString(),
         userID : ObjectId(userID),
@@ -19,7 +21,7 @@ exports.add = function (userID, customerName, phone, address, note, products, cb
         address : address,
         note: note,
         status: 0,
-        update: (new Date()).getTime(),
+        update: date.getTime(),
         products :  products
     },function(err,result){
         cb(err,result)
