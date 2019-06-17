@@ -28,7 +28,6 @@ exports.add = function (email, pass, name, phone, address, token, cb) {
     var role = 0;
     var date = new Date();
     date.setHours(0,0,0,0);
-
     bcrypt.hash(pass, saltRounds, function (error, hash) {
         collection.insert({
             email: email,

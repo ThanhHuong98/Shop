@@ -63,7 +63,7 @@ router.post('/login', function (req, res, next) {
             } else{
                 req.logIn(user, function (err) {
                     if (err) { return next(err); }
-                    res.redirect('/edit-profile');
+                    res.redirect(req.session.returnTo);
                 });
             }
         }
@@ -102,4 +102,8 @@ router.post('/check-email', account_controller.check_email)
 router.post('/check-pass', account_controller.check_pass)
 //VERIFICATION
 router.get('/verification',account_controller.verify)
+
+// router.get('/error',function(req,res,cb){
+//     res.render('pages/home/error')
+// })
 module.exports = router;
