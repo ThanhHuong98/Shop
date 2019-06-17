@@ -51,7 +51,8 @@
                                             <input auto-focus tab-index='1' type='text' auto-complete='search' 
                                                 name='inputSearch'
                                                 id='inputSearch'
-                                                placeholder='Hoa anh thảo' />
+                                                placeholder='Hoa anh thảo' 
+                                                autocomplete="off"/>
                                             <a href="">
                                                 <div class='mainhead-search-button'><i class='icon-magnifier'></i></div>
                                             </a>
@@ -94,10 +95,12 @@
                                 href="/list-product/<%=category._id%>/1"><%=category.name%></a><span
                                 class="btn-menu-right mlkicon-Right "></span>
                             <div>
-                                <div class="dropdown-content ">
+                                <div class="dropdown-content" style="background-image:url('/template/images/dropdown_img.jpg'); 
+                                background-repeat: no-repeat;
+                                background-size: 100% 100%;">
                                     <div class="mlk-goback"><span class="btn-menu-left mlkicon-Left"></span>
                                     </div>
-                                    <div class="image-category">
+                                    <div class="image-category" style="background-color:transparent">
                                         <div class="image-category-thumb"
                                             style="background-image: url('<%=category.image%>');">
                                         </div>
@@ -139,8 +142,10 @@
             if(event.keyCode === 13){//enter
                 event.preventDefault();
                 var currentVal = input.value;
-                if(currentVal.length > 0)
-                    $("#myForm").attr('action','/search?name=' +currentVal);
+                //alert(currentVal)
+                console.log(currentVal)
+                $("#myForm").attr('action','/search?name=' +currentVal);
+                 
             }
         })
     </script>

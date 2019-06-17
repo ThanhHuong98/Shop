@@ -22,7 +22,9 @@ exports.index = function(req, res, next){
 
     },function(err, results) {
         if (err) { return next(err); }
-        res.render('pages/home/index', {title: 'FloralShop',listNewProduct: results.listNewProduct, listPopularProduct: results.listPopularProduct, listCategory: results.listCategory});
+        var temp = req.session.success;
+        req.session.success = false;
+        res.render('pages/home/index', {title: 'FloralShop',listNewProduct: results.listNewProduct, listPopularProduct: results.listPopularProduct, listCategory: results.listCategory,success: temp});
     });
 }
 

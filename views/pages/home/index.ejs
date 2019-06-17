@@ -1,7 +1,23 @@
 <% include ../../partials/head.ejs %>
 <% include ../../partials/header.ejs %>
 <% include ../../partials/slidebar.ejs %>
-
+<%if (success) {%>
+<div class="modal fade" id="myModal" tabindex="-1" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-size: 17px;">Thông báo</h5>
+          <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+            <span style="font-size: 25px;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="font-size: 15px;">
+          Giao dịch thành công!
+        </div>
+      </div>
+    </div>
+  </div>
+  <%}%>
         <!-- Multiple items per slide -->
         <div>
             <!-- <div class='rx-header row row-nmar rx-header-desktop'>
@@ -38,6 +54,5 @@
               <% include ../../partials/popular_product.ejs %>
         </div>
         <!-- Multiple items per slide -->
-    
 
 <% include ../../partials/footer.ejs %>
