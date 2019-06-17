@@ -74,6 +74,11 @@ function formatDate(date) {
     return day + '/' + month + '/' + year;
   }
 %>
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
 <div class="super_container_inner">
     <div class="super_overlay"></div>
 
@@ -131,7 +136,7 @@ function formatDate(date) {
                             </div>
                             <% }); %>
                         </div>
-                        <div class="col-2"><%=e.products.totalPrice%> VND</div>
+                        <div class="col-2"><%=formatMoney(e.products.totalPrice)%> VND</div>
                         <div class="col-2" style="text-align: end">
                             <%if(e.status==0) {%> Đặt hàng thành công
                             <%} else if(e.status==1) {%> Tiếp nhận đơn hàng

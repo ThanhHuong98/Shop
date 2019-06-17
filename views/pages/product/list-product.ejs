@@ -2,7 +2,11 @@
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
 <% include ../../partials/header.ejs %>
-
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
 <!-- List product-->
 <main class="container main-container" data-reactid="108">
     <div class="container--grey">
@@ -146,7 +150,7 @@
                                             <div class="figure-body-title"><%=product.name%></div>
                                             <div class="rx-relative">
                                                 <div class="figure-body-price">
-                                                    <!-- react-text: 6175 --><%=product.price%>
+                                                    <!-- react-text: 6175 --><%=formatMoney(product.price)%>
                                                     <!-- /react-text -->
                                                     <!-- react-text: 6176 --> đ
                                                     <!-- /react-text -->

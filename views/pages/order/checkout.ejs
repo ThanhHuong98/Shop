@@ -2,6 +2,12 @@
 <link rel="stylesheet" type="text/css" href="/checkout/css/style.css">
 <link rel="stylesheet" type="text/css" href="/checkout/css/checkout_responsive.css">
 <% include ../../partials/header.ejs %>
+
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
 <div class="super_container_inner">
 	<div class="super_overlay"></div>
 
@@ -54,7 +60,7 @@
 								<ul class="cart_extra_total_list">
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Tạm tính</div>
-										<div class="cart_extra_total_value ml-auto"><%=totalPrice%> VND</div>
+										<div class="cart_extra_total_value ml-auto"><%=formatMoney(totalPrice)%> VND</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Phí vận chuyển</div>
@@ -62,7 +68,7 @@
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Thành tiền</div>
-										<div class="cart_extra_total_value ml-auto"><%=totalPrice%> VND</div>
+										<div class="cart_extra_total_value ml-auto"><%=formatMoney(totalPrice)%> VND</div>
 									</li>
 								</ul>
 								<button type="submit" class="checkout_button trans_200">

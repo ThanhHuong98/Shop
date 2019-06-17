@@ -2,6 +2,11 @@
 <link rel="stylesheet" type="text/css" href="/cart/css/style.css">
 <link rel="stylesheet" type="text/css" href="/cart/css/cart_responsive.css">
 <% include ../../partials/header.ejs %>
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
 <div class="super_container_inner">
 <div class="home">
         <div class="home_container ">
@@ -68,7 +73,7 @@
                                             </div>
                                         </div>    
                                         
-                                        <div class="product_price product_text"><span>Giá tiền: </span><%=e.item.price%></div>
+                                        <div class="product_price product_text"><span>Giá tiền: </span><%=formatMoney(e.item.price)%> VND</div>
                                         <div class="product_quantity_container">
                                             <div class="product_quantity ml-lg-auto mr-lg-auto text-center">
                                                 <span class="product_text product_num" data-quantity="<%=e.item.quantity%>"><%=e.qty%></span>
@@ -76,7 +81,7 @@
                                                 <a class="qty_add qty_button trans_200 text-center" href="/increase/<%=e.item._id%>"><span>+</span></a>
                                             </div>
                                         </div>
-                                        <div class="product_total product_text"><span>Tổng tiền: </span><%=e.price%></div>
+                                        <div class="product_total product_text"><span>Tổng tiền: </span><%=formatMoney(e.price)%> VND</div>
                                     </li>
                                     <% i= i + 1;%>
                                     <% }); %>
@@ -100,7 +105,7 @@
                                 <ul class="cart_extra_total_list">
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_extra_total_title">Tạm tính</div>
-                                        <div class="cart_extra_total_value ml-auto"><%=totalPrice%></div>
+                                        <div class="cart_extra_total_value ml-auto"><%=formatMoney(totalPrice)%> VND</div>
                                     </li>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_extra_total_title">Phí giao hàng</div>
@@ -108,7 +113,7 @@
                                     </li>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_extra_total_title">Tổng tiền</div>
-                                        <div class="cart_extra_total_value ml-auto"><%=totalPrice%></div>
+                                        <div class="cart_extra_total_value ml-auto"><%=formatMoney(totalPrice)%> VND</div>
                                     </li>
                                 </ul>
                                 <div class="checkout_button trans_200"><a href="/checkout">Tiến hành thanh toán</a></div>

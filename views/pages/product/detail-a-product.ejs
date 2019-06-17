@@ -10,6 +10,12 @@ function formatDate(time) {
     return day + '/' + month + '/' + year;
   }
 %>
+
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
 <!-- Detail a product -->
 <main class="container main-container" data-reactid="108">
     <div class="container--grey" id="container--grey">
@@ -77,12 +83,12 @@ function formatDate(time) {
                                     <div class="thumbZomin-hidden"><span class="mlkicon-Close icon-Close"></span>
                                     </div>
                                     <div class="Slider rx-slider-custom">
-                                        <div class="Slider-arrows">
+                                        <!-- <div class="Slider-arrows">
                                             <div class="Slider-arrow Slider-arrow--left"><span
                                                     class="mlkicon-ArrowBack mlkicon-Arrow"></span></div>
                                             <div class="Slider-arrow Slider-arrow--right"><span
                                                     class="mlkicon-ArrowNext mlkicon-Arrow"></span></div>
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="Slider-nav"><button
                                                 class="Slider-navButton Slider-navButton--active"></button><button
                                                 class="Slider-navButton"></button><button
@@ -144,7 +150,7 @@ function formatDate(time) {
                                     <div class="clearfix"></div>
                                     <div class="rxprice-container">
                                         <div class="rxprice">
-                                            <!-- react-text: 1932 --><%=singleProduct.price%>
+                                            <!-- react-text: 1932 --><%=formatMoney(singleProduct.price)%>
                                             <!-- /react-text -->
                                             <!-- react-text: 1933 -->đ
                                             <!-- /react-text -->
@@ -197,7 +203,7 @@ function formatDate(time) {
                                                 <div class="rx-product-relasted-content-post-title"><%=product.name%>
                                                 </div>
                                                 <div class="rx-product-relasted-content-post-price">
-                                                    <!-- react-text: 2180 --> <%=product.price%>
+                                                    <!-- react-text: 2180 --> <%=formatMoney(product.price)%>
                                                     <!-- /react-text -->
                                                     <!-- react-text: 2181 -->đ
                                                     <!-- /react-text --><span></span></div>
@@ -367,7 +373,7 @@ function formatDate(time) {
                                                         <div class="cart-page-customer-name" style="text-align:center"><%=singleProduct.name%></div>
                                                         <div class="cart-page-customer-price-review" style="text-align:center">
                                                             <div class="cart-popup-product-price">
-                                                                <!-- react-text: 2906 --><%=singleProduct.price%>
+                                                                <!-- react-text: 2906 --><%=formatMoney(singleProduct.price)%>
                                                                 <!-- /react-text -->
                                                                 <!-- react-text: 2907 -->đ
                                                                 <!-- /react-text -->

@@ -132,7 +132,7 @@ exports.allComment = function (id, cb) {
 exports.findRelatedProducts = function (code, cb) {
 
     var collection = db.get().collection('Product');
-    collection.find({ category: code }).toArray(function (err, result) {
+    collection.find({ category: code }).limit(6).toArray(function (err, result) {
         cb(err, result)
     })
 }

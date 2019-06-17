@@ -1,3 +1,8 @@
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
 <div class='blockfull--product'>
     <div class='container'>
         <div class='tabs'>
@@ -26,7 +31,7 @@
                                         <div class="figure-body-title"><%=product.name%></div>
                                         <div class="rx-relative">
                                             <div class="figure-body-price">
-                                                <!-- react-text: 6175 --><%=product.price%>
+                                                <!-- react-text: 6175 --><%=formatMoney(product.price)%>
                                                 <!-- /react-text -->
                                                 <!-- react-text: 6176 --> đ
                                                 <!-- /react-text -->
