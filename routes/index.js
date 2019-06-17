@@ -82,7 +82,7 @@ router.post('/reset-password',account_controller.reset_password_post);
 
 router.get('/edit-profile', ensureAuthenticated, account_controller.account_edit_profile_get);
 
-router.post('/edit-profile', ensureAuthenticated, account_controller.account_edit_profile_post);
+router.post('/edit-profile/:id', ensureAuthenticated, account_controller.account_edit_profile_post);
 
 
 // ORDER SECTION

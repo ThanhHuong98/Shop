@@ -113,8 +113,13 @@ exports.account_edit_profile_post = function (req, res, next) {
     var phone = req.body.phone;
     var address = req.body.address;
     var pass = req.body.newpass;
+    console.log("test edit profile", id);
     Account.edit(id, name, phone, address, pass, function (err, cb) {
-        res.redirect("/edit-profile/" + id);
+        if (err) {
+            return next(err);
+        }
+        res.redirect("/edit-profile/");
+        //res.redirect('/')
     })
 }
 
