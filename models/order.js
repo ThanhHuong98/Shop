@@ -13,6 +13,7 @@ exports.add = function (userID, customerName, phone, address, note, products, cb
     var order = db.get().collection('Order');
     var date = new Date();
     date.setHours(0,0,0,0);
+
     order.insert({
         orderID: randomString(),
         userID : ObjectId(userID),

@@ -10,7 +10,7 @@
                 <div class="hide-scroll blockproduct__colwrap" data-reactid="198">
                     <div class="blockproduct__col" data-reactid="199">
                         <!-- item 1 -->
-                        <%list1.forEach(function(product){ %>
+                        <%listNewProduct.forEach(function(product){ %>
                         <div class='rx-product-item col-sm-lg col-sm-5c show'>
                             <div class='rx-product-figure'>
                                 <div class='rx-product-sale-of'>
@@ -71,20 +71,34 @@
                     </div>
                 </div>
                 <div class='blockproduct-arr jcarousel-control-prev carousel__arrow'><span
-                        class='mlkicon-Right mlkicon-Arrows' onClick="loadData()"></span></div>
+                        class='mlkicon-Right mlkicon-Arrows'></span></div>
                 <div class='blockproduct-arr jcarousel-control-next carousel__arrow'><span
-                        class='mlkicon-Left mlkicon-Arrows'onClick="loadData()"></span></div>
+                        class='mlkicon-Left mlkicon-Arrows'></span></div>
             </div>
         </div>
     </div>
-    <a href=""><div class="blockproduct__more" style = "margin-bottom: 100px">Xem thêm</div></a>
+    <a href="/list-product/5cfde9701c9d440000952c15/1"><div class="blockproduct__more" style = "margin-bottom: 100px">Xem thêm</div></a>
 </div>
-<script type="text/javascript">
-    function loadData(){
-       // var elements = element.getElementsByClassName('mlkicon-Right mlkicon-Left');
-        alert("Click click");  
-    }
+<script src="/template/js/jquery-1.10.2.js"></script>
+<script>
 
-    
-    
- </script>
+    $('.mlkicon-Right').click(function(){
+        console.log('right');
+        var page = 1;
+        var url = '/home/new/'+ page;
+        console.log(url);
+        $.get(url)
+                .then(data => {
+                console.log(data);
+                
+        })
+
+    })
+
+    $('.mlkicon-Left').click(function(){
+        console.log('left');
+        var page = 0;
+
+    })
+
+</script>

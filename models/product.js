@@ -79,6 +79,34 @@ exports.randomProduct = function (cb) {
     //         cb(err, result)
     //     })
 }
+exports.getNewProduct = function(page, cb){
+    page = parseInt(page, 10);
+    
+    if(page == undefined) page = 0;
+    var collection = db.get().collection('Product');
+    var listNew=[];
+    collection.find({}).limit(QUANTITY).toArray(function(err, result){
+        if(page == 0){
+            for(var i=0; i < result.length/2; i++){
+                listNew.push(result[i]);
+            }
+            cb(err, listNew);
+        }else{
+            for(var i = 5; i < result.length; i++){
+                listNew.push(result[i]);
+            }
+            cb(err, listNew);
+        }
+    })
+}
+
+exports.getPopularProduct=function(cb){
+    var collection = db.get().collection('Product');
+
+    collection.find({}).limit(QUANTITY).toArray(function(err, result){
+        cb(err, result);
+    })
+}
 
 exports.findOne = function (id, cb) {
     var collection = db.get().collection('Product');
@@ -109,20 +137,15 @@ exports.findRelatedProducts = function (code, cb) {
     })
 }
 
-exports.saveComment = function (id, name_user, title, content, cb) {
+exports.saveComment = function (id, name_user, title, content, update,cb) {
     var collection = db.get().collection('Product');
-    var comment = {
-        name_user,
-        title,
-        content
-    };
-
     collection.updateOne({ _id: ObjectId(id) }, {
         $push: {
             comment: {
                 name_user,
                 title,
-                content
+                content,
+                update
             }
         }
     }, function (err, result) {
@@ -137,11 +160,6 @@ exports.search = function (name, cb) {
         , function (err, result) {
             cb(err, result);
         })
-    // collection.find({name:name}).collation( { locale: 'vi', strength: 2 }).toArray(function(err, result){
-    //     cb(err, result[0])
-    //     console.log("result[0]")
-    //     console.log(result[0]);
-    // })
 }
 
 exports.paginate = function (id, page, cb) {

@@ -1,6 +1,15 @@
 <% include ../../partials/head.ejs %>
 <% include ../../partials/header.ejs %>
-
+<% 
+function formatDate(time) {
+    var date = new Date(time);
+    var day = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+    
+    return day + '/' + month + '/' + year;
+  }
+%>
 <!-- Detail a product -->
 <main class="container main-container" data-reactid="108">
     <div class="container--grey" id="container--grey">
@@ -16,7 +25,7 @@
                                 <div class="product-content-nav-item rxidfaq">Hỏi đáp</div>
                             </div>
                         </div>
-                        <div class="product-detail-content-wrap">
+                        <!-- <div class="product-detail-content-wrap">
                             <div class="fancybox-overlay">
                                 <div class="fancybox-desktop-opened">
                                     <div class="facybox-desktop-skin">
@@ -37,7 +46,7 @@
                                                     class="Slider-navButton"></button><button
                                                     class="Slider-navButton"></button><button
                                                     class="Slider-navButton"></button></div>
-                                            <!-- Chang images -->
+                                            Chang images 
                                             <div class="Slider-inner">
                                                 <div class="Slider-single rx-slider-custom-single"
                                                     style="width: 700%; transform: translateX(0%);">
@@ -60,7 +69,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- CHI TIẾT 1 SẢN PHẨM -->
                            
                             <div class="col-sm-lg col-sm-4" id="detail">
@@ -74,14 +83,14 @@
                                             <div class="Slider-arrow Slider-arrow--right"><span
                                                     class="mlkicon-ArrowNext mlkicon-Arrow"></span></div>
                                         </div>
-                                        <div class="Slider-nav"><button
+                                        <!-- <div class="Slider-nav"><button
                                                 class="Slider-navButton Slider-navButton--active"></button><button
                                                 class="Slider-navButton"></button><button
                                                 class="Slider-navButton"></button><button
                                                 class="Slider-navButton"></button><button
                                                 class="Slider-navButton"></button><button
                                                 class="Slider-navButton"></button><button
-                                                class="Slider-navButton"></button></div>
+                                                class="Slider-navButton"></button></div> -->
                                         <div class="Slider-inner">
                                             <div class="Slider-single rx-slider-custom-single"
                                                 style="width: 700%; transform: translateX(0%);">
@@ -204,7 +213,7 @@
                             <div class="row row-nopad-col rx-pad-30">
                                 <div class="col-md-6 rx-product-desc-col">
                                     <div class="rx-product-desc-col-name">Mô tả sản phẩm</div>
-                                    <div></div>
+                                    <div><%=singleProduct.info%></div>
                                 </div>
                             </div>
                         </div>
@@ -350,7 +359,6 @@
                                             <!-- CHI TIẾT SẢN PHẨM ĐƯỢC ĐÁNH GIÁ -->
                                             
                                             <div class="lk-box-product-reviews-main">
-                                                   
                                                 <div class="lk-box-product-reviews-main-rating" id="single-product-form" data-id="<%=singleProduct._id%>">
                                                     <div class="lk-box-product-reviews-img"><img class="lk-img-rating"
                                                             src="<%=singleProduct.image%>"
@@ -424,7 +432,7 @@
                                                         <div class="lk-margin-bottom">
                                                                 <div class="cart-page-customer-name fontsize-15">Họ tên người đánh giá</div>
                                                                 <input type="text" tabindex="1" id ="name" name="name"
-                                                                    class="fullwidth-input" placeholder="Nguyễn Văn A">
+                                                                    class="fullwidth-input" placeholder="Nguyễn Văn A" required>
                                                         <div class="lk-margin-bottom">
                                                             <div class="cart-page-customer-name fontsize-15">Tiêu đề đánh giá</div>
                                                             <input type="text" tabindex="1" id="title" name="title"
@@ -436,6 +444,7 @@
                                                                 class="fullwidth-input" rows="5"
                                                                 placeholder="Nhận xét của bạn về sản phẩm này"></textarea>
                                                         </div>
+                                                        <input name="id" value="<%=singleProduct._id%>" style="height:0px;width:0px; visibility: hidden;">
                                                         <div class="lk-box-product-reviews-botton">
                                                             <button id="btnSubmit" tabindex="3" class="lk-reviews-product-submit" type="submit" onClick="check()">Lưu thay đổi
                                                             </button>
@@ -474,9 +483,9 @@
                                                         <div class="lk-position-img-icon-account">
                                                             <div class="figure-body-account mlkicon-Profile"></div>
                                                         </div>
-                                                        <div class="lk-reviews-line-body-name"><%=comment.name%></div>
-                                                        <div class="lk-reviews-line-body-time">2019-04-22 07:33:40</div>
-                                                    </div>=
+                                                        <div class="lk-reviews-line-body-name"><%=comment.name_user%></div>
+                                                        <div class="lk-reviews-line-body-time"><%=formatDate(comment.update)%></div>
+                                                    </div>
                                                     <div class="lk-reviews-line-start">
                                                         <div class="lk-reviews-line-info">
                                                             <div class="lk-reviews-line-header-score">
@@ -506,11 +515,6 @@
                                                 </div>
                                             </div>
                                             <% }); %>
-                                            <!-- Phân trang -->
-                                            <!-- <div class="admin-table-pagination admin-pagin-right">
-                                                <div class="pagin-curr">1</div>
-                                                <div class="pagin-next"><i class="icon-arrow-right"></i></div>
-                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -591,14 +595,6 @@
 <!-- CORE JQUERY  -->
 <script src="/template/js/jquery-1.10.2.js"></script>
 <script type="text/javascript"></script>
-<script>
-        function check(){
-            var x = document.getElementById("single-product-form");
-            var id = x.getAttribute('data-id');
-            $("#myForm").attr('action','/detail-a-product?id=' +id);
-            //alert(id);  
-        }
-        
-</script>
+
 
 <% include ../../partials/footer.ejs %>

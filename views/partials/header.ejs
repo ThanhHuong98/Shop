@@ -51,7 +51,8 @@
                                             <input auto-focus tab-index='1' type='text' auto-complete='search' 
                                                 name='inputSearch'
                                                 id='inputSearch'
-                                                placeholder='Hoa anh thảo' />
+                                                placeholder='Hoa anh thảo' 
+                                                autocomplete="off"/>
                                             <a href="">
                                                 <div class='mainhead-search-button'><i class='icon-magnifier'></i></div>
                                             </a>
@@ -104,18 +105,6 @@
                                         <div class="image-category-title"><%=category.name%></div>
                                         <div class="image-category-link"><a href="">Shop Now</a></div>
                                     </div>
-                                    <!-- <div class="block-child-content"><a class="mlk-nav-title" href="">Hoa hồng</a>
-                                        <div>
-                                            <div class="dropdown-child-content">
-                                                <div><a class="mlk-nav-title-child" href="">Hoa hồng đỏ</a></div>
-                                                <div><a class="mlk-nav-title-child" href="">Hoa hồng tím</a></div>
-                                                <div><a class="mlk-nav-title-child" href="">Hoa hồng xanh</a></div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="block-child-content"><a class="mlk-nav-title" href="">Hoa ly</a></div>
-                                    <div class="block-child-content"><a class="mlk-nav-title" href="">Hoa cát tường</a>
-                                    </div> -->
                                 </div>
                             </div>
                         </li>
@@ -151,8 +140,10 @@
             if(event.keyCode === 13){//enter
                 event.preventDefault();
                 var currentVal = input.value;
-                if(currentVal.length > 0)
-                    $("#myForm").attr('action','/search?name=' +currentVal);
+                //alert(currentVal)
+                console.log(currentVal)
+                $("#myForm").attr('action','/search?name=' +currentVal);
+                 
             }
         })
     </script>

@@ -14,11 +14,14 @@ var order_controller = require('../controllers/orderController');
 //GET | POST ...
 // HOME
 router.get('/', home_controller.index);
+router.get('/home/new/:page', home_controller.paginationNew);
+//router.get('/home/popular/:page', home_controller.paginationPopular);
+
 // PRODUCT SECTION
 //GET request for list of all Products.
 router.get('/list-product/:id/:page', product_controller.pagination);
 // GET request for one Product
-router.get('/detail-a-product', product_controller.product_detail);
+router.get('/detail-a-product/', product_controller.product_detail);
 // POST A COMMENT ABOUT PRODUCT
 router.post('/detail-a-product',product_controller.post_comment_product);
 //SEARCH A PRODUCT
