@@ -97,6 +97,7 @@ exports.place_order = function (req, res, next) {
         } else {
             cart.remove();
             req.session.cart = cart;
+            req.session.success = true;
             res.redirect("/");
         }
     })
@@ -104,6 +105,7 @@ exports.place_order = function (req, res, next) {
 
 exports.manage = function (req, res, next) {
     var id = req.user._id;
+    console.log(id);
     Category.allCategory(function (error, cb) {
         if (error) {
             return next(err);

@@ -37,12 +37,8 @@ exports.index = function(req, res, next){
 
     },function(err, results) {
         if (err) { return next(err); }
-        // if (results.list1 == null && results.list2 == null) { // No results.
-        //     var err = new Error('Book not found');
-        //     err.status = 404;
-        //     return next(err);
-        // }
-        // Successful, so render.
-        res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory});
+        var temp = req.session.success;
+        req.session.success = false;
+        res.render('pages/home/index', {title: 'FloralShop',list1: results.list1, list2: results.list2, listCategory: results.listCategory,success: temp});
     });
 }
