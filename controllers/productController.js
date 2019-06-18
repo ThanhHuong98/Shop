@@ -81,18 +81,18 @@ exports.product_detail = function(req, res, next){
 exports.post_comment_product = function(req, res, next){
     
     const id = req.body.id;
-
-    const name_user = req.body.name;
+    const code = req.body.code;
+    var name_user = req.body.name;
     const title = req.body.title;
     const content = req.body.comment;
 
     var date = new Date();
     date.setHours(0,0,0,0);
     const update = date.getTime();
-
+    console.log(req.user);
     const userLogin = req.user;
-    if(userLogin) name_user=user.name;
-
+    if(userLogin) name_user = userLogin.name;
+    console.log(name_user);
 
     console.log("ObjectID comment:");
     console.log(id);
@@ -100,7 +100,7 @@ exports.post_comment_product = function(req, res, next){
     
     Product.saveComment(id, name_user, title, content, update, function(err, result){
         if(err) {res.err(err);}
-        res.redirect('/');
+        res.redirect('/detail-a-product?id='+id+"&&code="+code);
         })
 }
 
