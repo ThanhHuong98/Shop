@@ -587,12 +587,14 @@ span.lk-number-table {
   border: 1px solid #e2e2e2;
   padding: 50px;
   box-sizing: border-box;
+  display: none;
 }
 
 .lk-reviews-product-submit {
+  border: none;
+  margin: 0px;
   cursor: pointer;
   display: inline-block;
-  padding-top: 10px;
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -609,7 +611,6 @@ span.lk-number-table {
   background: rgba(243,145,52,1);
   position: relative;
   float: left;
-  padding-top: 10px;
   color: #fff;
   font-weight: 500;
   height: 44px !important;
@@ -883,6 +884,7 @@ span.lk-number-table {
 }
 
 .lk-reviews-function-command-width {
+  cursor: pointer !important;
   width: 220px !important;
   height: 45px;
   font-size: 15px !important;
@@ -950,10 +952,13 @@ span.lk-number-table {
   width: 100%;
   display: block;
   float: left;
-  padding-left: 44px;
   font-size: 15px;
   margin-bottom: 11px;
   box-sizing: border-box;    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 img.lk-box-product-reviews-main-rating {
@@ -1525,7 +1530,6 @@ span.rx-permission-perele {
 .lk-size_button {
   margin: 0px;
   margin-top: 15px;
-  background-color: #;
 }
 
 .lk-box-find-category {
@@ -2183,4 +2187,8 @@ td.rdtYear:hover {
   height: auto;
   width: auto;
   position: relative;
+}
+
+.show-review{
+  display: block !important;
 }

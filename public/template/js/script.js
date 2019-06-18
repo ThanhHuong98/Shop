@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $(".lk-reviews-function-btn").click(function(){
+        $(".lk-box-product-reviews-main").toggleClass("show-review")
+    })
     $(".lk-page-login-customer-submit").click(function (e) {
         e.preventDefault();
         var a = 0;

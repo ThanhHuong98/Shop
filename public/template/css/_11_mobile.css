@@ -1339,6 +1339,7 @@
     float: none;
   }
   .lk-reviews-function-command-width {
+    cursor: pointer;
     width: 220px!important;
     height: 45px;
     font-size: 15px!important;
@@ -2071,4 +2072,7 @@ span.mlkicon-Up.icon-Up {
     font-size: 22px;
     margin-top: 5px;
     display: inherit;
+  }
+  .show-review{
+    display: block !important;
   }
