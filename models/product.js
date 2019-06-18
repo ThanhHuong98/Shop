@@ -162,6 +162,16 @@ exports.search = function (name, cb) {
         })
 }
 
+exports.searchSmart = function(name, cb){
+
+    var collection = db.get().collection('Product');
+
+    collection.find({name: {$regex: ".*"+name+".*"}})
+              .toArray(function(err,result){
+                cb(err, result);
+    })
+}
+
 exports.paginate = function (id, page, cb) {
     var collection = db.get().collection('Product')
     var perPage = 12;

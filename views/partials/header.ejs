@@ -49,7 +49,7 @@
                                     <div class='mainhead-search'>
                                         <div class='mainhead-search-box'>
                                             <input auto-focus tab-index='1' type='text' auto-complete='search' 
-                                                name='inputSearch'
+                                                name="param"
                                                 id='inputSearch'
                                                 placeholder='Hoa anh thảo' 
                                                 autocomplete="off"/>
@@ -143,8 +143,8 @@
                 event.preventDefault();
                 var currentVal = input.value;
                 //alert(currentVal)
-                console.log(currentVal)
-                $("#myForm").attr('action','/search?name=' +currentVal);
+                //console.log(currentVal)
+                //$("#myForm").attr('action','/search/' +currentVal);
                  
             }
         })

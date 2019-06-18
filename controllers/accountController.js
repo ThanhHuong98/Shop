@@ -86,7 +86,6 @@ exports.account_register_post = function (req, res, next) {
         });
     })
 }
-
 exports.account_forget_password_post = function (req, res, next) {
     Category.allCategory(function (err, cb) {
         if (err) {

@@ -1,0 +1,245 @@
+<% include ../../partials/head.ejs %>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
+<% include ../../partials/header.ejs %>
+<%
+  function formatMoney(price){
+    return price.toLocaleString({style : 'currency', currency : 'VND'});
+  }
+%>
+<!-- List product-->
+<main class="container main-container" data-reactid="108">
+    <div class="container--grey">
+        <div class="container">
+            <div class="rx-main-page-search">
+                <div class="rx-category rx-category-inlist ">
+                    <div class="rx-categories rx-categories-inlist rx-categories-filtered ">
+                        <div class="rx-categories-header-inlist">
+                            Bộ lọc sản phẩm
+                            <span class="rx-mobile-show icon-pencil icons"></span></div>
+                        <div class="rx-categories-filtered-content">
+                            <div class="rx-search-filtered-number">
+                                Có&nbsp;<b><%=count%></b>&nbsp;sản phẩm được tìm thấy
+                            </div>
+                            <!-- <div class="rx-search-name-detail"><span></span></div>
+                            <div class="rx-filtered-group clearfix">
+                                <span class="rx-active rx-filtered-color rx-filtered-label">
+                                   Hoa hồng 
+                                   <span class="rx-filtered-label-delete">x</span></span></div>
+                            <div class="rx-filtered-group clearfix">
+                                <div></div>
+                                <div></div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="rx-categories rx-categories-inlist">
+                        <div class="rx-categories-header-inlist">
+                            Danh mục sản phẩm
+                            <span class="mlkicon-Minus rxmlkiconPlus" id="category-btn"></span>
+                        </div>
+                        <div class="rx-cat-bg">
+                            <div class="search-categories-item rx-active"><a href="/list-product/0/1">Tất cả danh
+                                    mục</a>
+                            </div>
+                            <%listCategory.forEach(function(category){ %>
+                            <div class="search-categories-item "><a
+                                    href="/list-product/<%=category._id%>/1"><%=category.name%> </a></div>
+                            <%})%>
+                        </div>
+                    </div>
+                    <div class="rx-categories rx-categories-inlist">
+                        <div class="rx-filter-container">
+                            <div class="rx-filter-title">
+                                Giá&nbsp;<i>(VNĐ)</i>
+                                <span class="mlkicon-Minus rxmlkiconPlus" id="price-btn"></span>
+                            </div>
+                            <div class="filter-body filter-price">
+                                <input type="text" class="js-range-slider" name="my_range" value="" />
+                            </div>
+                        </div>
+                        <!-- <div class="rx-filter-title">
+                            Màu sắc
+                            <span class="mlkicon-Minus rxmlkiconPlus"></span>
+                        </div>
+                        <div class="rx-filter-body clearfix rx-filter-color">
+                            <div class="rx-filter-option">
+                                <div class="rx-filter-option-choose"><span class="filter-input"></span>
+                                    Đỏ
+                                </div>
+                            </div>
+                            <div class="rx-filter-option">
+                                <div class="rx-filter-option-choose"><span class="filter-input"></span>
+                                    Tím
+                                </div>
+                            </div>
+                            <div class="rx-filter-option">
+                                <div class="rx-filter-option-choose"><span class="filter-input"></span>
+                                    Trắng
+                                </div>
+                            </div>
+                            <div class="rx-filter-option">
+                                <div class="rx-filter-option-choose"><span class="filter-input"></span>
+                                   Hồng
+                                </div>
+                            </div>
+                            <div class="rx-filter-option">
+                                <div class="rx-filter-option-choose"><span class="filter-input"></span>
+                                    Xanh
+                                </div>
+                            </div>
+
+                        </div> -->
+                    </div>
+                </div>
+                <div class="rx-product-list-container" style="margin-left: 50px">
+                    <div class="rx-product-list-inner">
+                        <div class="rx-cat-title"><%=title%></div>
+                        <div class="rx-cat-sorting clearfix">
+                            <div class="rx-cat-sorting-name"><i>Sắp xếp theo</i>
+                                <select class="select-search-category">
+                                    <option value="0">Tất cả</option>
+                                    <!-- <option class="rx-active" value="created_at:desc">Hàng mới về</option>
+                                    <option class="" value="sold:desc">Bán chạy</option> -->
+                                    <option class="" value="1">Giá tăng dần</option>
+                                    <option class="" value="2">Giá giảm dần</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- *********************** -->
+                        <div class="row rx-cat-product">
+                            <% list.forEach(function(product){ %>
+                            <div class="rx-product-item col-sm-lg col-sm-3 show" data-price="<%=product.price%>" data-id="<%=product._id%>">
+                                <div class="rx-product-figure">
+                                    <div class="rx-product-figure-header">
+                                        <a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>"
+                                            class="product-url-list">
+                                            <img class="product-img-list" src="<%=product.image%>"" alt="" title=""></a>
+                                            </div>
+                                            <div class=" rx-product-figure-body">
+                                            <div class="figure-body-brand-inlist"><%=product.category%></div>
+                                            <div class="figure-body-title"><%=product.name%></div>
+                                            <div class="rx-relative">
+                                                <div class="figure-body-price">
+                                                    <!-- react-text: 6175 --><%=formatMoney(product.price)%>
+                                                    <!-- /react-text -->
+                                                    <!-- react-text: 6176 --> đ
+                                                    <!-- /react-text -->
+                                                </div>
+                                                <div class="figure-body-freeship"></div>
+                                            </div>
+                                            <div class="figure-body-rating-star">
+                                                <div>
+                                                    <div class="rx-star-off"></div>
+                                                </div>
+                                                <div>
+                                                    <div class="rx-star-off"></div>
+                                                </div>
+                                                <div>
+                                                    <div class="rx-star-off"></div>
+                                                </div>
+                                                <div>
+                                                    <div class="rx-star-off"></div>
+                                                </div>
+                                                <div>
+                                                    <div class="rx-star-off"></div>
+                                                </div>
+                                                <div class="rx-star-text">
+                                                    <!-- react-text: 6190 -->(
+                                                    <!-- /react-text -->
+                                                    <!-- react-text: 6191 -->0
+                                                    <!-- /react-text -->
+                                                    <!-- react-text: 6192 -->)
+                                                    <!-- /react-text -->
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                    </div>
+                                    <div class="rx-product-action">
+                                        <div class="rx-action-like"></div>
+                                        <div class="rx-action-card"></div>
+                                        <div class="rx-action-addcart"><a href="/detail-a-product?id=<%=product._id%>&&code=<%=product.category%>"
+                                            class="product-shopping-link" style="color: white">Mua ngay</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    </div>
+</main>
+
+<!--  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+<script>
+    $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        min: 20,
+        max: 3000,
+        from: 20,
+        to: 3000,
+        skin: "flat",
+        postfix: "k",
+        onFinish: function (data) {
+            var from = data.from * 1000;
+            var to = data.to * 1000;
+            $(".rx-product-item").hide();
+            $(".rx-product-item").each(function () {
+                var data = parseInt($(this).data("price"));
+                if (data >= from && data <= to) {
+                    $(this).show();
+                }
+            })
+        }
+    });
+    function compare(a,b){
+        if(a>b) return 1;
+        return -1;
+    }
+
+    $(".select-search-category").on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        const arr = [];
+        $(".rx-product-item").each(function () {
+            var e = {
+                id : $(this).data("id"),
+                name: $(this).find(".figure-body-title").text(),
+                category: $(this).find(".figure-body-brand-inlist").text(),
+                price: $(this).data("price"),
+                img: $(this).find(".product-img-list").attr('src'),
+                url: $(this).find(".product-url-list").attr('href'),
+                shop: $(this).find(".product-shopping-link").attr("href")
+            }
+            arr.push(e);
+        })
+        if (valueSelected == 1) {
+            arr.sort(function (a, b) { return a.price - b.price })
+        } else if (valueSelected == 2) {
+            arr.sort(function (a, b) { return b.price - a.price })
+        } else if(valueSelected == 0){
+            arr.sort(function(a,b){ return compare(a.id,b.id)})
+        }
+        var i = 0;
+        $(".rx-product-item").each(function () {
+            $(this).data("id", arr[i].id);
+            $(this).data("price", arr[i].price);
+            $(this).find(".figure-body-brand-inlist").text(arr[i].category);
+            $(this).find(".figure-body-price").text(arr[i].price + " đ");
+            $(this).find(".product-img-list").attr('src', arr[i].img);
+            $(this).find(".product-url-list").attr('href', arr[i].url);
+            $(this).find(".product-shopping-link").attr("href", arr[i].shop);
+            i++;
+        })
+    })
+
+
+</script>
+<% include ../../partials/footer.ejs %>
