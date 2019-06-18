@@ -357,7 +357,9 @@ function formatDate(time) {
                                             <div class="lk-reviews-function-command">
                                                 <div class="lk-reviews-function-command-title">Nhận xét về sản phẩm
                                                 </div>
-                                                <div class="lk-reviews-function-command-width lk-reviews-function-btn">
+                                                <div class="lk-reviews-function-command-width lk-reviews-function-btn"
+                                                        id ="btn-comment"
+                                                        data-name="<%=nameUser%>">
                                                     Viết đánh giá</div>
                                             </div>
                                         </div>
@@ -437,7 +439,7 @@ function formatDate(time) {
                                                         </div>
                                                         <div class="lk-margin-bottom">
                                                                 <div class="cart-page-customer-name fontsize-15">Họ tên người đánh giá</div>
-                                                                <input type="text" tabindex="1" id ="name" name="name"
+                                                                <input type="text" tabindex="1" id ="textName" name="name"
                                                                     class="fullwidth-input" placeholder="Nguyễn Văn A" required>
                                                         <div class="lk-margin-bottom">
                                                             <div class="cart-page-customer-name fontsize-15">Tiêu đề đánh giá</div>
@@ -575,7 +577,7 @@ function formatDate(time) {
                                     <div class="rx-product-faq-quest">
                                         <!-- react-text: 2794 -->Q:
                                         <!-- /react-text -->
-                                        <!-- react-text: 2795 -->Tôi có thể xem hàngn trước khi thanh toán? Có được đổi trả
+                                        <!-- react-text: 2795 -->Tôi có thể xem hàng trước khi thanh toán? Có được đổi trả
                                         hàng khi bị lỗi?
                                         <!-- /react-text -->
                                     </div>
@@ -600,6 +602,21 @@ function formatDate(time) {
 <!--  -->
 <!-- CORE JQUERY  -->
 <script src="/template/js/jquery-1.10.2.js"></script>
+<script>
+    
+       
+        $('#btn-comment').click(function(){
+            var nameUser = $(this).data('name');
+            console.log("LOAD DATA SESSIOn", nameUser);
+
+           // $('#textName').attr('placeholder', nameUser);
+           $('#textName').val(nameUser)
+
+
+
+        })
+    
+</script>
 <script type="text/javascript"></script>
 
 

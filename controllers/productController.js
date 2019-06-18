@@ -56,6 +56,13 @@ exports.product_detail = function(req, res, next){
     const id = req.query.id;
     const code = req.query.code;
 
+    var nameUser;
+    const userLogin = req.user;
+    //console.log("USER LOGIN IN SESSION",userLogin);
+    if(userLogin) {nameUser = userLogin.name;}
+    else{nameUser="";}
+   //console.log("NAME", nameUser)
+
      async.parallel({
         singleProduct: function(callback){
             Product.findOne(id, callback);
@@ -74,7 +81,7 @@ exports.product_detail = function(req, res, next){
     },function(err, results) {
         if (err) { return next(err); }
         res.render('pages/product/detail-a-product', {singleProduct: results.singleProduct,listCategory: results.listCategory, 
-                                                      relatedProducts: results.relatedProducts, listComment:results.listComment});
+                                                      relatedProducts: results.relatedProducts, listComment:results.listComment, nameUser:nameUser});
     });
 }
 
