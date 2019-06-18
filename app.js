@@ -23,12 +23,12 @@ var usersRouter = require('./routes/users');
 
 var db = require('./db')
 
-db.connect('mongodb://admin:1234@floralcluster-shard-00-00-g48mu.mongodb.net:27017,floralcluster-shard-00-01-g48mu.mongodb.net:27017,floralcluster-shard-00-02-g48mu.mongodb.net:27017/test?ssl=true&replicaSet=FloralCluster-shard-0&authSource=admin&retryWrites=true', function(err, db) {
+db.connect('mongodb://admin:1234@floralcluster-shard-00-00-g48mu.mongodb.net:27017,floralcluster-shard-00-01-g48mu.mongodb.net:27017,floralcluster-shard-00-02-g48mu.mongodb.net:27017/test?ssl=true&replicaSet=FloralCluster-shard-0&authSource=admin&retryWrites=true', function (err, db) {
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)
   } else {
-      console.log('Connect Mongodb Successfully...')
+    console.log('Connect Mongodb Successfully...')
   }
 })
 
@@ -52,9 +52,9 @@ app.use(session({
   secret: 'eminem', // session secret
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore({url: 'mongodb://admin:1234@floralcluster-shard-00-00-g48mu.mongodb.net:27017,floralcluster-shard-00-01-g48mu.mongodb.net:27017,floralcluster-shard-00-02-g48mu.mongodb.net:27017/test?ssl=true&replicaSet=FloralCluster-shard-0&authSource=admin&retryWrites=true'}),
+  store: new MongoStore({ url: 'mongodb://admin:1234@floralcluster-shard-00-00-g48mu.mongodb.net:27017,floralcluster-shard-00-01-g48mu.mongodb.net:27017,floralcluster-shard-00-02-g48mu.mongodb.net:27017/test?ssl=true&replicaSet=FloralCluster-shard-0&authSource=admin&retryWrites=true' }),
   cookie: {
-    maxAge: 180*60*1000
+    maxAge: 180 * 60 * 1000
   }
 }));
 app.use(passport.initialize());
@@ -87,8 +87,10 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  //res.render('error');
-  res.render('pages/home/error');
+  if (err.status != 500) {
+    res.status(err.status).render('pages/home/error');
+  } else {
+    res.status(500).render('pages/home/error1');
+  }
 });
 module.exports = app;
