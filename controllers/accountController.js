@@ -150,6 +150,7 @@ exports.logout = function (req, res, next) {
 exports.verify = function (req, res, next) {
     var email = req.query.email;
     var token = req.query.token;
+    
     Account.verify(email, token, function (err, rs) {
         req.flash('msg', 'Tài khoản đã được kích hoạt!\nBạn có thể đăng nhập');
         res.redirect('/login');
