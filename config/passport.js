@@ -25,12 +25,15 @@ module.exports = function(passport) {
             try {       
                 Account.find(username, function (err, user) {
                     if (!user) {
+                        console.log("username sai:  "+username );
                         return done(null, false, { message: 'Email hoặc mật khẩu không hợp lệ' });
                     }
                     Account.validatePass(username, password, function (rs) {
                         if (!rs) {
+                            console.log("password sai:  "+password );
                             return done(null, false, { message: 'Email hoặc mật khẩu không hợp lệ' });
                         }
+                        console.log(user);
                         return done(null, user);
                     })
                 })

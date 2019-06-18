@@ -28,6 +28,7 @@ exports.add = function (email, pass, name, phone, address, token, cb) {
     var role = 0;
     var date = new Date();
     date.setHours(0,0,0,0);
+    date = date.getTime();
     bcrypt.hash(pass, saltRounds, function (error, hash) {
         collection.insert({
             email: email,
@@ -38,7 +39,7 @@ exports.add = function (email, pass, name, phone, address, token, cb) {
             address: address,
             isVerifed: false,
             token: token,
-            update: date.getTime()
+            update: date
         }, function (err, rs) {
             if (rs) {
                 collection.findOne({ email: email }, function (error, result) {
