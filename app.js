@@ -93,5 +93,8 @@ app.use(function (err, req, res, next) {
   } else {
     res.status(500).render('pages/home/error1');
   }
+
+  // res.status(err.status || 500);
+  // res.render('error');
 });
 module.exports = app;

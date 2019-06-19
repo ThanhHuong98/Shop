@@ -29,6 +29,8 @@ exports.add = function (email, pass, name, phone, address, token, cb) {
     var date = new Date();
     date.setHours(0,0,0,0);
     date = date.getTime();
+
+    console.log("Ngay tao:", date)
     bcrypt.hash(pass, saltRounds, function (error, hash) {
         collection.insert({
             email: email,
@@ -44,6 +46,7 @@ exports.add = function (email, pass, name, phone, address, token, cb) {
             if (rs) {
                 collection.findOne({ email: email }, function (error, result) {
                     cb(result);
+                    console.log("ACCOUNT moi tao:", result)
                 })
             }
         })
