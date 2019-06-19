@@ -175,10 +175,17 @@ function formatDate(time) {
                                             <!-- react-text: 1950 -->
                                             <!-- /react-text -->
                                         </div>
-                                        <a class="rx-action-addcart-mainbox clearfix" href="/add-to-cart?id=<%=singleProduct._id%>&&quantity=1">
+                                        <%if (singleProduct.quantity==0){%>
+                                            <a class="rx-action-addcart-mainbox clearfix" >
+                                                <div class="rx-action-addcart rx-action-addcart-lg" style="background-color:#d1ccc0;border:none">HẾT HÀNG
+                                                </div>
+                                            </a>
+                                        <%}else{%>
+                                        <a class="rx-action-addcart-mainbox clearfix" href="/add-to-cart?id=<%=singleProduct._id%>&&quantity=1" >
                                             <div class="rx-action-addcart rx-action-addcart-lg">Thêm vào giỏ hàng
                                             </div>
                                         </a>
+                                        <%}%>
                                         <div class="rx-action-favorite clearfix">
                                             <div>
                                                 <div class="rx-heart-medium mlkicon-Heart"></div>

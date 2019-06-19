@@ -26,6 +26,7 @@ exports.index = function(req, res, next){
         req.session.success = false;
         res.render('pages/home/index', {title: 'FloralShop',listNewProduct: results.listNewProduct, listPopularProduct: results.listPopularProduct, listCategory: results.listCategory,success: temp});
     });
+    
 }
 
 exports.paginationNew = function(req, res, next){

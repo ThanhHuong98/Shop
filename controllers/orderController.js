@@ -96,10 +96,23 @@ exports.place_order = function (req, res, next) {
         if (err) {
             res.err(err);
         } else {
-            cart.remove();
-            req.session.cart = cart;
-            req.session.success = true;
-            res.redirect("/");
+            var arr = req.session.cart.items;
+            Object.keys(arr).forEach(function(i){
+                var id = arr[i].item._id;
+                var oldQty = arr[i].item.quantity;
+                var buyQty = arr[i].qty;
+                var qty = parseInt(oldQty)-parseInt(buyQty);
+                Product.updateQuantity(id,qty,function(errr,cb){
+                    if(errr){
+                        res.err(errr);
+                    }else{
+                        cart.remove();
+                        req.session.cart = cart;
+                        req.session.success = true;
+                        res.redirect("/");
+                    }
+                })
+            })
         }
     })
 }

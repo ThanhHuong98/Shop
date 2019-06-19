@@ -4,8 +4,8 @@ const QUANTITY = 10;
 
 exports.updateType = function () {
     var collection = db.get().collection('Product')
-    collection.find({ price: { $exists: true } }).forEach(function (obj) {
-        obj.price = parseInt(obj.price);
+    collection.find({ quantity: { $exists: true } }).forEach(function (obj) {
+        obj.quantity = parseInt(obj.quantity);
         collection.save(obj);
     });
 }
@@ -250,4 +250,14 @@ exports.paginate = function (id, page, cb) {
         })
     }
 
+}
+exports.updateQuantity = function(id,qty,cb){
+    var collection = db.get().collection('Product')
+    collection.updateOne({_id : ObjectId(id)}, {
+        $set: {
+            quantity: qty
+        }
+    }, function(err, result){
+        cb(err, result);
+    });
 }
