@@ -15,7 +15,7 @@ exports.add = function (req, res, next) {
         }
         cart.add(product, product._id, quantity);
         req.session.cart = cart;
-        console.log(req.session.cart);
+        //console.log(req.session.cart);
         res.redirect('/cart');
     })
 }
@@ -119,7 +119,7 @@ exports.place_order = function (req, res, next) {
 
 exports.manage = function (req, res, next) {
     var id = req.user._id;
-    console.log(id);
+    //console.log(id);
     Category.allCategory(function (error, cb) {
         if (error) {
             return next(err);
@@ -129,7 +129,7 @@ exports.manage = function (req, res, next) {
                 if (!result) {
                     res.render('pages/order/orderManagement', { listCategory: cb, account: rs, list: null })
                 } else {
-                    console.log(result);
+                    //console.log(result);
                     res.render('pages/order/orderManagement', { listCategory: cb, account: rs, list: result })
                 }
             })

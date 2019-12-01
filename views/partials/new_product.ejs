@@ -88,20 +88,20 @@
 <script>
 
     $('.mlkicon-Right').click(function(){
-        console.log('right');
+        //console.log('right');
         var page = 1;
         var url = '/home/new/'+ page;
-        console.log(url);
+        //console.log(url);
         $.get(url)
                 .then(data => {
-                console.log(data);
+                //console.log(data);
                 
         })
 
     })
 
     $('.mlkicon-Left').click(function(){
-        console.log('left');
+        //console.log('left');
         var page = 0;
 
     })

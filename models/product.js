@@ -79,20 +79,20 @@ exports.randomProduct = function (cb) {
     //         cb(err, result)
     //     })
 }
-exports.getNewProduct = function(page, cb){
+exports.getNewProduct = function (page, cb) {
     page = parseInt(page, 10);
-    
-    if(page == undefined) page = 0;
+
+    if (page == undefined) page = 0;
     var collection = db.get().collection('Product');
-    var listNew=[];
-    collection.find({}).limit(QUANTITY).toArray(function(err, result){
-        if(page == 0){
-            for(var i=0; i < result.length/2; i++){
+    var listNew = [];
+    collection.find({}).limit(QUANTITY).toArray(function (err, result) {
+        if (page == 0) {
+            for (var i = 0; i < result.length / 2; i++) {
                 listNew.push(result[i]);
             }
             cb(err, listNew);
-        }else{
-            for(var i = 5; i < result.length; i++){
+        } else {
+            for (var i = 5; i < result.length; i++) {
                 listNew.push(result[i]);
             }
             cb(err, listNew);
@@ -100,10 +100,10 @@ exports.getNewProduct = function(page, cb){
     })
 }
 
-exports.getPopularProduct=function(cb){
+exports.getPopularProduct = function (cb) {
     var collection = db.get().collection('Product');
 
-    collection.find({}).limit(QUANTITY).toArray(function(err, result){
+    collection.find({}).limit(QUANTITY).toArray(function (err, result) {
         cb(err, result);
     })
 }
@@ -119,13 +119,16 @@ exports.findOne = function (id, cb) {
 exports.allComment = function (id, cb) {
     var collection = db.get().collection('Product');
     collection.findOne({ _id: ObjectId(id) }, function (err, result) {
-        var listComment = result.comment;
-        if (listComment == undefined) {
-            listComment = [];
+        if (result === null) cb(err, [])
+        else {
+            var listComment = result.comment;
+            if (listComment == undefined) {
+                listComment = [];
+            }
+            cb(err, listComment)
         }
-        cb(err, listComment)
-        console.log("list-comment");
-        console.log(listComment);
+        //console.log("list-comment");
+        //console.log(listComment);
     })
 }
 
@@ -137,7 +140,7 @@ exports.findRelatedProducts = function (code, cb) {
     })
 }
 
-exports.saveComment = function (id, name_user, title, content, update,cb) {
+exports.saveComment = function (id, name_user, title, content, update, cb) {
     var collection = db.get().collection('Product');
     collection.updateOne({ _id: ObjectId(id) }, {
         $push: {
@@ -162,14 +165,14 @@ exports.search = function (name, cb) {
         })
 }
 
-exports.searchSmart = function(name, cb){
+exports.searchSmart = function (name, cb) {
 
     var collection = db.get().collection('Product');
 
-    collection.find({name: {$regex: ".*"+name+".*"}})
-              .toArray(function(err,result){
-                cb(err, result);
-    })
+    collection.find({ name: { $regex: ".*" + name + ".*" } })
+        .toArray(function (err, result) {
+            cb(err, result);
+        })
 }
 
 exports.paginate = function (id, page, cb) {
@@ -193,7 +196,7 @@ exports.paginate = function (id, page, cb) {
                         foreignField: "code",
                         as: "category_detail"
                     }
-                }, 
+                },
                 {
                     $skip: (perPage * p) - perPage
                 },
@@ -201,7 +204,7 @@ exports.paginate = function (id, page, cb) {
                     $limit: perPage
                 },
                 {
-                    $sort: {_id: 1}
+                    $sort: { _id: 1 }
                 }
             ]).toArray(function (e, products) {
                 collection.find({ category: categoryId }).count(function (e, count) {
@@ -234,10 +237,10 @@ exports.paginate = function (id, page, cb) {
                 $limit: perPage
             },
             {
-                $sort: {_id: 1}
+                $sort: { _id: 1 }
             }
         ]).toArray(function (e, products) {
-            console.log(products);
+            //console.log(products);
             collection.find({}).count(function (e, count) {
                 if (e) return next(e)
                 var callBackString = {}
@@ -251,13 +254,13 @@ exports.paginate = function (id, page, cb) {
     }
 
 }
-exports.updateQuantity = function(id,qty,cb){
+exports.updateQuantity = function (id, qty, cb) {
     var collection = db.get().collection('Product')
-    collection.updateOne({_id : ObjectId(id)}, {
+    collection.updateOne({ _id: ObjectId(id) }, {
         $set: {
             quantity: qty
         }
-    }, function(err, result){
+    }, function (err, result) {
         cb(err, result);
     });
 }

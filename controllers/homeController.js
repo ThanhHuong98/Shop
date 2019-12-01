@@ -31,7 +31,7 @@ exports.index = function(req, res, next){
 
 exports.paginationNew = function(req, res, next){
     const page = req.params.page;
-    console.log('PAGE', page);
+    //console.log('PAGE', page);
     Product.getNewProduct(page,function(err, results){
         if(err) {res.err(err);}
         res.json(results);

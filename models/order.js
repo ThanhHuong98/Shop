@@ -12,7 +12,7 @@ function randomString() {
 exports.add = function (userID, customerName, phone, address, note, products, cb) {
     var order = db.get().collection('Order');
     var date = new Date();
-    console.log(date);
+    //console.log(date);
     date.setHours(0,0,0,0);
     date = date.getTime();
     order.insert({

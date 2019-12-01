@@ -26,8 +26,6 @@ router.get('/detail-a-product/', product_controller.product_detail);
 router.post('/detail-a-product',product_controller.post_comment_product);
 //SEARCH A PRODUCT
 router.post('/search', product_controller.search_product);
-// GET request for list of the favorite products
-router.get('pages/love-product', product_controller.product_favorite_list)
 
 // CONTACT SECTION
 // GET request for creating a Contact
@@ -56,7 +54,7 @@ router.post('/login', function (req, res, next) {
             res.redirect('/login');
         }
         else {
-            console.log(user.isVerified);
+            //console.log(user.isVerified);
             if (user.isVerified == false) {
                 req.flash('error', 'Vui lòng kích hoạt tài khoản trước khi đăng nhập!');
                 res.redirect('/login');

@@ -7,7 +7,7 @@ module.exports = function Cart(oldCart){
         quantity = parseInt(quantity);
         var storedItem = this.items[id];
         if(!storedItem){
-            console.log("id add: "+id);
+            //console.log("id add: "+id);
             storedItem = this.items[id] = {item: item, qty: quantity, price: 0}
         }else{
             storedItem.qty += quantity;            
@@ -17,7 +17,7 @@ module.exports = function Cart(oldCart){
         this.totalPrice += storedItem.item.price * quantity;
     }
     this.increase = function(id){
-        console.log("id increase: "+id);
+        //console.log("id increase: "+id);
         if((this.items[id].qty + 1) <= this.items[id].item.quantity){
             this.items[id].qty++;
             this.items[id].price += this.items[id].item.price;
@@ -26,7 +26,7 @@ module.exports = function Cart(oldCart){
         }
     }
     this.reduce = function(id){
-        console.log("id reduce: "+id);
+        //console.log("id reduce: "+id);
         this.items[id].qty--;
         this.items[id].price -= this.items[id].item.price;
         this.totalQty--;
